@@ -68,7 +68,7 @@ kfc.visit_cafe(visitor) == "Welcome to KFC"
 Write a function `go_to_cafe` which takes a `friends` list and a `cafe`.
 It should return a string `"Friends can go to {cafe.name}"` if they are all allowed to visit it.
 
-If at least one of the friend have problems with vaccines the function should return a message `"All friends should be vaccinated".
+If at least one of the friend has problems with vaccines the function should return a message `"All friends should be vaccinated".
 
 If everyone is vaccinated but somebody isn't wearing a mask
 the function should return a message `"Friends should buy {masks_to_buy} masks"` where `masks_to_buy` is the number of 
@@ -141,7 +141,7 @@ Use the following project structure:
 
 All errors should be defined in the `errors.py` module.
 The `Cafe` class should be defined in `cafe.py` module.
-Function should be implemented in `main.py` module.
+The function should be implemented in `main.py` module.
 
 
 Notes:
