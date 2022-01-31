@@ -1,5 +1,3 @@
-import datetime
-
 import app.errors as err
 from app.cafe import Cafe
 
@@ -20,5 +18,3 @@ def go_to_cafe(cafe: Cafe, friends: list):
     if mask_to_buy:
         return f"Friends should buy {mask_to_buy} masks"
     return 'Friends can go to KFC'
-
-

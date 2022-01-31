@@ -13,8 +13,14 @@ class Cafe:
                 if 'wearing_a_mask' in visitor and visitor['wearing_a_mask']:
                     return f"Welcome to {self.name}"
                 else:
-                    raise errors.NotWearingMaskError(f"Visitor {visitor['name']} has no mask")
+                    raise errors.NotWearingMaskError(
+                        f"Visitor {visitor['name']} has no mask"
+                    )
             else:
-                raise errors.OutdatedVaccineError(f"Visitor {visitor['name']} has outdated vaccine")
+                raise errors.OutdatedVaccineError(
+                    f"Visitor {visitor['name']} has outdated vaccine"
+                )
         else:
-            raise errors.NotVaccinatedError(f"Visitor {visitor['name']} has no vaccine")
+            raise errors.NotVaccinatedError(
+                f"Visitor {visitor['name']} has no vaccine"
+            )
