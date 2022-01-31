@@ -1,5 +1,5 @@
 class VaccineError(Exception):
-    pass
+    """pass"""
 
 
 class NotVaccinatedError(VaccineError):
