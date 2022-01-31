@@ -3,10 +3,7 @@ from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list, cafe: Cafe):
-    masks_to_buy = sum(
-        1 for friend in friends
-        if not friend["wearing_a_mask"] or "wearing_a_mask" not in friend
-    )
+    masks_to_buy = 0
     is_vaccine = True
     for friend in friends:
         try:
@@ -14,7 +11,7 @@ def go_to_cafe(friends: list, cafe: Cafe):
         except VaccineError:
             is_vaccine = False
         except NotWearingMaskError:
-            pass
+            masks_to_buy += 1
     if not is_vaccine:
         return 'All friends should be vaccinated'
     if masks_to_buy:
