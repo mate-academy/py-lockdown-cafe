@@ -1,5 +1,4 @@
-from app.errors import \
-    NotVaccinatedError,\
+from app.errors import NotVaccinatedError,\
     NotWearingMaskError,\
     OutdatedVaccineError
 import datetime
@@ -8,7 +7,7 @@ import datetime
 class Cafe:
     def __init__(self, name: str):
         self.name = name
-        self.today = datetime.datetime.now().date()
+        self.today = datetime.date.today()
 
     def visit_cafe(self, visitor: dict):
         if "vaccine" in visitor.keys():
