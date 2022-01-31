@@ -3,17 +3,25 @@ import datetime
 import pytest
 
 from app.cafe import Cafe
-from app.errors import NotVaccinatedError, VaccineError, OutdatedVaccineError, NotWearingMaskError
+from app.errors import (
+    NotVaccinatedError,
+    VaccineError,
+    OutdatedVaccineError,
+    NotWearingMaskError,
+)
 from app.main import go_to_cafe
 
 
 def test_errors_hierarchy():
-    assert NotVaccinatedError.__bases__ == (VaccineError, ), (
-        "NotVaccinatedError should inherit only VaccineError class"
-    )
-    assert OutdatedVaccineError.__bases__ == (VaccineError, ), (
-        "OutdatedVaccineError should inherit only VaccineError class"
-    )
+    assert NotVaccinatedError.__bases__ == (
+        VaccineError,
+    ), "NotVaccinatedError should inherit only VaccineError class"
+    assert OutdatedVaccineError.__bases__ == (
+        VaccineError,
+    ), "OutdatedVaccineError should inherit only VaccineError class"
+    assert (
+        VaccineError not in NotWearingMaskError.__bases__
+    ), "NotWearingMaskError shouldn't inherit VaccineError class"
 
 
 @pytest.mark.parametrize(
@@ -29,9 +37,11 @@ def test_errors_hierarchy():
             "age": 19,
             "wearing_a_mask": True,
         },
-    ]
+    ],
 )
-def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_vaccine_key(visitor):
+def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_vaccine_key(
+    visitor,
+):
     cafe = Cafe("")
     with pytest.raises(NotVaccinatedError):
         cafe.visit_cafe(visitor)
@@ -45,7 +55,7 @@ def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_
             "age": 21,
             "vaccine": {
                 "name": "Pfizer",
-                "expiration_date": (datetime.datetime.now() - datetime.timedelta(days=2)).date(),
+                "expiration_date": datetime.date.today() - datetime.timedelta(days=2),
             },
             "wearing_a_mask": True,
         },
@@ -54,13 +64,15 @@ def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_
             "age": 19,
             "vaccine": {
                 "name": "Moderna",
-                "expiration_date": (datetime.datetime.now() - datetime.timedelta(days=4)).date(),
+                "expiration_date": datetime.date.today() - datetime.timedelta(days=4),
             },
             "wearing_a_mask": True,
         },
-    ]
+    ],
 )
-def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired(visitor):
+def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired(
+    visitor,
+):
     cafe = Cafe("")
     with pytest.raises(OutdatedVaccineError):
         cafe.visit_cafe(visitor)
@@ -74,7 +86,7 @@ def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired
             "age": 21,
             "vaccine": {
                 "name": "Pfizer",
-                "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=2)).date(),
+                "expiration_date": datetime.date.today() + datetime.timedelta(days=2),
             },
             "wearing_a_mask": False,
         },
@@ -83,20 +95,22 @@ def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired
             "age": 19,
             "vaccine": {
                 "name": "Moderna",
-                "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=4)).date(),
+                "expiration_date": datetime.date.today() + datetime.timedelta(days=4),
             },
             "wearing_a_mask": False,
         },
-    ]
+    ],
 )
-def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_false(visitor):
+def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_false(
+    visitor,
+):
     cafe = Cafe("")
     with pytest.raises(NotWearingMaskError):
         cafe.visit_cafe(visitor)
 
 
 @pytest.mark.parametrize(
-    "visitor,cafe_name",
+    "visitor,cafe_name,expected_message",
     [
         (
             {
@@ -104,11 +118,12 @@ def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_f
                 "age": 21,
                 "vaccine": {
                     "name": "Pfizer",
-                    "expiration_date": datetime.datetime.today().date(),
+                    "expiration_date": datetime.date.today(),
                 },
                 "wearing_a_mask": True,
             },
-            "KFC"
+            "KFC",
+            "Welcome to KFC",
         ),
         (
             {
@@ -116,17 +131,21 @@ def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_f
                 "age": 19,
                 "vaccine": {
                     "name": "Moderna",
-                    "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=4)).date(),
+                    "expiration_date": datetime.date.today()
+                    + datetime.timedelta(days=4),
                 },
                 "wearing_a_mask": True,
             },
             "McDonald's",
-        )
-    ]
+            "Welcome to McDonald's",
+        ),
+    ],
 )
-def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vaccinated(visitor, cafe_name):
+def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vaccinated(
+    visitor, cafe_name, expected_message
+):
     cafe = Cafe(cafe_name)
-    assert cafe.visit_cafe(visitor) == f"Welcome to {cafe_name}"
+    assert cafe.visit_cafe(visitor) == expected_message
 
 
 @pytest.mark.parametrize(
@@ -138,7 +157,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Ivan",
                     "vaccine": {
                         "name": "Moderna",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=4)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=4),
                     },
                     "wearing_a_mask": True,
                 },
@@ -146,13 +166,13 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Oleksii",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": datetime.datetime.now().date(),
+                        "expiration_date": datetime.date.today(),
                     },
                     "wearing_a_mask": True,
                 },
             ],
             Cafe("KFC"),
-            "Friends can go to KFC"
+            "Friends can go to KFC",
         ),
         (
             [
@@ -160,7 +180,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Alisa",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=30)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=30),
                     },
                     "wearing_a_mask": False,
                 },
@@ -168,7 +189,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Bob",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=20)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=20),
                     },
                     "wearing_a_mask": False,
                 },
@@ -176,13 +198,14 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Harry",
                     "vaccine": {
                         "name": "Moderna",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=45)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=45),
                     },
                     "wearing_a_mask": True,
                 },
             ],
             Cafe("KFC"),
-            "Friends should buy 2 masks"
+            "Friends should buy 2 masks",
         ),
         (
             [
@@ -190,7 +213,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Alisa",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=30)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=30),
                     },
                     "wearing_a_mask": False,
                 },
@@ -198,7 +222,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Bob",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=20)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=20),
                     },
                     "wearing_a_mask": False,
                 },
@@ -206,13 +231,14 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Harry",
                     "vaccine": {
                         "name": "Moderna",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=45)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=45),
                     },
                     "wearing_a_mask": False,
                 },
             ],
             Cafe("KFC"),
-            "Friends should buy 3 masks"
+            "Friends should buy 3 masks",
         ),
         (
             [
@@ -220,7 +246,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Alisa",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() - datetime.timedelta(days=1)).date(),
+                        "expiration_date": datetime.date.today()
+                        - datetime.timedelta(days=1),
                     },
                     "wearing_a_mask": True,
                 },
@@ -228,13 +255,14 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Bob",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": (datetime.datetime.now() + datetime.timedelta(days=20)).date(),
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=20),
                     },
                     "wearing_a_mask": True,
                 },
             ],
             Cafe("KFC"),
-            "All friends should be vaccinated"
+            "All friends should be vaccinated",
         ),
         (
             [
@@ -242,7 +270,7 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "name": "Alisa",
                     "vaccine": {
                         "name": "Pfizer",
-                        "expiration_date": datetime.datetime.now().date(),
+                        "expiration_date": datetime.date.today(),
                     },
                     "wearing_a_mask": True,
                 },
@@ -252,9 +280,9 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                 },
             ],
             Cafe("KFC"),
-            "All friends should be vaccinated"
+            "All friends should be vaccinated",
         ),
-    ]
+    ],
 )
 def test_go_to_the_cafe(friends, cafe, expected_message):
     assert go_to_cafe(friends=friends, cafe=cafe) == expected_message

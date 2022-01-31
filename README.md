@@ -1,6 +1,7 @@
 # Lockdown cafe
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
+- If you need additional information about `datetime` module you can find it [here](https://www.geeksforgeeks.org/python-datetime-module/) 
 
 Implement a `Cafe` class, whose instances have one attribute `name`.
 Write a `visit_cafe` method with one parameter, `visitor` of type `dict`.
@@ -28,7 +29,7 @@ visitor = {
     "name": "Paul",
     "age": 23,
     "vaccine": {
-        "expiration_date": datetime.datetime(year=2019, month=2, day=23)
+        "expiration_date": datetime.date(year=2019, month=2, day=23)
     }
 }
 kfc.visit_cafe(visitor)     # OutdatedVaccineError
@@ -42,7 +43,7 @@ visitor = {
     "name": "Paul",
     "age": 23,
     "vaccine": {
-        "expiration_date": datetime.datetime.today()
+        "expiration_date": datetime.date.today()
     },
     "wearing_a_mask": False
 }
@@ -58,7 +59,7 @@ visitor = {
     "name": "Paul",
     "age": 23,
     "vaccine": {
-        "expiration_date": datetime.datetime.today()
+        "expiration_date": datetime.date.today()
     },
     "wearing_a_mask": True
 }
@@ -79,14 +80,14 @@ friends = [
     {
         "name": "Alisa",
         "vaccine": {
-            "expiration_date": datetime.datetime.today()
+            "expiration_date": datetime.date.today()
         },
         "wearing_a_mask": True
     },
     {
         "name": "Bob",
         "vaccine": {
-            "expiration_date": datetime.datetime.today()
+            "expiration_date": datetime.date.today()
         },
         "wearing_a_mask": True
     },
@@ -99,14 +100,14 @@ friends = [
     {
         "name": "Alisa",
         "vaccine": {
-            "expiration_date": datetime.datetime.today()
+            "expiration_date": datetime.date.today()
         },
         "wearing_a_mask": False
     },
     {
         "name": "Bob",
         "vaccine": {
-            "expiration_date": datetime.datetime.today()
+            "expiration_date": datetime.date.today()
         },
         "wearing_a_mask": False
     },
@@ -123,7 +124,7 @@ friends = [
     {
         "name": "Bob",
         "vaccine": {
-            "expiration_date": datetime.datetime.today()
+            "expiration_date": datetime.date.today()
         },
         "wearing_a_mask": True
     },
@@ -153,9 +154,9 @@ Use it to catch both types of errors in the same `except` clause.
 * You can compare two dates using `<` operator:
 ```python
 import datetime
-date1 = datetime.datetime(2020, 3, 4).date()
-date2 = datetime.datetime(2022, 1, 30).date()
+date1 = datetime.date(2020, 3, 4)
+date2 = datetime.date(2022, 1, 30)
 
 assert  date1 < date2
 ```
-* To get the current date use `datetime.datetime.today().date()`
+* To get the current date use `datetime.date.today()`
