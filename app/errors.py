@@ -5,7 +5,7 @@ This module holds possible errors
 
 class NotWearingMaskError(Exception):
     """
-    No mask -> virus gets in -> die
+    Everyone has to wear masks in order to enter the premises
     """
     pass
 
@@ -19,13 +19,13 @@ class VaccineError(Exception):
 
 class NotVaccinatedError(VaccineError):
     """
-    No vaccine -> virus gets in -> die
+    Everyone has to be vaccinated to enter the premises
     """
     pass
 
 
 class OutdatedVaccineError(VaccineError):
     """
-    Outdated vaccine -> virus gets in -> die
+    Every vaccination has to be up-to-date
     """
     pass
