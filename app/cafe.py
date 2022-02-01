@@ -17,5 +17,4 @@ class Cafe:
                                        f"vaccine is expired")
         if not visitor["wearing_a_mask"]:
             raise NotWearingMaskError(f"{visitor['name']} is not wearing mask")
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
