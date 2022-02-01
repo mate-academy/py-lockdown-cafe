@@ -1,5 +1,5 @@
 class VaccineError(Exception):
-    pass
+    """All friends should be vaccinated"""
 
 
 class NotVaccinatedError(VaccineError):
