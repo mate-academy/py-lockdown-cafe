@@ -24,15 +24,16 @@ class Cafe:
         Just checking if a visitor is café-worthy
         """
         if not visitor["wearing_a_mask"]:
-            print("No mask -> virus gets in -> die")
-            raise NotWearingMaskError
+
+            raise NotWearingMaskError("No mask -> virus gets in -> die")
 
         if "vaccine" not in visitor:
-            print("No vaccine -> virus gets in -> die")
-            raise NotVaccinatedError
+
+            raise NotVaccinatedError("No vaccine -> virus gets in -> die")
 
         if visitor["vaccine"]["expiration_date"] < date.today():
-            print("Outdated vaccine -> virus gets in -> die")
-            raise OutdatedVaccineError
+
+            raise OutdatedVaccineError("Outdated vaccine "
+                                       "-> virus gets in -> die")
 
         return f"Welcome to {self.name}"
