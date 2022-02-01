@@ -16,7 +16,7 @@ visitor = {
     "name": "Paul",
     "age": 23,
 }
-visit_cafe(visitor)  # NotVaccinatedError
+kfc.visit_cafe(visitor)  # NotVaccinatedError
 ```
 
 
@@ -34,7 +34,7 @@ visitor = {
         "expiration_date": datetime.date(year=2019, month=2, day=23)
     }
 }
-visit_cafe(visitor)  # OutdatedVaccineError
+kfc.visit_cafe(visitor)  # OutdatedVaccineError
 ```
 
 And the last rule: all visitors must wear masks. Otherwise `visit_cafe` 
@@ -50,7 +50,7 @@ visitor = {
     },
     "wearing_a_mask": False
 }
-visit_cafe(visitor)  # NotWearingMaskError
+kfc.visit_cafe(visitor)  # NotWearingMaskError
 ```
 
 If all the rules are met, then the person can visit the cafe and 
@@ -66,7 +66,7 @@ visitor = {
     },
     "wearing_a_mask": True
 }
-visit_cafe(visitor) == "Welcome to KFC"
+kfc.visit_cafe(visitor) == "Welcome to KFC"
 ```
 
 Write a function `go_to_cafe` which takes a `friends` list and a `cafe`.
