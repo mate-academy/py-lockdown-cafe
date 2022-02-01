@@ -11,7 +11,7 @@ class Cafe:
 
     def visit_cafe(self, visitor):
 
-        if visitor["wearing_a_mask"] is False:
+        if not visitor["wearing_a_mask"]:
             raise NotWearingMaskError(
                 f"Please, {visitor['name']} put on a mask")
         if "vaccine" not in visitor:
