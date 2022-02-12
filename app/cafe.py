@@ -19,7 +19,7 @@ class Cafe:
             raise OutdatedVaccineError(
                 f"Visitor {visitor['name']} has outdated vaccine"
             )
-        if not ('wearing_a_mask' in visitor and visitor['wearing_a_mask']):
+        if not ("wearing_a_mask" in visitor and visitor["wearing_a_mask"]):
             raise NotWearingMaskError(
                 f"Visitor {visitor['name']} has no mask"
             )
