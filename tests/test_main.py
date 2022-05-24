@@ -282,6 +282,24 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
             Cafe("KFC"),
             "All friends should be vaccinated",
         ),
+        (
+            [
+                {
+                    "name": "Alisa",
+                    "vaccine": {
+                        "name": "Pfizer",
+                        "expiration_date": datetime.date.today(),
+                    },
+                    "wearing_a_mask": False,
+                },
+                {
+                    "name": "Bob",
+                    "wearing_a_mask": True,
+                },
+            ],
+            Cafe("KFC"),
+            "All friends should be vaccinated",
+        ),
     ],
 )
 def test_go_to_the_cafe(friends, cafe, expected_message):
