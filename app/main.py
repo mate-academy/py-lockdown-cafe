@@ -1,1 +1,16 @@
-# write your code here
+from app.errors import VaccineError, NotWearingMaskError
+
+
+def go_to_cafe(friends: list, cafe):
+    mask_to_buy = 0
+    for people in friends:
+        try:
+            cafe.visit_cafe(people)
+        except VaccineError:
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            mask_to_buy += 1
+    if mask_to_buy != 0:
+        return f"Friends should buy {mask_to_buy} masks"
+    else:
+        return f"Friends can go to {cafe.name}"
