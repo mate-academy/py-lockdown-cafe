@@ -12,3 +12,5 @@ class OutdatedVaccineError(VaccineError):
 
 class NotWearingMaskError(Exception):
     """No mask"""
+
+raise VaccineError
