@@ -1,7 +1,6 @@
 import datetime
 
-from app.errors import NotVaccinatedError
-from app.errors import NotWearingMaskError
+from app.errors import NotVaccinatedError, NotWearingMaskError
 
 
 def go_to_cafe(friends, cafe):
