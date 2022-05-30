@@ -6,7 +6,7 @@ from app.errors import (NotVaccinatedError,
 
 class Cafe:
 
-    def __init__(self, name):
+    def __init__(self, name: str):
         self.name = name
 
     def visit_cafe(self, visitor: dict):
