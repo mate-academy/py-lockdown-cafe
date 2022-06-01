@@ -6,7 +6,6 @@ def go_to_cafe(friends: list, cafe: Cafe):
     masks_to_buy = 0
 
     for index, friend in enumerate(friends):
-
         try:
             cafe.visit_cafe(friend)
 
@@ -15,12 +14,10 @@ def go_to_cafe(friends: list, cafe: Cafe):
 
         except NotWearingMaskError:
             masks_to_buy += 1
-            if index == len(friends) - 1:
-                return f"Friends should buy {masks_to_buy} masks"
 
         else:
-            if index == len(friends) - 1:
-                if masks_to_buy != 0:
-                    return f"Friends should buy {masks_to_buy} masks"
+            if index == len(friends) - 1 and masks_to_buy == 0:
                 return f"Friends can go to {cafe.name}"
             continue
+
+    return f"Friends should buy {masks_to_buy} masks"
