@@ -13,11 +13,10 @@ class Cafe:
         if "vaccine" not in visitor:
             raise errors.NotVaccinatedError("Person is not vaccinated")
 
-        elif today > visitor["vaccine"]["expiration_date"]:
+        if today > visitor["vaccine"]["expiration_date"]:
             raise errors.OutdatedVaccineError("The vaccine had expired")
 
-        elif not visitor["wearing_a_mask"]:
+        if not visitor["wearing_a_mask"]:
             raise errors.NotWearingMaskError("The visitor without mask")
 
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
