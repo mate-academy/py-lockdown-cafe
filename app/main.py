@@ -1,6 +1,7 @@
 from app.errors import VaccineError, NotWearingMaskError
 
 
+# update progress
 def go_to_cafe(friends: list, cafe):
     friends_without_masks = 0
     friends_without_vaccine = 0
