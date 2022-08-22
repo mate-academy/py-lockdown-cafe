@@ -13,9 +13,9 @@ class Cafe:
         today = datetime.date.today()
         visitor_keys = [i for i in visitor.keys()]
         if "vaccine" not in visitor_keys:
-            raise NotVaccinatedError
+            raise NotVaccinatedError("Wow, I see that someone hasn't vaccine. Vaccine is required!")
         if visitor["vaccine"]["expiration_date"] < today:
-            raise OutdatedVaccineError
+            raise OutdatedVaccineError("No, no, no, vaccine is outdated.")
         if visitor["wearing_a_mask"] is False:
-            raise NotWearingMaskError
+            raise NotWearingMaskError("Come on, put on your mask!")
         return f"Welcome to {self.name}"
