@@ -5,9 +5,10 @@ from app.errors import VaccineError, NotWearingMaskError
 def go_to_cafe(friends: list, cafe):
     allowed_to_visit = 0
     masks_to_buy = 0
+    cafe_class = Cafe(cafe)
     for friend in friends:
         try:
-            Cafe.visit_cafe(cafe, friend)
+            Cafe.visit_cafe(cafe_class, friend)
             allowed_to_visit += 1
         except VaccineError:
             return "All friends should be vaccinated"
