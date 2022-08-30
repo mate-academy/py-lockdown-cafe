@@ -9,9 +9,6 @@ class Cafe:
     def __init__(self, name):
         self.name = name
 
-    def __str__(self):
-        return self.name
-
     def visit_cafe(self, visitor: dict):
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor don't have vaccine")
