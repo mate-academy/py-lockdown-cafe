@@ -2,7 +2,7 @@ import datetime
 
 import pytest
 
-from app.cafe import Cafe
+from app.cafes import Cafe
 from app.errors import (
     NotVaccinatedError,
     VaccineError,
