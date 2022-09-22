@@ -17,7 +17,7 @@ class Cafe:
 
     @staticmethod
     def validate_visitor(visitor: dict) -> None:
-        if "vaccine" not in visitor.keys():
+        if "vaccine" not in visitor:
             raise NotVaccinatedError
         if visitor["vaccine"]["expiration_date"] < datetime.date.today():
             raise OutdatedVaccineError
