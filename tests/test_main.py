@@ -1,7 +1,9 @@
 import datetime
+import inspect
 
 import pytest
 
+from app import main
 from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
@@ -340,3 +342,8 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
 )
 def test_go_to_the_cafe(friends, cafe, expected_message):
     assert go_to_cafe(friends=friends, cafe=cafe) == expected_message
+
+
+def test_comment_deleted():
+    lines = inspect.getsource(main)
+    assert "# write your code here" not in lines
