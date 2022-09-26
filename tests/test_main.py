@@ -43,8 +43,9 @@ def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_
     visitor,
 ):
     cafe = Cafe("")
-    with pytest.raises(NotVaccinatedError):
+    with pytest.raises(NotVaccinatedError) as error:
         cafe.visit_cafe(visitor)
+    assert str(error.value)
 
 
 @pytest.mark.parametrize(
@@ -74,8 +75,9 @@ def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired
     visitor,
 ):
     cafe = Cafe("")
-    with pytest.raises(OutdatedVaccineError):
+    with pytest.raises(OutdatedVaccineError) as error:
         cafe.visit_cafe(visitor)
+    assert str(error.value)
 
 
 @pytest.mark.parametrize(
@@ -105,8 +107,9 @@ def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_f
     visitor,
 ):
     cafe = Cafe("")
-    with pytest.raises(NotWearingMaskError):
+    with pytest.raises(NotWearingMaskError) as error:
         cafe.visit_cafe(visitor)
+    assert str(error.value)
 
 
 @pytest.mark.parametrize(
