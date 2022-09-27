@@ -2,8 +2,8 @@ import datetime
 
 import pytest
 
-from app.cafe import Cafe
-from app.errors import (
+from app.Cafe.cafe import Cafe
+from app.Errors.errors import (
     NotVaccinatedError,
     VaccineError,
     OutdatedVaccineError,
