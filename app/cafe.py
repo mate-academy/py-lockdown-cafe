@@ -6,14 +6,14 @@ from app.errors import OutdatedVaccineError
 
 
 class Cafe:
-    def __init__(self, name: str):
+    def __init__(self, name: str) -> None:
         self._name = name
 
     @property
-    def name(self):
+    def name(self) -> str:
         return self._name
 
-    def visit_cafe(self, visitor: dict):
+    def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError
 
