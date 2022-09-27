@@ -8,8 +8,8 @@ def go_to_cafe(friends: list, cafe: object):
         try:
             cafe.visit_cafe(friend)
             friends_counter += 1
-        except VaccineError as va:
-            return va.args[0]
+        except VaccineError:
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
             counter += 1
     if counter != 0:
