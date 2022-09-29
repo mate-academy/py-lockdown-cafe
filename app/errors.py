@@ -10,7 +10,7 @@ class NotVaccinatedError(VaccineError):
 
 class OutdatedVaccineError(VaccineError):
     def __str__(self):
-        return "Excited vaccine date"
+        return "Expired vaccine date"
 
 
 class NotWearingMaskError(Exception):
