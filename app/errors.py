@@ -1,8 +1,4 @@
-class Error(Exception):
-    pass
-
-
-class VaccineError(Error):
+class VaccineError(Exception):
     pass
 
 
@@ -14,5 +10,5 @@ class OutdatedVaccineError(VaccineError):
     pass
 
 
-class NotWearingMaskError(Error):
+class NotWearingMaskError(Exception):
     pass
