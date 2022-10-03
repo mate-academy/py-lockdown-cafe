@@ -1,1 +1,2 @@
-# write your code here
+class Cafe:
+    pass
