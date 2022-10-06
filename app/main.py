@@ -13,5 +13,4 @@ def go_to_cafe(friends: list, cafe: str) -> str:
             error_message = e
     if masks_to_buy >= 1:
         return f"{error_message} {masks_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
