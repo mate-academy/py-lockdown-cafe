@@ -18,5 +18,4 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
     if friends_to_ok == len(friends):
         return f"Friends can go to {cafe.name}"
-    else:
-        return f"Friends should buy {masks_to_buy} masks"
+    return f"Friends should buy {masks_to_buy} masks"
