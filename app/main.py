@@ -13,5 +13,4 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             count_masks += 1
     if count_masks == 0:
         return f"Friends can go to {cafe.name}"
-    if count_masks > 0:
-        return f"Friends should buy {count_masks} masks"
+    return f"Friends should buy {count_masks} masks"
