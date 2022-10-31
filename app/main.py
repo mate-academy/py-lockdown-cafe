@@ -21,5 +21,5 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     if count_mask != 0:
         return f"Friends should buy {count_mask} masks"
 
-    if count == 2:
+    if count == len(friends):
         return "Friends can go to KFC"
