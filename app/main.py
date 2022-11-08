@@ -4,7 +4,7 @@ from app.errors import (
 )
 
 
-def go_to_cafe(friends: list, cafe) -> str:
+def go_to_cafe(friends: list, cafe: object) -> str:
     masks_to_buy = 0
     for friend in friends:
         try:
