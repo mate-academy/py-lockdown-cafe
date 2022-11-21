@@ -3,7 +3,8 @@ from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
-    NotWearingMaskError)
+    NotWearingMaskError
+)
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
