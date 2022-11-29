@@ -13,7 +13,7 @@ class Cafe:
         if not visitor["vaccine"]:
             raise NotVaccinatedError
         for key in visitor.keys():
-            if visitor["vaccine"] != datetime.date.today():
+            if visitor["vaccine"] < datetime.date.today():
                 raise OutdatedVaccineError
         if visitor["wearing_a_mask"] is False:
             raise NotWearingMaskError
