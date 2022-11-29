@@ -3,6 +3,7 @@ from cafe import Cafe
 from errors import NotVaccinatedError
 from errors import OutdatedVaccineError
 from errors import NotWearingMaskError
+from errors import VaccineError
 import datetime
 
 
