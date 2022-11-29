@@ -3,9 +3,8 @@ from errors import OutdatedVaccineError
 from errors import NotWearingMaskError
 import datetime
 
-
 class Cafe:
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
 
 
