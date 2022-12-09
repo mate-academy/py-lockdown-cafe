@@ -5,7 +5,7 @@ class VaccineError(Exception):
 
 class NotWearingMaskError(Exception):
     def __str__(self) -> str:
-        return "NotWearingMaskError"
+        return "Visitor have to wear a mask"
 
 
 class NotVaccinatedError(VaccineError):
