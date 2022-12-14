@@ -8,7 +8,6 @@ from app.errors import (
 
 
 class Cafe:
-    name = ""
 
     def __init__(self, name: str) -> None:
         self.name = name
