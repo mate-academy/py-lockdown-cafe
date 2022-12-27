@@ -3,7 +3,7 @@ class VaccineError(Exception):
 
 
 class NotVaccinatedError(VaccineError):
-    passgit
+    pass
 
 
 class OutdatedVaccineError(VaccineError):
