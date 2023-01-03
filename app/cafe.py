@@ -18,5 +18,4 @@ class Cafe:
                                        "vaccination certificate")
         if visitor["wearing_a_mask"] is False:
             raise NotWearingMaskError("Friends should buy masks")
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
