@@ -1,7 +1,6 @@
 from __future__ import annotations
 
-from app.errors import NotWearingMaskError,\
-    OutdatedVaccineError, NotVaccinatedError
+from app.errors import NotWearingMaskError, VaccineError
 from app.cafe import Cafe
 
 
@@ -14,7 +13,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             masks_to_buy += 1
 
-        except (OutdatedVaccineError, NotVaccinatedError):
+        except VaccineError:
             return "All friends should be vaccinated"
 
     if masks_to_buy != 0:
