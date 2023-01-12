@@ -15,11 +15,11 @@ class Cafe:
         error = 0
         if "vaccine" not in visitor:
             error += 1
-            raise NotVaccinatedError("NotVaccinatedError")
+            raise NotVaccinatedError("Visitor has to be vaccinated")
         if visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError("OutdatedVaccineError")
+            raise OutdatedVaccineError("Visitor's vaccine expired")
         if visitor["wearing_a_mask"] is False:
             error += 1
-            raise NotWearingMaskError("NotWearingMaskError")
+            raise NotWearingMaskError("Visitor without a mask")
         if error == 0:
             return f"Welcome to {self.name}"
