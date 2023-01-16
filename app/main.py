@@ -9,8 +9,8 @@ from app.errors import (
 def go_to_cafe(friends: list, cafe: str) -> str:
     mask_to_buy = 0
     for friend in friends:
+        name_cafe = Cafe(cafe)
         try:
-            name_cafe = Cafe(cafe)
             name_cafe.visit_cafe(friend)
         except VaccineError:
             return "All friends should be vaccinated"
