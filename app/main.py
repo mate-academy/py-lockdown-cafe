@@ -4,9 +4,9 @@ from app.cafe import Cafe
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
     mask_need = 0
-    for visitor in friends:
+    for friend in friends:
         try:
-            cafe.visit_cafe(visitor)
+            cafe.visit_cafe(friend)
         except NotWearingMaskError:
             mask_need += 1
         except VaccineError:
