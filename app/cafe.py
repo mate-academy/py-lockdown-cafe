@@ -14,10 +14,7 @@ class Cafe:
         return self.name
 
     def visit_cafe(self, visitor: dict) -> str:
-        check = 0
-        if "vaccine" in visitor:
-            check += 1
-        if check == 0:
+        if "vaccine" not in visitor:
             raise NotVaccinatedError(
                 "You are not vaccinated. Please do vaccine"
             )
