@@ -8,17 +8,13 @@ def sorted_friends(friend: dict) -> int:
         friend["vaccine"]["expiration_date"] < datetime.date.today() else 1
 
 
-def count_mask(persons: list) -> int:
-    return sum([1 for person in persons if not person["wearing_a_mask"]])
-
-
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    count = sum([1 for person in friends if not person["wearing_a_mask"]])
     try:
         [cafe.visit_cafe(friend)
          for friend in sorted(friends, key=sorted_friends)]
     except VaccineError:
         return "All friends should be vaccinated"
     except NotWearingMaskError:
-        return f"Friends should buy {count_mask(friends)} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+        return f"Friends should buy {count} masks"
+    return f"Friends can go to {cafe.name}"
