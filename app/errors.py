@@ -3,8 +3,7 @@ class NotWearingMaskError(Exception):
 
 
 class VaccineError(Exception):
-    def __str__(self) -> str:
-        return "All friends should be vaccinated"
+    pass
 
 
 class NotVaccinatedError(VaccineError):
