@@ -2,9 +2,9 @@ import datetime
 
 from .cafe import Cafe
 from .errors import (VaccineError,
-                        NotWearingMaskError,
-                        OutdatedVaccineError,
-                        NotVaccinatedError)
+                     NotWearingMaskError,
+                     OutdatedVaccineError,
+                     NotVaccinatedError)
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> (None, str):
