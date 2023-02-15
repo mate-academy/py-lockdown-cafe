@@ -17,6 +17,6 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             vaccine_flag = True
     if vaccine_flag:
         return "All friends should be vaccinated"
-    elif masks_to_buy > 0:
+    elif masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
     return f"Friends can go to {cafe.name}"
