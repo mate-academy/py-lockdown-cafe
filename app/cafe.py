@@ -10,7 +10,7 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> None | str:
-        if "vaccine" not in visitor.keys():
+        if "vaccine" not in visitor:
             raise NotVaccinatedError(
                 f"Visitor {visitor['name']} " f"should be vaccinated"
             )
