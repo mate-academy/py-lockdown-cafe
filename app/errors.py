@@ -12,4 +12,3 @@ class NotVaccinatedError(VaccineError):
 
 class OutdatedVaccineError(VaccineError):
     pass
-
