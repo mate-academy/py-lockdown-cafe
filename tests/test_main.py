@@ -269,7 +269,7 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
             Cafe("KFC"),
             "All friends should be vaccinated",
         ),
-        (
+        ( # friends 5
             [
                 {
                     "name": "Alisa",

@@ -1,22 +1,21 @@
 from __future__ import annotations
-import datetime
 from app.cafe import Cafe
+from app.errors import (
+    NotVaccinatedError,
+    OutdatedVaccineError,
+    NotWearingMaskError
+)
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-    vaccinated_friends = (
-        [friend for friend in friends if
-         "vaccine" in friend and friend["vaccine"]["expiration_date"]
-         >= datetime.date.today()]
-    )
-    non_masked_friends = (
-        [friend for friend in vaccinated_friends
-         if not friend["wearing_a_mask"]]
-    )
-
-    if len(vaccinated_friends) != len(friends):
-        return "All friends should be vaccinated"
-    elif non_masked_friends:
-        return f"Friends should buy {len(non_masked_friends)} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    masks = 0
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+        except (NotVaccinatedError, OutdatedVaccineError):
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            masks += 1
+    if masks:
+        return f"Friends should buy {masks} masks"
+    return f"Friends can go to {cafe.name}"
