@@ -11,7 +11,7 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> str:
-        if "vaccine" not in visitor.keys():
+        if "vaccine" not in visitor:
             raise NotVaccinatedError(
                 f"Wow, {visitor['name']} is so late (cafe.py, line 16)."
             )
