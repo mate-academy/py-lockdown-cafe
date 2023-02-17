@@ -15,12 +15,12 @@ class Cafe:
         today = datetime.date.today()
 
         if not vaccine:
-            raise NotVaccinatedError(f"{self.name} is not vaccinated,")
+            raise NotVaccinatedError(f"{visitor['name']} is not vaccinated,")
 
         if today > vaccine["expiration_date"]:
-            raise OutdatedVaccineError(f"{self.name} vaccine is out of date")
+            raise OutdatedVaccineError(f"{visitor['name']} vaccine is out of date")
 
         if not mask:
-            raise NotWearingMaskError(f"{self.name} should buy masks")
+            raise NotWearingMaskError(f"{visitor['name']} should buy masks")
 
         return f"Welcome to {self.name}"
