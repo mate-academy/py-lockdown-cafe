@@ -1,4 +1,3 @@
-from __future__ import annotations
 from .cafe import Cafe
 from .errors import (VaccineError,
                      NotWearingMaskError)
