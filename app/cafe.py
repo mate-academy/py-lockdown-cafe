@@ -12,11 +12,11 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> Union[str, None]:
-        if visitor.get("vaccine", {}).get("expiration_date") is None:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError("The visitor is not vaccinated")
         if datetime.date.today() >\
                 visitor.get("vaccine", {}).get("expiration_date"):
             raise OutdatedVaccineError("Overdue vaccination")
-        if not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError("The visitor is not wearing a mask")
         return f"Welcome to {self.name}"
