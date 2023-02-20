@@ -1,10 +1,10 @@
-from __future__ import annotations
+import datetime
+
 from app.errors import (
     NotWearingMaskError,
     NotVaccinatedError,
     OutdatedVaccineError,
 )
-import datetime
 
 
 class Cafe:
