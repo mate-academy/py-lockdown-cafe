@@ -11,9 +11,9 @@ class Cafe:
 
     def visit_cafe(self, visitor: dict) -> None:
         if "vaccine" not in visitor.keys():
-            raise NotVaccinatedError("NotVaccinatedError in line 13")
+            raise NotVaccinatedError("The visitor is not vaccinated!")
         elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError("OutdatedVaccineError in line 15")
+            raise OutdatedVaccineError("The vaccine is outdated!")
         elif not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError("NotWearingMaskError in line 17")
+            raise NotWearingMaskError("Not wearing mask! Must have one!")
         return f"Welcome to {self.name}"
