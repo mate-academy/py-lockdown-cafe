@@ -10,7 +10,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             cafe.visit_cafe(friend)
         except NotWearingMaskError:
             masks_to_buy += 1
-        except (VaccineError):
+        except VaccineError:
             vaccines += 1
     if vaccines:
         return "All friends should be vaccinated"
