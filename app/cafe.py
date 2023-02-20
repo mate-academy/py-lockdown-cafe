@@ -14,9 +14,9 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> Union[str, None]:
         if not visitor.get("vaccine"):
             raise NotVaccinatedError("The visitor is not vaccinated")
-        if visitor.get("vaccine", {}).get("expiration_date") is not None\
-                and datetime.date.today() >\
-                visitor.get("vaccine", {}).get("expiration_date"):
+        if ((visitor.get("vaccine", {}).get("expiration_date") is not None)
+                and datetime.date.today()
+                > visitor.get("vaccine", {}).get("expiration_date")):
             raise OutdatedVaccineError("Overdue vaccination")
         if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError("The visitor is not wearing a mask")
