@@ -14,7 +14,6 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             mask_count += 1
 
     if mask_count:
-        return (f"Friends should buy "
-                f"{mask_count} masks")
+        return f"Friends should buy {mask_count} masks"
 
     return f"Friends can go to {cafe.name}"
