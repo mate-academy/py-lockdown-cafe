@@ -1,6 +1,5 @@
 class VaccineError(BaseException):
-    def __str__(self) -> str:
-        return "All friends should be vaccinated"
+    pass
 
 
 class NotVaccinatedError(VaccineError):
