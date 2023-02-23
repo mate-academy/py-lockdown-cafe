@@ -13,6 +13,6 @@ class Cafe:
             raise NotVaccinatedError("Need Vaccine doze")
         elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
             raise OutdatedVaccineError("Do new vaccine doze")
-        elif not visitor["wearing_a_mask"]:
+        elif not visitor.get("wearing_a_mask", False):
             raise NotWearingMaskError("You must buy mask")
         return f"Welcome to {self.name}"
