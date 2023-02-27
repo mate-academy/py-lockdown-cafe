@@ -1,4 +1,3 @@
-from app.cafe import Cafe
 from app.errors import NotWearingMaskError
 from app.errors import VaccineError
 
