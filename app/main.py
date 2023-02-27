@@ -4,9 +4,9 @@ from app.errors import VaccineError
 
 def go_to_cafe(friends: list, cafe: object) -> str:
     buy = 0
-    for x in friends:
+    for friend in friends:
         try:
-            cafe.visit_cafe(x)
+            cafe.visit_cafe(friend)
         except NotWearingMaskError:
             buy += 1
         except VaccineError:
