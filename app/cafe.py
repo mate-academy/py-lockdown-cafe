@@ -21,7 +21,7 @@ class Cafe:
             raise OutdatedVaccineError(
                 "Your vaccination period is overdue!"
             )
-        if not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask") or not visitor["wearing_a_mask"]:
             raise NotWearingMaskError(
                 "Please wear or buy a mask!"
             )
