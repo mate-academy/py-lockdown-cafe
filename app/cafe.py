@@ -15,7 +15,7 @@ class Cafe:
     def visit_cafe(
             self,
             visitor: dict[str, str | int | bool | dict[str, date]]
-    ) -> str | NotVaccinatedError | OutdatedVaccineError | NotWearingMaskError:
+    ) -> str:
         if visitor.get("vaccine") is None:
             raise NotVaccinatedError(
                 f"{visitor.get('name')} is not vaccinated"
