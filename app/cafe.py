@@ -20,7 +20,7 @@ class Cafe:
             raise NotVaccinatedError(
                 f"{visitor.get('name')} is not vaccinated"
             )
-        if date.today() > visitor.get("vaccine").get("expiration_date"):
+        if date.today() > visitor["vaccine"]["expiration_date"]:
             raise OutdatedVaccineError(
                 f"{visitor.get('name')} vaccination is outdated"
             )
