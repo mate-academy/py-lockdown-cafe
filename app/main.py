@@ -13,6 +13,6 @@ def go_to_cafe(friends: List[dict], cafe: Cafe) -> str:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             need_mask += 1
-    if need_mask != 0:
+    if need_mask:
         return f"Friends should buy {need_mask} masks"
     return f"Friends can go to {cafe.name}"
