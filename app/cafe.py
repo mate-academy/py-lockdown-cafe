@@ -12,8 +12,9 @@ class Cafe:
             raise NotVaccinatedError(
                 "The visitor is not vaccinated"
             )
-        date1 = visitor["vaccine"]
-        if date1["expiration_date"] < datetime.date.today():
+
+        valid_until = visitor["vaccine"]
+        if valid_until["expiration_date"] < datetime.date.today():
             raise OutdatedVaccineError(
                 "The visitor has an overdue vaccine"
             )
