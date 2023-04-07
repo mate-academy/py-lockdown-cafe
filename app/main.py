@@ -1,3 +1,4 @@
+from datetime import datetime
 from app.cafe import Cafe
 from app.errors import (
     VaccineError,
@@ -5,7 +6,7 @@ from app.errors import (
 )
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[str, int, bool, datetime], cafe: Cafe) -> str:
     count_masks = 0
     for friend in friends:
         try:
