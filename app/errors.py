@@ -1,14 +1,14 @@
 class VaccineError(Exception):
-    pass
+    """Parent class for NotVaccinatedError and OutdatedVaccineError"""
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    """Throws an error if the person is not vaccinated"""
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    """Throws an error if the vaccination is overdue"""
 
 
 class NotWearingMaskError(Exception):
-    pass
+    """Throw an error if the person does not have a protective mask"""
