@@ -5,7 +5,6 @@ from app.errors import VaccineError, NotWearingMaskError
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
     masks_to_buy = 0
-    all_allowed = True
     for visitor in friends:
         try:
             cafe.visit_cafe(visitor)
@@ -14,9 +13,8 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
         except NotWearingMaskError:
             masks_to_buy += 1
-            all_allowed = False
 
-    if all_allowed:
-        return f"Friends can go to {cafe.name}"
-    else:
+    if masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
+
+    return f"Friends can go to {cafe.name}"
