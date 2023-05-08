@@ -1,14 +1,14 @@
 class VaccineError(Exception):
-    pass
+    """Some problem with vaccine"""
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    """You are not vaccinated"""
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    """Vaccine outdated"""
 
 
 class NotWearingMaskError(Exception):
-    pass
+    """Please wear a mask"""
