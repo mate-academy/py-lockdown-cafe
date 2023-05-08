@@ -2,7 +2,7 @@ from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     masks = 0
     for friend in friends:
         try:
@@ -13,5 +13,4 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             masks += 1
     if not masks:
         return f"Friends can go to {cafe.name}"
-    else:
-        return f"Friends should buy {masks} masks"
+    return f"Friends should buy {masks} masks"
