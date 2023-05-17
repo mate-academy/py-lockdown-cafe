@@ -1,11 +1,7 @@
 from datetime import date
-from typing import Union
 
-from app.errors import (
-    NotVaccinatedError,
-    OutdatedVaccineError,
-    NotWearingMaskError
-)
+from app.errors import (NotVaccinatedError, NotWearingMaskError,
+                        OutdatedVaccineError)
 
 
 class Cafe:
@@ -13,12 +9,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> Union[
-        NotVaccinatedError,
-        OutdatedVaccineError,
-        NotWearingMaskError,
-        str
-    ]:
+    def visit_cafe(self, visitor: dict) -> str:
         if not visitor.get("vaccine"):
             raise NotVaccinatedError(
                 "Access blocked! Unvaccinated "

@@ -1,14 +1,8 @@
-from typing import Union
-
 from app.cafe import Cafe
-from app.errors import VaccineError, NotWearingMaskError
+from app.errors import NotWearingMaskError, VaccineError
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> Union[
-    VaccineError,
-    NotWearingMaskError,
-    str
-]:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_to_buy: int = 0
 
     for friend in friends:
@@ -21,5 +15,5 @@ def go_to_cafe(friends: list, cafe: Cafe) -> Union[
 
     if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+
+    return f"Friends can go to {cafe.name}"
