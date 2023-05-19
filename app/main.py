@@ -1,12 +1,15 @@
 from app.cafe import Cafe
-from app.errors import NotVaccinatedError, \
-    OutdatedVaccineError, NotWearingMaskError
+from app.errors import (NotVaccinatedError,
+                        OutdatedVaccineError,
+                        NotWearingMaskError)
 
 
 def go_to_cafe(friends: list,
                cafe: Cafe
-               ) -> str | NotVaccinatedError | \
-        OutdatedVaccineError | NotWearingMaskError:
+               ) -> (str
+                     | NotVaccinatedError
+                     | OutdatedVaccineError
+                     | NotWearingMaskError):
 
     not_wearing_mask_error = None
 
