@@ -19,8 +19,8 @@ class Cafe:
                 f" he period end on "
                 f"{visitor['vaccine']['expiration_date']}"
             )
-        elif visitor["wearing_a_mask"] is False:
+        elif visitor.get("wearing_a_mask") is False:
             raise app.errors.NotWearingMaskError(f"{visitor['name']}"
                                                  f" don't have mask!")
-        else:
-            return f"Welcome to {self.name}"
+
+        return f"Welcome to {self.name}"
