@@ -32,13 +32,13 @@ class CafeRuleVisitorWearsMask(IRule):
 
 class CafeRuleEngine:
     def __init__(self) -> None:
-        self._rules: list[IRule] = []
+        self.__rules: list[IRule] = []
 
     def add(self, rule: IRule) -> bool:
         if not isinstance(rule, IRule):
             return False
-        self._rules.append(rule)
+        self.__rules.append(rule)
 
     def check_rules(self, visitor: Visitor) -> None:
-        for rule in self._rules:
+        for rule in self.__rules:
             rule.validate(visitor)

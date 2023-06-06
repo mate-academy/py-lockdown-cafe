@@ -23,23 +23,23 @@ class Visitor:
         vaccine: dict = None,
         wearing_a_mask: bool = False
     ) -> None:
-        self._name = name
-        self._age = age
-        self._vaccine = VaccineInfo(**vaccine) if vaccine else None
-        self._mask = wearing_a_mask
+        self.__name = name
+        self.__age = age
+        self.__vaccine = VaccineInfo(**vaccine) if vaccine else None
+        self.__mask = wearing_a_mask
 
     @property
     def name(self) -> str:
-        return self._name
+        return self.__name
 
     @property
     def age(self) -> int:
-        return self._age
+        return self.__age
 
     @property
     def vaccine(self) -> VaccineInfo:
-        return self._vaccine
+        return self.__vaccine
 
     @property
     def is_wearing_mask(self) -> bool:
-        return self._mask
+        return self.__mask
