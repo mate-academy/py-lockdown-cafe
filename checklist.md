@@ -31,7 +31,7 @@ from app.main import (
     KnightWithoutArmour,
     SuperHeroKnightWithGun
 )
-```
+```git  
 
 Bad example:
 
