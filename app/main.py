@@ -5,6 +5,7 @@ from app.errors import (VaccineError,
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     counter = 0
+
     for visitor in friends:
         try:
             cafe.visit_cafe(visitor)
