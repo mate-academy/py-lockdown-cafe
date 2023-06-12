@@ -1,5 +1,4 @@
 import datetime
-from typing import Optional
 
 from app.errors import (
     NotVaccinatedError,
@@ -12,7 +11,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> Optional[str]:
+    def visit_cafe(self, visitor: dict) -> str:
         if visitor.get("vaccine") is None:
             raise NotVaccinatedError("Denied visit! There is no vaccine!")
         elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
