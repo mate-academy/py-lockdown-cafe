@@ -6,7 +6,7 @@ from app.errors import (
 )
 
 
-def go_to_cafe(friends: list, cafe: "Cafe") -> str:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_counter = 0
     for person in friends:
         try:
@@ -16,6 +16,6 @@ def go_to_cafe(friends: list, cafe: "Cafe") -> str:
         except NotWearingMaskError:
             masks_counter += 1
 
-    if not masks_counter:
-        return f"Friends can go to {cafe.name}"
-    return f"Friends should buy {masks_counter} masks"
+    if masks_counter > 0:
+        return f"Friends should buy {masks_counter} masks"
+    return f"Friends can go to {cafe.name}"
