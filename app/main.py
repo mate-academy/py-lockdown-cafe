@@ -1,5 +1,9 @@
-from app.errors import VaccineError, NotWearingMaskError
+from app.errors import (
+    VaccineError,
+    NotWearingMaskError
+)
 from app.cafe import Cafe
+
 from typing import List
 
 
