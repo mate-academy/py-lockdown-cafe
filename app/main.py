@@ -39,3 +39,4 @@ def go_to_cafe(friends: dict, cafe: str) -> str:
             )
     except VaccineError:
         return "All friends should be vaccinated"
+   
