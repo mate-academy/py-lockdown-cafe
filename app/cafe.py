@@ -2,7 +2,6 @@ from app.errors import NotWearingMaskError
 from app.errors import OutdatedVaccineError
 from app.errors import NotVaccinatedError
 import datetime
-from typing import Dict
 
 
 class Cafe:
