@@ -1,6 +1,7 @@
-from app.errors import NotWearingMaskError
-from app.errors import OutdatedVaccineError
-from app.errors import NotVaccinatedError
+from app.errors import (
+    NotWearingMaskError,
+    VaccineError
+)
 from app.cafe import Cafe
 from typing import List, Dict
 
@@ -10,13 +11,10 @@ def go_to_cafe(friends: List[Dict[str, any]], cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except NotVaccinatedError:
-            return "All friends should be vaccinated"
-        except OutdatedVaccineError:
+        except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_to_buy += 1
-
     if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
 
