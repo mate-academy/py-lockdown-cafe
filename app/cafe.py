@@ -1,6 +1,7 @@
 from app.errors import NotWearingMaskError
 from app.errors import OutdatedVaccineError
 from app.errors import NotVaccinatedError
+from typing import Dict
 import datetime
 
 
