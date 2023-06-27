@@ -12,15 +12,9 @@ def go_to_cafe(friends: dict, cafe: Cafe) -> str:
         except NotWearingMaskError:
             masks_needed += 1
 
-    try:
-        cafe.visit_cafe(friend)
-        if masks_needed == 0:
-            return f"Friends can go to {cafe.name}"
-        else:
-            raise NotWearingMaskError
-
-    except NotWearingMaskError:
-        return (
-            "Friends should buy {} mask{}".
-            format(masks_needed, "s" if masks_needed > 1 else "")
-        )
+    if masks_needed == 0:
+        return f"Friends can go to {cafe.name}"
+    return (
+        "Friends should buy {} mask{}".
+        format(masks_needed, "s" if masks_needed > 1 else "")
+    )
