@@ -15,7 +15,7 @@ def go_to_cafe(friends: dict, cafe: Cafe) -> str:
     try:
         cafe.visit_cafe(friend)
         if masks_needed == 0:
-            return "Friends can go to {}".format(cafe.name)
+            return f"Friends can go to {cafe.name}"
         else:
             raise NotWearingMaskError
 
