@@ -1,9 +1,9 @@
 import app.cafe
-from app.errors import NotVaccinatedError, OutdatedVaccineError
-from app.errors import NotWearingMaskError
+from app.errors import NotVaccinatedError, OutdatedVaccineError,\
+    NotWearingMaskError
 
 
-def go_to_cafe(friends: list, cafe: app.cafe.Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: app.cafe.Cafe) -> str:
     vaccinated_friends = 0
     masks_to_buy = 0
 
@@ -20,5 +20,4 @@ def go_to_cafe(friends: list, cafe: app.cafe.Cafe) -> str:
 
     if masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
