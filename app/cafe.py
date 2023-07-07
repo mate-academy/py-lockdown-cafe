@@ -1,7 +1,6 @@
 import datetime
 
 from app.errors import (
-    VaccineError,
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError
@@ -15,7 +14,7 @@ class Cafe:
     def visit_cafe(
             self,
             visitor: dict
-    ) -> str | VaccineError | NotWearingMaskError:
+    ) -> str:
 
         if not visitor.get("vaccine", None):
             raise NotVaccinatedError(
