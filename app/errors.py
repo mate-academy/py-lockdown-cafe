@@ -8,22 +8,22 @@ class VaccineError(Exception):
 
 class NotVaccinatedError(VaccineError):
     def __init__(self, name: str) -> None:
-        super().__init__(name=name)
+        self.name = name
 
     def __str__(self) -> str:
-        return f"Visitor {self.name} cannot enter the cafe because " \
-            f"he doesn't have a vaccination."
+        return (f"Visitor {self.name} cannot enter the cafe because "
+                f"he doesn't have a vaccination.")
 
 
 class OutdatedVaccineError(VaccineError):
     current_date = datetime.date.today()
 
     def __init__(self, name: str) -> None:
-        super().__init__(name=name)
+        self.name = name
 
     def __str__(self) -> str:
-        return f"Visitor {self.name} cannot enter the cafe because " \
-            f"his vaccination has expired."
+        return (f"Visitor {self.name} cannot enter the cafe because "
+                f"his vaccination has expired.")
 
 
 class NotWearingMaskError(Exception):
@@ -31,5 +31,5 @@ class NotWearingMaskError(Exception):
         self.name = name
 
     def __str__(self) -> str:
-        return f"Visitor {self.name} cannot enter the cafe because" \
-            f"he does not have a medical mask"
+        return (f"Visitor {self.name} cannot enter the cafe because"
+                f"he does not have a medical mask")
