@@ -20,3 +20,5 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
     if count == len(friends):
         return f"Friends can go to {cafe.name}"
+
+
