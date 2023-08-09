@@ -11,7 +11,7 @@ def go_to_cafe(friends : list[dict], cafe : Cafe) -> str:
         try:
             cafe.visit_cafe(friend)
         except NotWearingMaskError:
-            mask_to_buy += 1
+            masks_to_buy += 1
         except VaccineError:
             return "All friends should be vaccinated"
     if masks_to_buy:
