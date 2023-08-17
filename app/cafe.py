@@ -17,7 +17,7 @@ class Cafe:
     ) -> VaccineError | NotWearingMaskError | str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("All friends should be vaccinated")
-        if date.today() > visitor["vaccine"]["expiration_date"]:
+        if date.today() > visitor.get("vaccine").get("expiration_date"):
             raise OutdatedVaccineError("All friends should be vaccinated")
         if not visitor["wearing_a_mask"]:
             raise NotWearingMaskError("You aren't wearing a mask")
