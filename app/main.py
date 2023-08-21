@@ -19,6 +19,7 @@ def go_to_cafe(
             masks_to_buy += 1
 
     if masks_to_buy > 0:
-        return f"Friends should buy {masks_to_buy} masks"
+        return f"Friends should buy " \
+               f"{masks_to_buy} masks"
 
     return f"Friends can go to {cafe_name}"
