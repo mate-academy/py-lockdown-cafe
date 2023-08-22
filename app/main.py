@@ -1,11 +1,11 @@
 from app.cafe import Cafe
-from app.errors import NotWearingMaskError, VaccineError
+from app.errors import (
+    NotWearingMaskError,
+    VaccineError,
+)
 
 
-def go_to_cafe(friends: list,
-               cafe: Cafe
-               ) -> str | VaccineError:
-
+def go_to_cafe(friends: list, cafe: Cafe) -> str | VaccineError:
     not_wearing_mask_error = None
 
     for friend in friends:
@@ -21,5 +21,4 @@ def go_to_cafe(friends: list,
 
     if not_wearing_mask_error is not None:
         return str(not_wearing_mask_error)
-
     return f"Friends can go to {cafe.name}"

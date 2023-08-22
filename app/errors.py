@@ -12,7 +12,7 @@ class OutdatedVaccineError(VaccineError):
 
 
 class NotWearingMaskError(Exception):
-    def __init__(self, masks_to_buy: int) -> None:
+    def __init__(self, masks_to_buy: int = 0) -> None:
         self.masks_to_buy = masks_to_buy
         super().__init__()
 
