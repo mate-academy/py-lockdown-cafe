@@ -2,7 +2,10 @@ from typing import Optional
 
 
 class VaccineError(Exception):
-    def __init__(self, message: str) -> None:
+    def __init__(
+            self,
+            message: str
+    ) -> None:
         self.message = message
         super().__init__(self.message)
 
