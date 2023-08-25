@@ -18,7 +18,7 @@ class Cafe:
             )
 
         if "wearing_a_mask" in visitor:
-            if visitor["wearing_a_mask"] is not True:
+            if visitor.get("wearing_a_mask") is not True:
                 raise NotWearingMaskError(
                     "If you want to enter to the cafe you must wear mask!"
                 )
