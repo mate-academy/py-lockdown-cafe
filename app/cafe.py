@@ -17,9 +17,10 @@ class Cafe:
                 "If you want to enter to the cafe you must do vaccine!"
             )
 
-        if visitor["wearing_a_mask"] is not True:
-            raise NotWearingMaskError(
-                "If you want to enter to the cafe you must wear mask!"
-            )
+        if "wearing_a_mask" in visitor:
+            if visitor["wearing_a_mask"] is not True:
+                raise NotWearingMaskError(
+                    "If you want to enter to the cafe you must wear mask!"
+                )
 
         return f"Welcome to {self.name}"
