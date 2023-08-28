@@ -8,8 +8,8 @@ def get_amount_without_mask(friends: list) -> int:
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-
-    for i, friend in enumerate(friends):
+    for i in range(len(friends)):
+        friend = friends[i]
         try:
             cafe.visit_cafe(friend)
             if i == len(friends) - 1 and get_amount_without_mask(friends) != 0:
