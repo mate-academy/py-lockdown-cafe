@@ -10,12 +10,12 @@ from app.errors import (
 class Cafe:
     def __init__(self,
                  name: str
-                 ) -> None:
+    ) -> None:
         self.name = name
 
     def visit_cafe(self,
                    visitor: dict
-                   ) -> str:
+    ) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("All friends should be vaccinated")
         if visitor["vaccine"]["expiration_date"] < date.today():
