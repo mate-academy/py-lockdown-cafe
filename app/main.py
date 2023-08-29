@@ -1,7 +1,8 @@
+from typing import List, Dict
 from app.errors import NotVaccinatedError, NotWearingMaskError
+from app.cafe import Cafe
 
-
-def go_to_cafe(friends, cafe):
+def go_to_cafe(friends: List[Dict], cafe: Cafe) -> str:
     try:
         all_wearing_masks = all(friend.get("wearing_a_mask", False) for friend in friends)
 
@@ -17,6 +18,3 @@ def go_to_cafe(friends, cafe):
         return str(e)
     except NotWearingMaskError as e:
         return str(e)
-
-
-
