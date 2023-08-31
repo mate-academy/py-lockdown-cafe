@@ -12,12 +12,11 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         try:
             cafe.visit_cafe(friend)
         except NotWearingMaskError:
-            friends_has_access = False
             masks_to_buy += 1
         except VaccineError:
             return "All friends should be vaccinated"
 
-    if friends_has_access:
+    if friends_has_access and masks_to_buy == 0:
         return f"Friends can go to {cafe.name}"
 
     if masks_to_buy != 0:
