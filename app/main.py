@@ -4,8 +4,6 @@ from app.errors import VaccineError
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-
-    friends_has_access = True
     masks_to_buy = 0
 
     for friend in friends:
@@ -16,8 +14,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         except VaccineError:
             return "All friends should be vaccinated"
 
-    if friends_has_access and masks_to_buy == 0:
+    if masks_to_buy == 0:
         return f"Friends can go to {cafe.name}"
-
-    if masks_to_buy != 0:
+    else:
         return f"Friends should buy {masks_to_buy} masks"
