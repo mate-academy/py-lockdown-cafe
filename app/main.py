@@ -8,20 +8,20 @@ def get_amount_without_mask(friends: list) -> int:
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-    for i in range(len(friends)):
-        friend = friends[i]
+    count_without_mask = 0
+    vaccinated = True
+
+    for friend in friends:
         try:
             cafe.visit_cafe(friend)
-            if i == len(friends) - 1 and get_amount_without_mask(friends) != 0:
-                return (f"Friends should buy "
-                        f"{get_amount_without_mask(friends)} masks")
-
         except VaccineError:
-            return "All friends should be vaccinated"
-
+            vaccinated = False
         except NotWearingMaskError:
-            if i == len(friends) - 1 and get_amount_without_mask(friends) != 0:
-                return (f"Friends should buy "
-                        f"{get_amount_without_mask(friends)} masks")
+            count_without_mask += 1
 
-    return f"Friends can go to {cafe.name}"
+    if not vaccinated:
+        return "All friends should be vaccinated"
+    elif count_without_mask > 0:
+        return f"Friends should buy {count_without_mask} masks"
+    else:
+        return f"Friends can go to {cafe.name}"
