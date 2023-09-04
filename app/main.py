@@ -1,24 +1,22 @@
-from typing import List, Dict
-from app.errors import NotVaccinatedError, NotWearingMaskError
+from app.errors import NotVaccinatedError, \
+    OutdatedVaccineError, NotWearingMaskError
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: List[Dict], cafe: Cafe) -> str:
-    try:
-        all_wearing_masks = all(friend.get("wearing_a_mask", False)
-                                for friend in friends)
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    vaccinated_friends = 0
+    masks_to_buy = 0
 
-        if "vaccine" not in friends:
-            raise NotVaccinatedError("All friends should be vaccinated")
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+            vaccinated_friends += 1
+        except (NotVaccinatedError, OutdatedVaccineError):
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            masks_to_buy += 1
 
-        if not all_wearing_masks:
-            masks_to_buy = sum(not friend.get("wearing_a_mask", False)
-                               for friend in friends)
-            raise NotWearingMaskError(f"Friends should buy "
-                                      f"{masks_to_buy} masks")
-
+    if masks_to_buy > 0:
+        return f"Friends should buy {masks_to_buy} masks"
+    else:
         return f"Friends can go to {cafe.name}"
-    except NotVaccinatedError as e:
-        return str(e)
-    except NotWearingMaskError as e:
-        return str(e)
