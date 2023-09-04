@@ -1,13 +1,14 @@
-class NotVaccinatedError(Exception):
+class VaccineError(Exception):
+    pass
+
+
+class NotVaccinatedError(VaccineError):
     """The person is not vaccinated"""
-    pass
 
 
-class OutdatedVaccineError(Exception):
+class OutdatedVaccineError(VaccineError):
     """Vaccine has expired"""
-    pass
 
 
-class NotWearingMaskError(Exception):
+class NotWearingMaskError(VaccineError):
     """The man has no mask"""
-    pass
