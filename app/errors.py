@@ -4,8 +4,12 @@ class VaccineError(Exception):
 
 class NotVaccinatedError(VaccineError):
     def __init__(self, message: str = "Visitor is not vaccinated") -> None:
-        self.message = message
-        super().__init__(self.message)
+    """
+    Initialize the NotVaccinatedError.
+
+    :param message: The error message (default: "Visitor is not vaccinated")
+    """
+    super().__init__(message)
 
 
 class OutdatedVaccineError(VaccineError):
