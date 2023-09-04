@@ -7,7 +7,8 @@ class NotVaccinatedError(VaccineError):
         """
         Initialize the NotVaccinatedError.
 
-        :param message: The error message (default: "Visitor is not vaccinated")
+        :param message: The error message 
+        (default: "Visitor is not vaccinated")
         """
         super().__init__(message)
 
