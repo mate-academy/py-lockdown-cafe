@@ -16,7 +16,7 @@ class Cafe:
         if date_for_check < current_time:
             raise errors.OutdatedVaccineError("Your vaccine is outdated")
 
-        if visitor["wearing_a_mask"] is False:
+        if visitor.get("wearing_a_mask") is False:
             raise errors.NotWearingMaskError("You should wear a mask")
 
         return f"Welcome to {self.name}"
