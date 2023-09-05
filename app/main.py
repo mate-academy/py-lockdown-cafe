@@ -18,4 +18,3 @@ def go_to_cafe(cafe: Cafe, friends: list) -> str:
         return f"Friends should buy {masks_to_buy} masks"
     else:
         return f"Friends can go to {cafe.name}"
-
