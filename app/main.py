@@ -1,8 +1,10 @@
 from typing import List
 
-from app.errors import (OutdatedVaccineError,
-                        NotWearingMaskError,
-                        NotVaccinatedError)
+from app.errors import (
+    OutdatedVaccineError,
+    NotWearingMaskError,
+    NotVaccinatedError
+)
 from app.cafe import Cafe
 
 

@@ -1,5 +1,10 @@
 class VaccineError(Exception):
-    pass
+    """
+        Exception raised for errors related to vaccine operations.
+
+        Attributes:
+        message (str)
+    """
 
 
 class NotVaccinatedError(VaccineError):
