@@ -16,10 +16,8 @@ class Cafe:
 
         current_date = datetime.date.today()
 
-        if (
-                "expiration_date" in visitor["vaccine"] and
-                visitor["vaccine"]["expiration_date"] < current_date
-        ):
+        if ("expiration_date" in visitor["vaccine"]
+                and visitor["vaccine"]["expiration_date"] < current_date):
             raise OutdatedVaccineError("Vaccine is outdated.")
 
         if not visitor.get("wearing_a_mask", False):
