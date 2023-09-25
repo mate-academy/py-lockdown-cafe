@@ -4,18 +4,18 @@ from app.errors import (NotVaccinatedError, OutdatedVaccineError,
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-    try:
-        for friend in friends:
+    masks_to_buy = sum(1 for friend in friends if not friend.get("wearing_a_mask"))
+
+    for friend in friends:
+        try:
             cafe.visit_cafe(friend)
-        return f"Friends can go to {cafe.name}"
+            return f"Friends can go to {cafe.name}"
 
-    except NotVaccinatedError:
-        return "All friends should be vaccinated"
+        except NotVaccinatedError:
+            return "All friends should be vaccinated"
 
-    except OutdatedVaccineError:
-        return "All friends should be vaccinated"
+        except OutdatedVaccineError:
+            return "All friends should be vaccinated"
 
-    except NotWearingMaskError:
-        masks_to_buy = sum(1 for friend in friends
-                           if not friend.get("wearing_a_mask"))
-        return f"Friends should buy {masks_to_buy} masks"
+        except NotWearingMaskError:
+            return f"Friends should buy {masks_to_buy} masks"
