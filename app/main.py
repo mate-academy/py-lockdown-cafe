@@ -1,9 +1,9 @@
 from app.cafe import Cafe
 from app.errors import (
-                        NotVaccinatedError,
-                        OutdatedVaccineError,
-                        NotWearingMaskError
-                        )
+    NotVaccinatedError,
+    OutdatedVaccineError,
+    NotWearingMaskError
+)
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
