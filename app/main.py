@@ -1,9 +1,8 @@
 from typing import List
 
 from app.errors import (
-    OutdatedVaccineError,
     NotWearingMaskError,
-    NotVaccinatedError
+    VaccineError
 )
 from app.cafe import Cafe
 
@@ -13,7 +12,7 @@ def go_to_cafe(friends: List[dict], cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(visitor=friend)
-        except (OutdatedVaccineError, NotVaccinatedError):
+        except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_to_buy += 1
