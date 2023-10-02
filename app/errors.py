@@ -1,4 +1,8 @@
 class NotWearingMaskError(Exception):
+    """
+    Idk(I don't know), what i
+    must to write here
+    """
     pass
 
 
