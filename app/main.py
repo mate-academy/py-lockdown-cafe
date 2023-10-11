@@ -14,7 +14,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         if masks_to_buy > 0:
             raise errors.NotWearingMaskError
         return f"Friends can go to {cafe.name}"
-    except errors.NotVaccinatedError:
+    except errors.VaccineError:
         return "All friends should be vaccinated"
     except errors.NotWearingMaskError:
         return f"Friends should buy {masks_to_buy} masks"
