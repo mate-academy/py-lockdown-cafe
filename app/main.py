@@ -1,4 +1,4 @@
-import error
+from app.error import VaccineError, NotWearingMaskError
 from cafe import Cafe
 # from datetime import date
 
@@ -8,9 +8,9 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except error.VaccineError:
+        except VaccineError:
             return "All friends should be vaccinated"
-        except error.NotWearingMaskError:
+        except NotWearingMaskError:
             masks_to_buy += 1
 
     if masks_to_buy:
