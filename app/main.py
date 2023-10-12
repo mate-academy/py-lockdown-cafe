@@ -1,5 +1,5 @@
-from app.error import VaccineError, NotWearingMaskError
-from cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
+from app.cafe import Cafe
 # from datetime import date
 
 
