@@ -17,3 +17,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         return f"Friends should buy {masks_to_buy} masks"
 
     return f"Friends can go to {cafe.name}"
+
+visitor = [{'age': 21, 'name': 'John', 'wearing_a_mask': True}]
+
+print(go_to_cafe(visitor, Cafe("KFC")))
