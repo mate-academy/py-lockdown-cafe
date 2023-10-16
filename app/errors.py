@@ -15,4 +15,4 @@ class OutdatedVaccineError(VaccineError):
 class NotWearingMaskError(Exception):
 
     def __str__(self) -> str:
-        return f"Friends should buy mask"
+        return "Friends should buy mask"

@@ -1,4 +1,3 @@
-import datetime
 from typing import Any
 from datetime import date
 from app.errors import (
@@ -21,7 +20,3 @@ class Cafe:
         if visitor["wearing_a_mask"] is False:
             raise NotWearingMaskError("Friends should buy mask")
         return f"Welcome to {self.name}"
-
-
-
-

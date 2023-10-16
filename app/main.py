@@ -1,9 +1,9 @@
 from typing import Any
 from app.cafe import Cafe
 from app.errors import (
-     NotVaccinatedError,
-     NotWearingMaskError,
-     OutdatedVaccineError
+    NotVaccinatedError,
+    NotWearingMaskError,
+    OutdatedVaccineError
 )
 
 
