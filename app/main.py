@@ -11,8 +11,10 @@ def go_to_cafe(friends: list, cafe: Cafe) -> Any:
     for one_friend in friends:
         try:
             cafe.visit_cafe(one_friend)
-        except NotVaccinatedError or OutdatedVaccineError:
-            raise
+        except NotVaccinatedError:
+            return "All friends should be vaccinated"
+        except OutdatedVaccineError:
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
-            raise
+            return f"Friends should buy {len(friends)} masks"
     return f"Friends can go to {cafe.name}"
