@@ -7,14 +7,14 @@ from app.errors import (
 
 def go_to_cafe(friends: list, cafe: "Cafe") -> Any:
     try:
-        count = 0
+        masks_to_buy = 0
         for friend in friends:
             try:
                 cafe.visit_cafe(friend)
             except NotWearingMaskError:
-                count += 1
-        if count > 0:
-            return f"Friends should buy {count} masks"
+                masks_to_buy += 1
+        if masks_to_buy > 0:
+            return f"Friends should buy {masks_to_buy} masks"
     except VaccineError:
         return "All friends should be vaccinated"
     else:
