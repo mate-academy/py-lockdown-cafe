@@ -14,7 +14,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except VaccineError:
             return "All friends should be vaccinated"
 
-        if friend.get("wearing_a_mask") is False:
+        if not friend.get("wearing_a_mask"):
             masks_to_buy += 1
 
     if masks_to_buy > 0:
