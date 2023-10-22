@@ -1,8 +1,9 @@
+from typing import List
 from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends: dict, cafe: Cafe) -> str:
+def go_to_cafe(friends: List[dict], cafe: Cafe) -> str:
     counter_without_mask = 0
 
     for friend in friends:
