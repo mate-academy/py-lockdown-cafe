@@ -1,5 +1,5 @@
-from cafe import Cafe
-import errors as e
+from app.cafe import Cafe
+import app.errors as e
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> None | str:
@@ -7,10 +7,10 @@ def go_to_cafe(friends: list, cafe: Cafe) -> None | str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except e.NotWearingMaskError:
-            masks_to_buy += 1
         except e.VaccineError:
             return "All friends should be vaccinated"
-        else:
-            return f"Friends can go to {cafe.name}"
-    return f"Friends should buy {masks_to_buy} masks"
+        except e.NotWearingMaskError:
+           masks_to_buy += 1
+    if masks_to_buy:
+        return f"Friends should buy {masks_to_buy} masks"
+    return f"Friends can go to {cafe.name}"
