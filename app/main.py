@@ -1,6 +1,7 @@
 from cafe import Cafe
 import errors as e
 
+
 def go_to_cafe(friends: list, cafe: Cafe) -> None | str:
     masks_to_buy = 0
     for friend in friends:
