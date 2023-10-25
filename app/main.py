@@ -3,12 +3,10 @@ from .cafe import Cafe
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-    result = 0
     masks_to_buy = 0
     for friend in friends:
         try:
-            if cafe.visit_cafe(friend) == f"Welcome to {cafe.name}":
-                result += 1
+            cafe.visit_cafe(friend)
         except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
