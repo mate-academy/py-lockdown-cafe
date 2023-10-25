@@ -7,7 +7,7 @@ from app.errors import (
 
 
 def go_to_cafe(
-        friends: list,
+        friends: list[dict],
         cafe: Cafe
 ) -> str:
     vaccinated_count = 0
