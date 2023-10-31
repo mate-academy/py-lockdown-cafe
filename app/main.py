@@ -6,17 +6,19 @@ from app.errors import VaccineError
 
 
 def go_to_cafe(cafe: Cafe, friends: List[dict]) -> str:
-    vaccinated_friends = sum(
-        1 for friend in friends if ("vaccine" in friend and (
-            friend["vaccine"]["expiration_date"] >= (
-                datetime.date(datetime.now())
-            )
-        ))
-    )
 
-    mask_wearing_friends = sum(
-        1 for friend in friends if friend["wearing_a_mask"] is True
-    )
+    vaccinated_friends = 0
+    mask_wearing_friends = 0
+
+    for friend in friends:
+        if ("vaccine" in friend and (
+            friend["vaccine"]["expiration_date"]
+            >= datetime.date(datetime.now())
+        )):
+            vaccinated_friends += 1
+
+        if friend["wearing_a_mask"]:
+            mask_wearing_friends += 1
 
     try:
         if vaccinated_friends == len(friends):
