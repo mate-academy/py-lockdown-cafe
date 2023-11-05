@@ -9,18 +9,17 @@ from app.errors import (
 
 
 class Cafe:
-    count_friends = 0
-
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> str | VaccineError:
-        current_date = datetime.date.today()
+    def visit_cafe(
+            self,
+            visitor: dict
+    ) -> str | VaccineError | OutdatedVaccineError:
         if "vaccine" not in visitor:
-            raise NotVaccinatedError("NotVaccinatedError")
-        if visitor["vaccine"]["expiration_date"] <= current_date:
-            raise OutdatedVaccineError("OutdatedVaccineError")
+            raise NotVaccinatedError("visitor is not vaccinated")
+        if datetime.date.today() > visitor["vaccine"]["expiration_date"]:
+            raise OutdatedVaccineError("the vaccine is expired")
         if visitor["wearing_a_mask"] is False:
-            Cafe.count_friends += 1
-            raise NotWearingMaskError("NotWearingMaskError")
+            raise NotWearingMaskError("the visitor does not have a mask")
         return f"Welcome to {self.name}"
