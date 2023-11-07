@@ -1,6 +1,8 @@
-from app.errors import (NotVaccinatedError,
-                        OutdatedVaccineError,
-                        NotWearingMaskError)
+from app.errors import (
+    NotVaccinatedError,
+    OutdatedVaccineError,
+    NotWearingMaskError
+)
 
 
 def go_to_cafe(friends: list, cafe: str) -> str:
@@ -15,7 +17,6 @@ def go_to_cafe(friends: list, cafe: str) -> str:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_to_buy += 1
-
     if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
     return f"Friends can go to {cafe.name}"
