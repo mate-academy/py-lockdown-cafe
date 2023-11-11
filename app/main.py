@@ -1,1 +1,2 @@
-# write your code here
+import app.cafe
+from app.errors import VaccineError, NotWearingMaskError
