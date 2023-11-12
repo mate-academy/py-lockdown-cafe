@@ -1,13 +1,14 @@
 import datetime
-
-from errors import VaccineError, NotWearingMaskError, NotVaccinatedError, OutdatedVaccineError
+from app.errors import NotWearingMaskError, \
+    NotVaccinatedError, \
+    OutdatedVaccineError
 
 
 class Cafe:
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict):
+    def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor is not vaccinated!")
 
@@ -15,16 +16,6 @@ class Cafe:
         if expiration_date and expiration_date < datetime.date.today():
             raise OutdatedVaccineError("Vaccine is outdated!")
         if not visitor.get("wearing_a_mask", False):
-            raise NotWearingMaskError
+            raise NotWearingMaskError("Visitor is not wearing a mask")
 
- def go_to_cafe(friends: list, cafe: Cafe):
-     vaccinated_friends = [friend for friend in friends if friend.get("vaccine")]
-
-     if len(vaccinated_friends) < len(friends):
-         raise VaccineError("All friends should be vaccinated")
-
-     masks_to_buy = sum(not friend.get("wearing_a_mask", False) for friend in friends)
-     if masks_to_buy > 0:
-         return f"Friends should buy {masks_to_buy} masks"
-
-     return f"Friends can go to {cafe.name}"
+        return f"Welcome to {self.name}"
