@@ -1,26 +1,16 @@
-from cafe import Cafe
-from errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
+from app.cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends: list) -> str | Exception:
-    lack_of_masks_count = 0
-    issues_count = 0
-    for friend in friends:
-        if not friend["wearing_a_mask"]:
-            lack_of_masks_count += 1
-    if lack_of_masks_count > 1:
-        raise NotWearingMaskError(f"Friends should buy {lack_of_masks_count} masks")
-    if lack_of_masks_count == 1:
-        raise NotWearingMaskError
-
-    for friend in friends:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    masks_to_buy = 0
+    for i in range(len(friends)):
         try:
-            Cafe.vizit_cafe(friend)
-        except NotVaccinatedError:
-            issues_count += 1
-            return "All friends should be vaccinated"
-        except OutdatedVaccineError:
-            issues_count += 1
-            raise OutdatedVaccineError
-    if not issues_count and not lack_of_masks_count:
-        return f"Friends can go to {Cafe.__name__}"
+            cafe.visit_cafe(friends[i])
+        except NotWearingMaskError:
+            masks_to_buy += 1
+        except VaccineError as e:
+            return str(e)
+        if i == len(friends) - 1 and masks_to_buy:
+            return f"Friends should buy {masks_to_buy} masks"
+    return f"Friends can go to {cafe.name}"
