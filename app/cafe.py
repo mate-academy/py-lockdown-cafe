@@ -4,7 +4,6 @@ from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError,
-    VaccineError
 )
 
 
@@ -12,24 +11,21 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(
-            self,
-            visitor: dict
-    ) -> str | VaccineError | NotWearingMaskError:
+    def visit_cafe(self, visitor: dict) -> str:
 
-        if visitor.get("vaccine") is None:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError(
-                f"{visitor['name']} has not been vaccinated"
+                f"{visitor.get('name')} has not been vaccinated"
             )
 
-        if visitor["vaccine"]["expiration_date"] < date.today():
+        if visitor.get("vaccine").get("expiration_date") < date.today():
             raise OutdatedVaccineError(
-                f"{visitor['name']}'s vaccine has expired"
+                f"{visitor.get('name')}'s vaccine has expired"
             )
 
-        if not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError(
-                f"{visitor['name']} must wear a mask"
+                f"{visitor.get('name')} must wear a mask"
             )
 
         return f"Welcome to {self.name}"
