@@ -11,7 +11,6 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> str:
-        # self.visitor = visitor
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor is not vaccinated")
         expiration_date = visitor["vaccine"].get("expiration_date")
