@@ -1,4 +1,4 @@
-from datetime import datetime
+import datetime
 
 from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
@@ -19,10 +19,10 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         except VaccineError as v:
             return str(v)
 
-        except NotWearingMaskError:
+        except NotWearingMaskError as n:
             masks_to_buy = len([friend for friend in friends
                                 if friend.get("wearing_a_mask") is False])
-            return f"Friends should buy {masks_to_buy} masks"
+            return str(n) + f"{masks_to_buy} masks"
 
     if allowed_friends == len(friends):
         return f"Friends can go to {cafe.name}"

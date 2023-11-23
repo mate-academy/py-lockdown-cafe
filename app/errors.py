@@ -12,4 +12,5 @@ class OutdatedVaccineError(VaccineError):
 
 
 class NotWearingMaskError(Exception):
-    pass
+    def __str__(self):
+        return f"Friends should buy "
