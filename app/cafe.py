@@ -28,5 +28,3 @@ class Cafe:
 
         else:
             return f"Welcome to {self.name}"
-
-
