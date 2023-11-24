@@ -25,7 +25,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     if vaccine_error_encountered:
         return str(vaccine_error_encountered)
     elif not_wearing_mask_error:
-        return (str(not_wearing_mask_error) + 
-                f"{masks_to_buy} masks")
+        return str(not_wearing_mask_error) + f"{masks_to_buy} masks"
+
     else:
         return f"Friends can go to {cafe.name}"
