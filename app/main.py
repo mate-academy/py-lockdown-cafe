@@ -23,6 +23,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         return str(vaccine_error)
 
     if mask_errors:
-        return f"NotWearingMaskError: {mask_errors[0]}. Friends should buy {len(mask_errors)} masks."
+        return (f"NotWearingMaskError: {mask_errors[0]}. 
+        Friends should buy {len(mask_errors)} masks.")
 
     return f"Friends can go to {cafe.name}"
