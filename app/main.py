@@ -8,22 +8,24 @@ day_today = datetime.date.today()
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
-    vaccine_error = None
-    mask_errors = []
+    for friend in friends:
+
+        try:
+            cafe.visit_cafe(friend)
+
+        except VaccineError as v:
+            return str(v)
+
+        except NotWearingMaskError:
+            pass
 
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except VaccineError as v:
-            vaccine_error = v
+
         except NotWearingMaskError as n:
-            mask_errors.append(n)
-
-    if vaccine_error:
-        return str(vaccine_error)
-
-    if mask_errors:
-        return (f"NotWearingMaskError: {mask_errors[0]}. "
-                f"Friends should buy {len(mask_errors)} masks.")
+            masks_to_buy = len([friend for friend in friends
+                                if friend.get("wearing_a_mask") is False])
+            return str(n) + f"{masks_to_buy} masks"
 
     return f"Friends can go to {cafe.name}"
