@@ -1,8 +1,7 @@
-import app.errors
 import datetime
 from app.cafe import Cafe
 
-from app.errors import VaccineError, NotWearingMaskError
+from app.errors import VaccineError
 
 
 def go_to_cafe(cafe: Cafe, friends: list[dict]) -> str:
