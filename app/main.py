@@ -8,7 +8,7 @@ day_today = datetime.date.today()
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
-    # not_wearing_mask_error = None
+    not_wearing_mask_error = None
     masks_to_buy = 0
 
     for friend in friends:
