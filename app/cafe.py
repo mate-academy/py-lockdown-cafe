@@ -21,5 +21,4 @@ class Cafe:
         except KeyError:
             raise NotVaccinatedError("Visitor should be vaccinated.")
 
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
