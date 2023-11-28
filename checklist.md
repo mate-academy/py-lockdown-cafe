@@ -36,8 +36,8 @@ from app.main import (
 Bad example:
 
 ```python
-from app.main import KnightWithArmour,
-    KnightWithoutArmour,
+from app.main import KnightWithArmour, \
+    KnightWithoutArmour, \
     SuperHeroKnightWithGun
 ```
 
