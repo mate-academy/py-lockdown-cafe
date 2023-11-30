@@ -20,4 +20,4 @@ class NotWearingMaskError(Exception):
     """Error for visitor who don't wear mask on"""
 
     def __str__(self) -> str:
-        return f"You should buy mask!"
+        return "You should buy mask!"
