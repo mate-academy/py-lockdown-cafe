@@ -1,4 +1,4 @@
-from errors import (
+from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError
@@ -23,5 +23,4 @@ class Cafe:
             raise NotWearingMaskError(
                 "Visitor must have a mask"
             )
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
