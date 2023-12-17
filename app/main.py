@@ -1,6 +1,5 @@
 import app.errors as errors
 import app.cafe as cafe
-import datetime
 
 
 def go_to_cafe(friends: list, cafe: cafe.Cafe) -> str:
