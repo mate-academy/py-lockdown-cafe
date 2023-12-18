@@ -1,14 +1,15 @@
 class VaccineError(Exception):
-    pass
+    """Class for vaccine errors. Raise when visitor does not have vaccine
+     or have outdated vaccine or when visitor not wearing mask"""
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    """Raise when visitor does not have vaccine"""
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    """Raise when visitor have outdated vaccine"""
 
 
 class NotWearingMaskError(Exception):
-    pass
+    """Raise when visitor not wearing mask"""
