@@ -11,7 +11,7 @@ class Cafe:
             raise errors.NotVaccinatedError(
                 "NotVaccinatedError should be raised with a message"
             )
-        if visitor["vaccine"]["expiration_date"] < datetime.date.today():
+        if visitor["vaccine"].get("expiration_date") < datetime.date.today():
             raise errors.OutdatedVaccineError(
                 "OutdatedVaccineError should be raised with a message"
             )
