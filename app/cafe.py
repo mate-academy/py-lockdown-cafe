@@ -1,5 +1,7 @@
 from __future__ import annotations
+
 import datetime
+
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
