@@ -1,6 +1,6 @@
 class VaccineError(Exception):
     def __str__(self) -> str:
-        return "All friends should be vaccinated and with proper date"
+        return "All visitors should be vaccinated and with proper date"
 
 
 class NotVaccinatedError(VaccineError):
@@ -13,4 +13,4 @@ class OutdatedVaccineError(VaccineError):
 
 class NotWearingMaskError(Exception):
     def __str__(self) -> str:
-        return "All friends should be with masks"
+        return "All visitors should be with masks"
