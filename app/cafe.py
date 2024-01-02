@@ -14,7 +14,7 @@ class Cafe:
                                      "vaccinated. Access denied.")
 
         expiration_date = visitor["vaccine"].get("expiration_date")
-        if expiration_date and expiration_date < datetime.date.today():
+        if expiration_date < datetime.date.today():
             raise OutdatedVaccineError("Visitor's vaccine "
                                        "has expired. Access denied.")
         wearing_a_mask = visitor.get("wearing_a_mask", True)
