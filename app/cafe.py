@@ -1,8 +1,8 @@
 import datetime
 
-from app.errors import (NotVaccinatedError,
-                        OutdatedVaccineError,
-                        NotWearingMaskError)
+from app.errors import NotVaccinatedError
+from app.errors import NotWearingMaskError
+from app.errors import OutdatedVaccineError
 
 
 class Cafe:
@@ -12,7 +12,7 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if visitor.get("vaccine") is None:
             raise NotVaccinatedError
-        if datetime.date.today() > visitor["vaccine"]["expiration_date"]:
+        if datetime.date.today() > visitor["vaccine"].get("expiration_date"):
             raise OutdatedVaccineError
         if visitor["wearing_a_mask"] is False:
             raise NotWearingMaskError
