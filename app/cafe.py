@@ -10,9 +10,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(
-        self, visitor: dict
-    ) -> NotVaccinatedError | OutdatedVaccineError | NotWearingMaskError | str:
+    def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitors is not vaccinated")
 
