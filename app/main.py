@@ -4,7 +4,7 @@ from app.errors import (NotVaccinatedError,
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     num_mask = 0
     try:
         for count, friend in enumerate(friends):
