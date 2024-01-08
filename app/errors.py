@@ -1,4 +1,4 @@
-class VaccineError(Exception):
+class BaseVaccineError(Exception):
     def __str__(self) -> str:
         return "All visitors should be vaccinated"
 
