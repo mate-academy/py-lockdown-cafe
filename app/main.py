@@ -1,5 +1,5 @@
 from app.cafe import Cafe
-from errors import (
+from errors.errors import (
     NotVaccinatedError,
     VaccineError,
     OutdatedVaccineError,
