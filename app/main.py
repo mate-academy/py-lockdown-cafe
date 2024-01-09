@@ -1,8 +1,13 @@
-from cafe import Cafe
-from errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
+from app.cafe import Cafe
+from errors import (
+    NotVaccinatedError,
+    VaccineError,
+    OutdatedVaccineError,
+    NotWearingMaskError,
+)
 
 
-def go_to_cafe(friends, cafe):
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     vaccinated_friends = [friend for friend in friends if "vaccine" in friend]
     masks_to_buy = sum(not friend.get("wearing_a_mask", False) for friend in friends)
 
@@ -15,5 +20,5 @@ def go_to_cafe(friends, cafe):
 
         return f"Friends can go to {cafe.name}"
 
-    except (NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError) as e:
+    except (NotVaccinatedError, VaccineError, OutdatedVaccineError, NotWearingMaskError) as e:
         return str(e)
