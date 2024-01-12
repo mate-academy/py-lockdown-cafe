@@ -3,7 +3,7 @@ from app.errors import NotWearingMaskError
 from app.errors import VaccineError
 
 
-def go_to_cafe(cafe: Cafe, friends: list) -> str:
+def go_to_cafe(cafe: Cafe, friends: list[dict]) -> str:
     count_mask = 0
     for friend in friends:
         try:
