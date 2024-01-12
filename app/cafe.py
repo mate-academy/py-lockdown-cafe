@@ -16,7 +16,7 @@ class Cafe:
         if expiration_date and expiration_date < datetime.date.today():
             raise OutdatedVaccineError("Vaccine is outdated.")
 
-        if "wearing_a_mask" in visitor and not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask", False):
             raise NotWearingMaskError("Visitor is not wearing a mask.")
 
         return f"Welcome to {self.name}"
