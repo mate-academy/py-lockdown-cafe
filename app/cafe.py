@@ -14,7 +14,7 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if not visitor.get("vaccine"):
             raise NotVaccinatedError("Should be vaccinated!")
-        if visitor.get("vaccine").get("expiration_date") < date.today():
+        if visitor["vaccine"].get("expiration_date") < date.today():
             raise OutdatedVaccineError("Your vaccine is expired!")
         if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError("You must wear a mask!")
