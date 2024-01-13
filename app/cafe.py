@@ -5,19 +5,15 @@ from app.errors import (NotVaccinatedError,
 
 
 class Cafe:
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str) -> str:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> str:
-
+    def visit_cafe(self, visitor: str) -> str:
         if "vaccine" not in visitor:
-            raise NotVaccinatedError
-
-        vaccine = visitor["vaccine"]
-        if ("expiration_date" not in vaccine
-                or vaccine["expiration_date"] < datetime.date.today()):
-            raise OutdatedVaccineError
-
-        if "wearing_a_mask" not in visitor or not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError
+            raise NotVaccinatedError("Visitor is not vaccinated.")
+        expiration_date = visitor["vaccine"].get("expiration_date")
+        if expiration_date and expiration_date < datetime.date.today():
+            raise OutdatedVaccineError("Vaccine is expired.")
+        if not visitor.get("wearing_a_mask", True):
+            raise NotWearingMaskError("Visitor is not wearing a mask.")
         return f"Welcome to {self.name}"
