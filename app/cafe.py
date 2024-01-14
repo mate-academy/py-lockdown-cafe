@@ -13,11 +13,11 @@ class Cafe:
         # error = False
         cafe = Cafe(self.name)
         if "vaccine" not in visitor.keys():
-            raise "Visitor should be vaccinated"
+            raise NotVaccinatedError("Visitor should be vaccinated")
         if visitor["vaccine"]["expiration_date"] < date.today():
-            raise "Vaccine is outdated"
+            raise OutdatedVaccineError("Vaccine is outdated")
         if visitor["wearing_a_mask"] is False:
             # masks_to_buy += 1
-            raise "All visitors must wear masks"
+            raise NotWearingMaskError("All visitors must wear masks")
         # if error is False:
         return f"Welcome to {cafe.name}"
