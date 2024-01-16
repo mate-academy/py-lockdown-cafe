@@ -1,6 +1,6 @@
 from __future__ import annotations
-from app.cafe import Cafe
-from app.errors import VaccineError, NotWearingMaskError
+from .cafe import Cafe
+from .errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
