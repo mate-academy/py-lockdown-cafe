@@ -10,14 +10,13 @@ from app.errors import (
 # ==== main ====
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     no_mask = 0
-    try:
-        for friend in friends:
-            try:
-                cafe.visit_cafe(friend)
-            except NotWearingMaskError:
-                no_mask += 1
-    except (OutdatedVaccineError, NotVaccinatedError):
-        return "All friends should be vaccinated"
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+        except NotWearingMaskError:
+            no_mask += 1
+        except (OutdatedVaccineError, NotVaccinatedError):
+            return "All friends should be vaccinated"
 
     if no_mask:
         return f"Friends should buy {no_mask} masks"
