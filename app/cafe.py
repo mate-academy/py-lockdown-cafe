@@ -23,6 +23,4 @@ class Cafe:
             raise NotWearingMaskError(
                 "NotWearingMaskError: Client don`t has/wear the mask"
             )
-        return (
-            f"Welcome to {self.name}"
-        )
+        return f"Welcome to {self.name}"
