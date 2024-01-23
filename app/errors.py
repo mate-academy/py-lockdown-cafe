@@ -3,15 +3,15 @@ class VaccineError(Exception):
 
 
 class NotVaccinatedError(VaccineError):
-    def __init__(self) -> None:
-        super().__init__("The visitor is not vaccinated!")
+    def __str__(self) -> str:
+        return "The visitor is not vaccinated!"
 
 
 class OutdatedVaccineError(VaccineError):
-    def __init__(self) -> None:
-        super().__init__("The vaccine is outdated!")
+    def __str__(self) -> str:
+        return "The vaccine is outdated!"
 
 
 class NotWearingMaskError(Exception):
-    def __init__(self) -> None:
-        super().__init__("The visitor is not wearing a mask!")
+    def __str__(self) -> str:
+        return "The visitor is not wearing a mask!"
