@@ -1,6 +1,5 @@
 from typing import Dict
-from app.errors import (
-    NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError)
+import app.errors
 import datetime
 
 
@@ -10,10 +9,10 @@ class Cafe:
 
     def visit_cafe(self, visitor: Dict) -> str:
         if "vaccine" not in visitor:
-            raise NotVaccinatedError()
+            raise app.errors.NotVaccinatedError()
         elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError()
+            raise app.errors.OutdatedVaccineError()
         elif not visitor.get("wearing_a_mask", False):
-            raise NotWearingMaskError()
+            raise app.errors.NotWearingMaskError()
         else:
             return f"Welcome to {self.name}"
