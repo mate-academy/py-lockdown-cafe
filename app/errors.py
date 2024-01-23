@@ -1,14 +1,18 @@
 class NotWearingMaskError(Exception):
-    pass
+    def __str__(self) -> str:
+        return f"{self.__class__.__name__}"
 
 
 class VaccineError(Exception):
-    pass
+    def __str__(self) -> str:
+        return f"{self.__class__.__name__}"
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    def __str__(self) -> str:
+        return super().__str__()
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    def __str__(self) -> str:
+        return super().__str__()
