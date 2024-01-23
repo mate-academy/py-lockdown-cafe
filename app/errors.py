@@ -3,12 +3,18 @@ class VaccineError(Exception):
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+
+    def __str__(self) -> str:
+        return "Cannot access without a vaccine"
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+
+    def __str__(self) -> str:
+        return "Cannot access with an outdated vaccine"
 
 
 class NotWearingMaskError(Exception):
-    pass
+
+    def __str__(self) -> str:
+        return "Cannot access without mask"
