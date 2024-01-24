@@ -2,9 +2,8 @@ import datetime
 
 from app.cafe import Cafe
 from app.errors import (
+    VaccineError,
     NotWearingMaskError,
-    NotVaccinatedError,
-    OutdatedVaccineError
 )
 
 
@@ -16,7 +15,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     try:
         for friend in sorted_friends:
             cafe.visit_cafe(friend)
-    except (NotVaccinatedError, OutdatedVaccineError):
+    except VaccineError:
         return "All friends should be vaccinated"
     except NotWearingMaskError:
         masks_to_buy = sum(
