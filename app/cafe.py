@@ -1,6 +1,7 @@
-from typing import Dict
-import app.errors
 import datetime
+from typing import Dict
+
+import app.errors
 
 
 class Cafe:
