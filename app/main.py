@@ -7,8 +7,8 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except VaccineError as error:
-            return str(error)
+        except VaccineError:
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks += 1
     if masks:
