@@ -6,8 +6,8 @@ def go_to_cafe(friends: list, cafe: object) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except VaccineError as v:
-            return f"{v}"
+        except VaccineError as message:
+            return f"{message}"
         except NotWearingMaskError:
             masks_to_buy += 1
     if masks_to_buy > 0:
