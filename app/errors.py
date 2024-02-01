@@ -4,11 +4,13 @@ class VaccineError(Exception):
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    def __str__(self) -> str:
+        return "Every visitor has to be vaccinated"
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    def __str__(self) -> str:
+        return "All visitors must have correct data vaccine"
 
 
 class NotWearingMaskError(Exception):
