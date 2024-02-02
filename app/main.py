@@ -1,7 +1,10 @@
+import datetime
 from app.cafe import Cafe
-from app.errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
+from app.errors import NotVaccinatedError
+from app.errors import OutdatedVaccineError, NotWearingMaskError
 
-def go_to_cafe(friends, cafe):
+
+def go_to_cafe(friends: str, cafe: Cafe) -> None:
     masks_needed = 0
     for friend in friends:
         try:
@@ -17,8 +20,6 @@ def go_to_cafe(friends, cafe):
         return f"Friends should buy {masks_needed} masks"
     return f"Friends can go to {cafe.name}"
 
-# Example usage
-import datetime
 
 friends = [
     {
