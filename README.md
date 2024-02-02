@@ -1,4 +1,4 @@
-Lockdown cafe
+# Lockdown cafe
 
 - Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
 - If you need additional information about `datetime` module you can find it [here](https://www.geeksforgeeks.org/python-datetime-module/). 
