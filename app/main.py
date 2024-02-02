@@ -1,15 +1,40 @@
-class Cafe:
-    def __init__(self, name: str) -> None:
-        pass
-    
-    def visit_cafe(visitor: dict):
-        pass
-        
+from app.cafe import Cafe
+from app.errors import NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError
 
-#%%
-visitor = {
-    "name": "Paul",
-    "age": 23,
-}
+def go_to_cafe(friends, cafe):
+    masks_needed = 0
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+        except NotVaccinatedError:
+            return "All friends should be vaccinated"
+        except OutdatedVaccineError:
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            masks_needed += 1
 
-# %%
+    if masks_needed > 0:
+        return f"Friends should buy {masks_needed} masks"
+    return f"Friends can go to {cafe.name}"
+
+# Example usage
+import datetime
+
+friends = [
+    {
+        "name": "Alisa",
+        "vaccine": {
+            "expiration_date": datetime.date.today()
+        },
+        "wearing_a_mask": True
+    },
+    {
+        "name": "Bob",
+        "vaccine": {
+            "expiration_date": datetime.date.today()
+        },
+        "wearing_a_mask": True
+    },
+]
+
+print(go_to_cafe(friends, Cafe("KFC")))
