@@ -37,5 +37,3 @@ friends = [
         "wearing_a_mask": True
     },
 ]
-
-print(go_to_cafe(friends, Cafe("KFC")))
