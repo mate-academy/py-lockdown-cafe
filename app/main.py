@@ -18,24 +18,3 @@ def go_to_cafe(friends: str, cafe: Cafe) -> None:
     if masks_needed > 0:
         return f"Friends should buy {masks_needed} masks"
     return f"Friends can go to {cafe.name}"
-<<<<<<< HEAD
-
-
-friends = [
-    {
-        "name": "Alisa",
-        "vaccine": {
-            "expiration_date": datetime.date.today()
-        },
-        "wearing_a_mask": True
-    },
-    {
-        "name": "Bob",
-        "vaccine": {
-            "expiration_date": datetime.date.today()
-        },
-        "wearing_a_mask": True
-    },
-]
-=======
->>>>>>> 4795ba3 (delete testing line)
