@@ -4,10 +4,10 @@ from app.errors import NotVaccinatedError, OutdatedVaccineError\
 
 
 class Cafe:
-    def __init__(self, name):
+    def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor):
+    def visit_cafe(self, visitor: dict) -> str:
 
         if "vaccine" not in visitor:
             raise NotVaccinatedError(f"{visitor['name']} is not vaccinated")

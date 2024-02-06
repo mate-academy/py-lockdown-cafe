@@ -1,7 +1,8 @@
 from app.errors import NotWearingMaskError, VaccineError
+from app.cafe import Cafe
 
 
-def go_to_cafe(friends, cafe):
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     counter = 0
     for friend in friends:
         try:
