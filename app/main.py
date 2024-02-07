@@ -12,12 +12,12 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         try:
             cafe.visit_cafe(friend)
         except NotVaccinatedError as e:
-            return e.__str__()
+            return str(e)
         except OutdatedVaccineError as e:
-            return e.__str__()
+            return str(e)
         except NotWearingMaskError:
             masks_needed += 1
 
     if masks_needed > 0:
-        return NotWearingMaskError(masks_needed).__str__()
+        return str(NotWearingMaskError(masks_needed))
     return f"Friends can go to {cafe.name}"
