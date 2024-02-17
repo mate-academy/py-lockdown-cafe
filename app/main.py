@@ -1,5 +1,3 @@
-from __future__ import annotations
-
 from app.cafe import Cafe
 from app.errors import (
     VaccineError,
