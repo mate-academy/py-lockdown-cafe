@@ -10,13 +10,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
-            friends_without_mask = sum(
-                [
-                    friends[friend]["wearing_a_mask"] is True
-                    for friend in range(len(friends))
-                ]
-            )
-            masks_to_buy = len(friends) - friends_without_mask
+            masks_to_buy += 1
 
     if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
