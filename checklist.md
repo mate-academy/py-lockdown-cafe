@@ -36,10 +36,9 @@ from app.main import (
 Bad example:
 
 ```python
-from app.main import KnightWithArmour,
-
-KnightWithoutArmour,
-SuperHeroKnightWithGun
+from app.main import KnightWithArmour, \
+    KnightWithoutArmour, \
+    SuperHeroKnightWithGun
 ```
 
 3. Use descriptive error messages:
