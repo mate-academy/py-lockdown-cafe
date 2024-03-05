@@ -159,6 +159,6 @@ date2 = datetime.date(2022, 1, 30)
 
 assert  date1 < date2
 ```
-* To get the current date use `datetime.date.today()`
+* To get the current date use `datetime.today()`
 
 ### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
