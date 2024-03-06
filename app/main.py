@@ -10,10 +10,9 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         try:
             Cafe.visit_cafe(cafe, person)
         except (NotVaccinatedError, OutdatedVaccineError):
-            return ("All friends should be vaccinated")
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
             count += 1
     if count > 0:
-        return (f"Friends should buy {count} masks")
-    else:
-        return (f"Friends can go to {cafe.name}")
+        return f"Friends should buy {count} masks"
+    return f"Friends can go to {cafe.name}"
