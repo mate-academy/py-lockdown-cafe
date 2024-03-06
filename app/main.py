@@ -10,9 +10,8 @@ def go_to_cafe(friends: List[Dict[str, any]], cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except NotVaccinatedError:
-            return "All friends should be vaccinated"
-        except OutdatedVaccineError:
+        except (NotVaccinatedError, OutdatedVaccineError):
+            # Handles both NotVaccinatedError and OutdatedVaccineError
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_needed += 1
