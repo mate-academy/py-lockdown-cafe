@@ -5,23 +5,21 @@ from .errors import NotWearingMaskError
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-    vaccinated_friends = 0
     masks_to_buy = 0
+    vaccination_issue = False
 
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-            vaccinated_friends += 1
-        except NotVaccinatedError:
-            return f"{friend} should be vaccinated"
-        except OutdatedVaccineError:
-            return f"{friend} has an outdated vaccine"
+        except (NotVaccinatedError, OutdatedVaccineError):
+            vaccination_issue = True
+            break
         except NotWearingMaskError:
             masks_to_buy += 1
         except Exception as e:
-            print(f"Unexpected error for {friend}: {e}")
+            print(f"Unexpected error for {friend['name']}: {e}")
 
-    if vaccinated_friends != len(friends):
+    if vaccination_issue:
         return "All friends should be vaccinated"
     elif masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
