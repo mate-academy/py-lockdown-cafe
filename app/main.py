@@ -17,5 +17,4 @@ def go_to_cafe(friends: list, cafe: dict) -> str:
             "masks"
         )
 
-
     return f"Friends can go to {cafe.name}"
