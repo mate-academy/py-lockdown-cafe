@@ -1,7 +1,7 @@
 import datetime
 
 
-def go_to_cafe(friends: list, cafe: dict) -> str:
+def go_to_cafe(friends: list[dict], cafe: dict) -> str:
     vaccinated_friends = sum(
         1 for friend in friends if friend.get("vaccine")
         and friend["vaccine"]["expiration_date"] >= datetime.date.today())
