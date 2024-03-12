@@ -12,10 +12,10 @@ def go_to_cafe(friends: list, cafe: dict) -> str:
         return "All friends should be vaccinated"
 
     if wearing_mask_friends != len(friends):
-    return (
-        f"Friends should buy {len(friends) - wearing_mask_friends} "
-        "masks"
-    )
+        return (
+            f"Friends should buy {len(friends) - wearing_mask_friends} "
+            "masks"
+        )
 
 
     return f"Friends can go to {cafe.name}"
