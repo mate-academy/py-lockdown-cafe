@@ -6,23 +6,17 @@ from app.errors import (
 )
 
 
-def go_to_cafe(
-        friends: list,
-        cafe: "Cafe"
-) -> str:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_to_buy = 0
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except NotVaccinatedError as e:
-            print(f"{e}")
+        except NotVaccinatedError:
             return "All friends should be vaccinated"
-        except OutdatedVaccineError as o:
-            print(f"{o}")
+        except OutdatedVaccineError:
             return "All friends should be vaccinated"
-        except NotWearingMaskError as m:
+        except NotWearingMaskError:
             masks_to_buy += 1
-            print(f"{m}")
 
     if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
