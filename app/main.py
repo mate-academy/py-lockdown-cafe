@@ -14,7 +14,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             problems = True
             no_mask += 1
 
-    if no_mask != 0:
+    if no_mask:
         return f"Friends should buy {no_mask} masks"
 
     if not problems:
