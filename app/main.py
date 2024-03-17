@@ -19,34 +19,3 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
     if not problems:
         return f"Friends can go to {cafe.name}"
-
-# visitor=[
-#                     {
-#                         "name": "Alisa",
-#                         "vaccine": {
-#                             "name": "Pfizer",
-#                             "expiration_date": datetime.date.today()
-#                             + datetime.timedelta(days=30),
-#                         },
-#                         "wearing_a_mask": False,
-#                     },
-#                     {
-#                         "name": "Bob",
-#                         "vaccine": {
-#                             "name": "Pfizer",
-#                             "expiration_date": datetime.date.today()
-#                             + datetime.timedelta(days=20),
-#                         },
-#                         "wearing_a_mask": False,
-#                     },
-#                     {
-#                         "name": "Harry",
-#                         "vaccine": {
-#                             "name": "Moderna",
-#                             "expiration_date": datetime.date.today()
-#                             + datetime.timedelta(days=45),
-#                         },
-#                         "wearing_a_mask": True,
-#                     },
-#                 ]
-# print(go_to_cafe(visitor, Cafe("KFS")))
