@@ -9,7 +9,6 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
             cafe.visit_cafe(friend)
         except VaccineError:
             return "All friends should be vaccinated"
-            break
         except NotWearingMaskError:
             count_of_masks += 1
     if count_of_masks:
