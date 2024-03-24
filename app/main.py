@@ -1,5 +1,4 @@
-from typing import (List,
-                    Dict)
+from typing import List, Dict
 
 from app.cafe import Cafe
 from app.errors import (NotWearingMaskError,
