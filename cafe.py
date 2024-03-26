@@ -1,21 +1,14 @@
 from datetime import date
-from typing import Dict, Union
-from errors import NotVaccinatedError, \
-    OutdatedVaccineError, NotWearingMaskError
+from errors import (NotVaccinatedError,
+                    OutdatedVaccineError,
+                    NotWearingMaskError)
 
 
 class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self,
-                   visitor:
-                   Dict
-                   [
-                       str, Union[str, int, Dict[str, Union[date, None]], bool]
-                   ]
-                   ) \
-            -> str:
+    def visit_cafe(self, visitor: dict) -> str:
 
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor is not vaccinated")
