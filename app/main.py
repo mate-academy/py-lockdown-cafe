@@ -15,7 +15,6 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
     if count_of_non_vaccinated:
         return "All friends should be vaccinated"
-    if not count_of_non_vaccinated and do_not_have_mask:
+    if do_not_have_mask:
         return f"Friends should buy {do_not_have_mask} masks"
-    if not count_of_non_vaccinated and not do_not_have_mask:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
