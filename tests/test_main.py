@@ -1,8 +1,6 @@
 import datetime
 import inspect
-
 import pytest
-
 from app import main
 from app.cafe import Cafe
 from app.errors import (
