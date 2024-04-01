@@ -12,7 +12,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             no_mask += 1
 
-    if no_mask:
-        return f"Friends should buy {no_mask} masks"
-
-    return f"Friends can go to {cafe.name}"
+    return (
+        f"Friends should buy {no_mask} masks"
+        if no_mask else f"Friends can go to {cafe.name}"
+    )
