@@ -1,5 +1,5 @@
 from app.cafe import Cafe
-from app.errors import *
+from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
@@ -8,18 +8,12 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-
         except VaccineError:
-            return f"All friends should be vaccinated"
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
             mask += 1
 
     if mask:
-        return f"Friends should by {mask} masks"
+        return f"Friends should buy {mask} masks"
 
-    return "Friends can go to {cafe.name}"
-
-
-
-
-
+    return f"Friends can go to {cafe.name}"

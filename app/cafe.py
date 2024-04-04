@@ -1,5 +1,7 @@
-from app.errors import *
 import datetime
+
+from app.errors import (NotVaccinatedError,
+                        OutdatedVaccineError, NotWearingMaskError)
 
 
 class Cafe:
@@ -14,6 +16,3 @@ class Cafe:
         if not visitors["wearing_a_mask"]:
             raise NotWearingMaskError("Not Wearing mask")
         return f"Welcome to {self.name}"
-
-
-
