@@ -1,10 +1,10 @@
-from cafe import Cafe
-from errors import *
+from app.cafe import Cafe
+from app.errors import *
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
     mask = 0
-    n = 0
+
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
