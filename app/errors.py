@@ -8,3 +8,6 @@ class NotVaccinatedError(VaccineError):
 
 class OutdatedVaccineError(VaccineError):
     pass
+
+class NotWearingMaskError(VaccineError):
+    pass
