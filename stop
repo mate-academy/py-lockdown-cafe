@@ -1,0 +1,132 @@
+[33mcommit d7b83ffaeb5a848f6e081cf7034590904e55b82d[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Yaroslav <104159378+Y-Havryliv@users.noreply.github.com>
+Date:   Mon Feb 20 11:42:37 2023 +0200
+
+    Update checklist.md
+
+[33mcommit 8091320c9dd54b7609937e2dc0fa8a6f9b7fc0c9[m
+Author: Danylo Tiutiushkin <48014331+danylott@users.noreply.github.com>
+Date:   Wed Oct 5 14:06:49 2022 +0300
+
+    Update requirements.txt
+
+[33mcommit aad8b47b61dac3ec60c929e172384c132855e7ee[m
+Author: Danylo Tiutiushkin <48014331+danylott@users.noreply.github.com>
+Date:   Wed Oct 5 14:06:32 2022 +0300
+
+    Update .flake8
+
+[33mcommit b541dc7324745436a618518fe3338e0c3a7bc4ca[m
+Merge: e90434a 8b43a0b
+Author: Yaroslav <104159378+Y-Havryliv@users.noreply.github.com>
+Date:   Tue Sep 27 16:40:26 2022 +0300
+
+    Merge pull request #123 from mate-academy/checklist_addition
+    
+    checklist added
+
+[33mcommit 8b43a0bafeb68cfcf94ab42bc8020d2dc8095bb6[m
+Author: Yaroslav Havryliv <yaroslav.h@mate.academy>
+Date:   Mon Sep 26 14:34:26 2022 +0300
+
+    error messages added
+
+[33mcommit 00eaa40ac9ee6cfb50c54b110fb18ee60558fac7[m
+Author: Yaroslav Havryliv <yaroslav.h@mate.academy>
+Date:   Mon Sep 26 14:26:07 2022 +0300
+
+    test on comment added
+
+[33mcommit f968560c8ae26c147f4800852c8dae5b79b0495a[m
+Author: Yaroslav Havryliv <yaroslav.h@mate.academy>
+Date:   Mon Sep 26 14:23:19 2022 +0300
+
+    added test whether error raised with a message
+
+[33mcommit db7fcd1950de6c8759c2b826bc1f375d5b913e83[m
+Author: Yaroslav Havryliv <yaroslav.h@mate.academy>
+Date:   Mon Sep 26 11:18:31 2022 +0300
+
+    checklist added
+
+[33mcommit e90434a50ce567374c09b0e12c77711036f8600d[m
+Author: Alex Zhidkov <72562232+Abnormaltype@users.noreply.github.com>
+Date:   Fri Jun 10 13:19:34 2022 +0300
+
+    Update test.yml
+
+[33mcommit e9f8ff795d26620b35835dd7e3e0f2feb6204356[m
+Merge: 30f0bfd f6589ad
+Author: Alex Zhidkov <72562232+Abnormaltype@users.noreply.github.com>
+Date:   Thu Jun 9 16:12:00 2022 +0300
+
+    Merge pull request #63 from mate-academy/add-timeout
+    
+    add timeout on the tests
+
+[33mcommit f6589ad6329cb43cde5335962fe1a6093cb7aa54[m
+Author: Alex Zhidkov <72562232+Abnormaltype@users.noreply.github.com>
+Date:   Thu Jun 9 16:11:54 2022 +0300
+
+    add timeout on the tests
+
+[33mcommit 30f0bfdc0bf983e42bf79956b6c15bf868776560[m
+Merge: 5d999b8 6c8380f
+Author: Polina Tytarenko <47711774+TPolina@users.noreply.github.com>
+Date:   Tue May 24 11:48:18 2022 +0300
+
+    Merge pull request #25 from mate-academy/add-tests
+
+[33mcommit 6c8380f3374b50e02566756eba9e9ab9f47d7d9a[m
+Author: polinatytarenko <p.tytarenko.20@gmail.com>
+Date:   Tue May 24 11:35:10 2022 +0300
+
+    Add tests for [not_wearing_mask, not_vaccinated] case
+
+[33mcommit 5d999b8688721a1760b7b15c91baa070db08fe4f[m
+Merge: 83f6676 6020691
+Author: Alex Zhidkov <72562232+Abnormaltype@users.noreply.github.com>
+Date:   Tue May 3 16:38:26 2022 +0300
+
+    Merge pull request #23 from mate-academy/py_lockdown_cafe_upd_flake
+    
+    add exclude venv and tests in .flake8
+
+[33mcommit 6020691b1b4101418448eae2b1ab3eb7bff5dab7[m
+Author: Alex Zhidkov <sashazudkov@gmail.com>
+Date:   Tue May 3 13:08:46 2022 +0300
+
+    add exclude venv and tests in .flake8
+
+[33mcommit 83f6676dc3cfdee5fa5c691c04c20c2d7f3a0b38[m
+Merge: 0bc085b abe9a81
+Author: Ivan Ramyk <ivan.r@mate.academy>
+Date:   Mon Jan 31 10:21:38 2022 +0200
+
+    Merge pull request #1 from mate-academy/add-task
+    
+    Add task
+
+[33mcommit abe9a81a31ed58b3857931b7b65e899b918ef1be[m
+Author: IvanRamyk <ivan.r@mate.academy>
+Date:   Mon Jan 31 10:20:29 2022 +0200
+
+    Update tests and readme
+
+[33mcommit 256004499e16a04b9d072efb0e5a91c3d0a35d4c[m
+Author: IvanRamyk <ivan.r@mate.academy>
+Date:   Sun Jan 30 13:29:57 2022 +0200
+
+    Update readme
+
+[33mcommit 4b8e50113c2742728a457631df9c3f2cce889bbf[m
+Author: IvanRamyk <ivan.r@mate.academy>
+Date:   Sun Jan 30 13:24:44 2022 +0200
+
+    Add task
+
+[33mcommit 0bc085b67db3baadc1f0604abd7dc4f7ddf20f50[m
+Author: Ivan Ramyk <ivan.ramyk.official@gmail.com>
+Date:   Fri Jan 28 11:58:16 2022 +0200
+
+    Initial commit
