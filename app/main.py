@@ -1,4 +1,6 @@
-from app.errors import NotWearingMaskError, OutdatedVaccineError, NotVaccinatedError
+from app.errors import (NotWearingMaskError,
+                        OutdatedVaccineError,
+                        NotVaccinatedError)
 from app.cafe import Cafe
 
 
