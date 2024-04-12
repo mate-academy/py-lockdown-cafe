@@ -4,7 +4,7 @@ from app.errors import (NotVaccinatedError,
                         NotWearingMaskError)
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     vaccine_errors = []
     mask_errors = []
 
