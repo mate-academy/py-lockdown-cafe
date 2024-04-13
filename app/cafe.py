@@ -13,7 +13,6 @@ class Cafe:
         if "vaccine" not in visitor.keys():
             raise NotVaccinatedError(
                 f"{visitor['name']} is not vaccinated!")
-        # print(visitor["vaccine"]["expiration_date"])
         if visitor["vaccine"]["expiration_date"] < datetime.date.today():
             raise OutdatedVaccineError(
                 f"{visitor['name']} vaccine is outdated!")
