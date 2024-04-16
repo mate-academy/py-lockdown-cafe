@@ -1,26 +1,20 @@
 from app.cafe import Cafe
-from app.errors import (NotVaccinatedError,
+from app.errors import (VaccineError,
+                        NotVaccinatedError,
                         OutdatedVaccineError,
                         NotWearingMaskError)
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-    vaccine_errors = []
-    mask_errors = []
-
+    count_req_masks = 0
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except NotVaccinatedError:
-            vaccine_errors.append(f"{friend['name']} is not vaccinated.")
-        except OutdatedVaccineError:
-            vaccine_errors.append(f"{friend['name']}'s vaccine has expired.")
+        except VaccineError:
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
-            mask_errors.append(f"{friend['name']} is not wearing a mask")
+            count_req_masks += 1
 
-    if vaccine_errors:
-        return "All friends should be vaccinated"
-    elif mask_errors:
-        return f"Friends should buy {len(mask_errors)} masks"
-
+    if count_req_masks:
+        return f"Friends should buy {count_req_masks} masks"
     return f"Friends can go to {cafe.name}"
