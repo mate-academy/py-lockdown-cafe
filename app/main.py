@@ -26,4 +26,4 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     except NotWearingMaskError:
         return f"Friends should buy {masks_to_buy(friends)} masks"
     else:
-        return f"Friends can go to {cafe.name} "
+        return f"Friends can go to {cafe.name}"
