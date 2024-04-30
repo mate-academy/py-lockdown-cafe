@@ -19,7 +19,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
             friend["wearing_a_mask"] = True
             cafe.visit_cafe(friend)
     except VaccineError:
-        return "All friends should be vaccinated  "
+        return "All friends should be vaccinated"
     try:
         for friend in friends:
             cafe.visit_cafe(friend)
