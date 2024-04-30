@@ -1,7 +1,7 @@
 from copy import deepcopy
 
 from app.cafe import Cafe
-from app.errors import NotWearingMaskError, VaccineError
+from errors import NotWearingMaskError, VaccineError
 
 
 def masks_to_buy(friends: list[dict]) -> int:
