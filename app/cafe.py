@@ -1,5 +1,5 @@
 import datetime
-from app.errors import(
+from app.errors import (
     OutdatedVaccineError,
     NotVaccinatedError,
     NotWearingMaskError
