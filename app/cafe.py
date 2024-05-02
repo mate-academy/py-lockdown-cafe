@@ -16,10 +16,10 @@ class Cafe:
             print("Vaccine key missing. Raising NotVaccinatedError.")
             raise NotVaccinatedError("Visitor is not vaccinated.")
         today_date = datetime.date.today()
-        expiration_date = visitor["vaccine"]["expiration_date"]
+        expiration_date = visitor["vaccine"].get("expiration_date")
         if expiration_date < today_date:
             raise OutdatedVaccineError("Visitor's vaccine is outdated.")
-        if "wearing_a_mask" not in visitor or not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError(
                 "You should wear a mask to enter the cafe!"
             )
