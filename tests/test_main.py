@@ -11,7 +11,7 @@ from app.errors import (
     OutdatedVaccineError,
     NotWearingMaskError,
 )
-from app import go_to_cafe
+from app.main import go_to_cafe
 
 
 def test_errors_hierarchy():

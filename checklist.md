@@ -36,7 +36,7 @@ from app import (
 Bad example:
 
 ```python
-from app import KnightWithArmour,
+from app.main import KnightWithArmour,
 
 KnightWithoutArmour,
 SuperHeroKnightWithGun
