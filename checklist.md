@@ -26,7 +26,7 @@ if number_of_students != 0:
 Good example:
 
 ```python
-from app import (
+from app.main import (
     KnightWithArmour,
     KnightWithoutArmour,
     SuperHeroKnightWithGun
@@ -36,10 +36,9 @@ from app import (
 Bad example:
 
 ```python
-from app.main import KnightWithArmour,
-
-KnightWithoutArmour,
-SuperHeroKnightWithGun
+from app.main import KnightWithArmour, \
+    KnightWithoutArmour, \
+    SuperHeroKnightWithGun
 ```
 
 3. Use descriptive error messages:
