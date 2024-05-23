@@ -15,8 +15,8 @@ class Cafe:
                 "All friends should be vaccinated"
             )
 
-        if datetime.datetime.now().date() > \
-                visitor["vaccine"]["expiration_date"]:
+        if datetime.datetime.now().date() > (
+                visitor["vaccine"]["expiration_date"]):
             raise OutdatedVaccineError(
                 "All friends should be vaccinated"
             )
