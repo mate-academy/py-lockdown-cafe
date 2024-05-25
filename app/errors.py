@@ -1,5 +1,6 @@
 class VaccineError(Exception):
-    pass
+    def __init__(self, message="All friends should be vaccinated"):
+        super().__init__(message)
 
 
 class NotVaccinatedError(VaccineError):
@@ -11,4 +12,5 @@ class OutdatedVaccineError(VaccineError):
 
 
 class NotWearingMaskError(Exception):
-    pass
+    def __init__(self, message="All friends should wear a mask"):
+        super().__init__(message)
