@@ -2,13 +2,17 @@ from app.errors import NotWearingMaskError, NotVaccinatedError, OutdatedVaccineE
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: list, cafe: Cafe):
-    try:
-        for friend in friends:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    masks_to_buy = 0
+    wearing_masks = True
+    for friend in friends:
+        try:
             cafe.visit_cafe(friend)
-    except (NotVaccinatedError, OutdatedVaccineError) as e:
-        return "All friends should be vaccinated"
-    except NotWearingMaskError:
-
-
+        except VaccineError:
+            print("All friends should be vaccinated")
+        except NotWearingMaskError:
+            masks_to_buy += 1
+            wearing_masks = False
+    if not wearing_masks:
+        print(f"Friends should buy {masks_to_buy} masks")
     return f"Friends can go to {cafe.name}"
