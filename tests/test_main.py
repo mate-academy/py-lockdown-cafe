@@ -4,7 +4,7 @@ import inspect
 import pytest
 
 from app import main
-from app.main import Cafe
+from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
     VaccineError,
