@@ -17,7 +17,7 @@ class Cafe:
                                        "is out of date.")
         if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError("The visitor doesn't wear a mask.")
-        return f"Welcome to {self._name}"
+        return f"Welcome to {self.name}"
 
     @property
     def name(self) -> str:
