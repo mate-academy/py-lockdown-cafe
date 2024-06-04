@@ -1,7 +1,6 @@
 import datetime
-from cafe import Cafe
-from errors import (NotWearingMaskError,
-                    VaccineError)
+from app.cafe import Cafe
+from app.errors import NotWearingMaskError, VaccineError
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
@@ -24,14 +23,14 @@ friends = [
         "vaccine": {
             "expiration_date": datetime.date.today()
         },
-        "wearing_a_mask": True
+        "wearing_a_mask": False
     },
     {
         "name": "Bob",
         "vaccine": {
             "expiration_date": datetime.date.today()
         },
-        "wearing_a_mask": True
+        "wearing_a_mask": False
     },
 ]
 print(go_to_cafe(friends, Cafe("KFC")))
