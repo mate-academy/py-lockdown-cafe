@@ -16,7 +16,7 @@ class Cafe:
         if human["vaccine"]["expiration_date"] < date.today():
             raise OutdatedVaccineError(
                 f"Access denied: Your vaccine expired"
-                f" on {human["vaccine"]["expiration_date"]}."
+                f" on {human['vaccine']['expiration_date']}."
                 f" Please get a new vaccination."
             )
         if human["wearing_a_mask"] is False:
