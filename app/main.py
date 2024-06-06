@@ -17,7 +17,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> None:
+    def visit_cafe(self, visitor: dict) -> str:
         if not ("vaccine" in visitor):
             raise NotVaccinatedError
 
@@ -30,15 +30,28 @@ class Cafe:
         if not visitor["wearing_a_mask"]:
             raise NotWearingMaskError
 
+        return f"Welcome to {self.name}"
+
+
+def go_to_cafe(fiends: list, cafe: Cafe) -> str:
+    return f"Friends can go to {cafe.name}"
+
 
 if __name__ == "__main__":
-    kfc = Cafe("KFC")
-    visitor = {
-        "name": "Paul",
-        "age": 23,
-        "vaccine": {
-            "expiration_date": datetime.date.today()
+    friends = [
+        {
+            "name": "Alisa",
+            "vaccine": {
+                "expiration_date": datetime.date.today()
+            },
+            "wearing_a_mask": False
         },
-        "wearing_a_mask": False
-    }
-    kfc.visit_cafe(visitor)  # NotWearingMaskError
+        {
+            "name": "Bob",
+            "vaccine": {
+                "expiration_date": datetime.date.today()
+            },
+            "wearing_a_mask": False
+        },
+    ]
+    print(go_to_cafe(friends, Cafe("KFC")) == "Friends should buy 2 masks")
