@@ -2,7 +2,7 @@ class VaccineError(Exception):
     pass
 
 
-class NotWearingMaskError(VaccineError):
+class NotWearingMaskError(Exception):
     pass
 
 

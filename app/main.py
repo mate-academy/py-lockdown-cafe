@@ -14,12 +14,26 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             masks_not_worn += 1
             is_access = False
-        except (NotVaccinatedError, OutdatedVaccineError):
+        except OutdatedVaccineError:
+            is_access = False
+            is_vaccinated = False
+        except NotVaccinatedError:
             is_access = False
             is_vaccinated = False
     if is_access:
-        return f"Friends can go to {cafe.name}"
+        raise f"Friends can go to {cafe.name}"
     if masks_not_worn:
-        return f"Friends should buy {masks_not_worn} masks"
+        raise f"Friends should buy {masks_not_worn} masks"
     if not is_vaccinated:
-        return "All friends should be vaccinated"
+        raise "All friends should be vaccinated"
+
+
+if __name__ == "__main__":
+    import datetime
+    visitor = {
+            "name": "John",
+            "age": 21,
+            "wearing_a_mask": True,
+        }
+    cafe = Cafe("")
+    print(cafe.visit_cafe(visitor))
