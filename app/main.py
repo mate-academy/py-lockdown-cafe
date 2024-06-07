@@ -1,5 +1,3 @@
-import datetime
-
 from errors import (NotVaccinatedError,
                     OutdatedVaccineError,
                     NotWearingMaskError)
@@ -16,7 +14,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             masks_not_worn += 1
             is_access = False
-        except NotVaccinatedError:
+        except (NotVaccinatedError, OutdatedVaccineError):
             is_access = False
             is_vaccinated = False
     if is_access:
