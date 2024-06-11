@@ -1,10 +1,7 @@
-class VaccineError(Exception):
-    pass
-
-class NotVaccinatedError(VaccineError):
+class NotVaccinatedError(Exception):
     """The visitor has no vaccine"""
 
-class OutdatedVaccineError(VaccineError):
+class OutdatedVaccineError(Exception):
     """Old vaccine"""
 
 class NotWearingMaskError(Exception):
