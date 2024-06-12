@@ -20,5 +20,4 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         return "All friends should be vaccinated"
     elif count_of_musks:
         return f"Friends should buy {count_of_musks} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
