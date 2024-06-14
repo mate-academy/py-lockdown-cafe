@@ -1,5 +1,3 @@
-
-
 import datetime
 from .errors import (
     NotVaccinatedError,
