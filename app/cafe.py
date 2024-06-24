@@ -24,5 +24,4 @@ class Cafe:
             raise NotWearingMaskError(f"{visitor['name']} "
                                       f"should buy a mask before visiting "
                                       f"{self.name}")
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
