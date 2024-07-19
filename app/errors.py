@@ -1,6 +1,6 @@
 class VaccineError(Exception):
     def __str__(self) -> str:
-        return "Person is not vaccinated"
+        return "Vaccination status is missing or invalid for the entity"
 
 
 class NotVaccinatedError(VaccineError):
@@ -13,4 +13,4 @@ class OutdatedVaccineError(VaccineError):
 
 class NotWearingMaskError(Exception):
     def __str__(self) -> str:
-        return "Person is not wearing a mask"
+        return "Entity is not wearing a mask"
