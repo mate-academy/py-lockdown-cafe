@@ -1,6 +1,5 @@
 class VaccineError(Exception):
-    def __init__(self) -> None:
-        super().__init__()
+    pass
 
 
 class NotVaccinatedError(VaccineError):
