@@ -14,5 +14,4 @@ def go_to_cafe(friends: List[Dict], cafe: Cafe) -> str:
             mask_to_buy += 1
     if mask_to_buy > 0:
         return f"Friends should buy {mask_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
