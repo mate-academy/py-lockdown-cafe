@@ -16,11 +16,11 @@ class Cafe:
             raise NotVaccinatedError("You cannot enter without a vaccine")
         vaccine_info = visitor["vaccine"]
         expiration_date = vaccine_info.get("expiration_date")
-        if expiration_date is None:
-            raise NotVaccinatedError("Vaccine information is incomplete")
-        if expiration_date < date.today():
-            raise OutdatedVaccineError("The vaccine is expired")
-        if not visitor.get("wearing_a_mask", False):
+        if expiration_date is None or expiration_date < date.today():
+            raise OutdatedVaccineError(
+                "The vaccine is either expired or information is incomplete"
+            )
+        if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError(
                 "You cannot enter without wearing a mask"
             )
