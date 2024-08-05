@@ -1,10 +1,12 @@
-from .cafe import Cafe
-from .errors import VaccineError, NotWearingMaskError
+from typing import Dict, Any, List
+
+from app.cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(
-        friends: list[dict[str, any]],
-        cafe: Cafe
+    friends: List[Dict[str, Any]],
+    cafe: Cafe
 ) -> str:
     masks_to_buy = 0
 
@@ -16,7 +18,7 @@ def go_to_cafe(
         except NotWearingMaskError:
             masks_to_buy += 1
 
-    if masks_to_buy > 0:
+    if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+
+    return f"Friends can go to {cafe.name}"
