@@ -6,7 +6,6 @@ from app.errors import (
 )
 
 
-
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     mask_to_buy = 0
 
