@@ -14,8 +14,7 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("You cannot enter without a vaccine")
-        vaccine_info = visitor["vaccine"]
-        expiration_date = vaccine_info.get("expiration_date")
+        expiration_date = visitor["vaccine"].get("expiration_date")
         if expiration_date is None or expiration_date < date.today():
             raise OutdatedVaccineError(
                 "The vaccine is either expired or information is incomplete"
