@@ -10,8 +10,8 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> None:
-        if not visitor.get("vaccine", False):
+    def visit_cafe(self, visitor: dict) -> str:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError(f"{visitor['name']} is not vaccinated.")
 
         expiration_date = visitor["vaccine"].get("expiration_date")
