@@ -12,7 +12,7 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> str:
-        if visitor.get("vaccine") is None:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError(
                 "NotVaccinatedError: please get vaccinated"
             )
