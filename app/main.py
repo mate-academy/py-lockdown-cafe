@@ -3,6 +3,7 @@ from app.errors import NotVaccinatedError
 from app.errors import OutdatedVaccineError
 from app.errors import NotWearingMaskError
 
+
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_to_buy = 0
 
