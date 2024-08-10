@@ -3,7 +3,6 @@ from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
-    unvaccinated_friends_count = 0
     lacking_masks_count = 0
 
     for friend in friends:
@@ -12,10 +11,8 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             lacking_masks_count += 1
         except VaccineError:
-            unvaccinated_friends_count += 1
+            return "All friends should be vaccinated"
 
-    if unvaccinated_friends_count != 0:
-        return "All friends should be vaccinated"
     if lacking_masks_count != 0:
         return f"Friends should buy {lacking_masks_count} masks"
 
