@@ -9,18 +9,20 @@ Due to the pandemic, not everyone can visit the cafe.
 
 If the visitor does not have a `vaccine` key, it means that he is not vaccinated. 
 In this case, the method must raise a `NotVaccinatedError` exception.
+
 ```python
 kfc = Cafe("KFC")
-visitor = {
+  # NotVaccinatedError
+```visitor = {
     "name": "Paul",
     "age": 23,
 }
-kfc.visit_cafe(visitor)     # NotVaccinatedError
-```
+visit_cafe(visitor)
 
 
 The vaccine must not be expired, otherwise the method should raise an `OutdatedVaccineError` exception.
 You can get an `expiration_date` from `visitor["vaccine"]` dictionary.
+
 ```python
 import datetime
 
@@ -32,11 +34,12 @@ visitor = {
         "expiration_date": datetime.date(year=2019, month=2, day=23)
     }
 }
-kfc.visit_cafe(visitor)     # OutdatedVaccineError
+visit_cafe(visitor)  # OutdatedVaccineError
 ```
 
 And the last rule: all visitors must wear masks. Otherwise `visit_cafe` 
 should raise an `NotWearingMaskError` exception.
+
 ```python
 kfc = Cafe("KFC")
 visitor = {
@@ -47,7 +50,7 @@ visitor = {
     },
     "wearing_a_mask": False
 }
-kfc.visit_cafe(visitor)     # NotWearingMaskError
+visit_cafe(visitor)  # NotWearingMaskError
 ```
 
 If all the rules are met, then the person can visit the cafe and 
@@ -63,7 +66,7 @@ visitor = {
     },
     "wearing_a_mask": True
 }
-kfc.visit_cafe(visitor) == "Welcome to KFC"
+visit_cafe(visitor) == "Welcome to KFC"
 ```
 
 Write a function `go_to_cafe` which takes a `friends` list and a `cafe`.
