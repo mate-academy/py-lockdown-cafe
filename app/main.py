@@ -6,6 +6,22 @@ from app.errors import (
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
+    """
+    Determines if a group of friends can visit the cafe
+    based on their health status.
+
+    Args:
+        friends (list[dict]):
+            A list of dictionaries where each dictionary represents
+            a friend with keys for 'vaccine' and 'wearing_a_mask'.
+            cafe (Cafe): The Cafe instance they want to visit.
+
+    Returns:
+        str: A message indicating whether the friends can visit the cafe,
+        whether they need to buy masks,
+        or whether everyone should be vaccinated.
+    """
+
     masks_to_buy = 0
 
     for person in friends:
