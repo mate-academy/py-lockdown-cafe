@@ -5,7 +5,7 @@ from app.errors import NotVaccinatedError, OutdatedVaccineError, \
 
 
 def visit_cafe(visitor: dict) -> None:
-    if not visitor['vaccine']:
+    if not visitor["vaccine"]:
         raise NotVaccinatedError("Visitor is not vaccinated at all")
 
     if visitor["vaccine"]["expiration_date"] < date.today():
