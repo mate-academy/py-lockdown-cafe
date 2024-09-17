@@ -7,6 +7,9 @@ from app.errors import (
 
 
 class Cafe:
+    """
+    This class represents a cafe.
+    """
     def __init__(self, name: str) -> None:
         self.name = name
 
