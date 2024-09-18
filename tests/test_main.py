@@ -1,16 +1,15 @@
 import datetime
 import inspect
-
 import pytest
 
 from app import main
-from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
     VaccineError,
     OutdatedVaccineError,
     NotWearingMaskError,
 )
+from app.cafe import Cafe
 from app.main import go_to_cafe
 
 
