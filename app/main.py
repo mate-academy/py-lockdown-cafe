@@ -8,7 +8,12 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     for friend in friends:
         if not friend["wearing_a_mask"]:
             masks_to_buy += 1
-        if friend["vaccine"]["expiration_date"] > datetime.date.today():
+        if "vaccine" in friend:
+            friend_vaccine = friend["vaccine"]
+            if friend_vaccine["expiration_date"] < datetime.date.today():
+                vaccine_issues += 1
+                return "All friends should be vaccinated"
+        if "vaccine" not in friend:
             vaccine_issues += 1
             return "All friends should be vaccinated"
 
@@ -16,4 +21,4 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         return f"Friends should buy {masks_to_buy} masks"
 
     if masks_to_buy == 0 and vaccine_issues == 0:
-        return "fFriends can go to KFC"
+        return f"Friends can go to {cafe.name}"

@@ -1,5 +1,8 @@
 class VaccineError(Exception):
     """General error for the vaccination"""
+    def __init__(self, message: str) -> None:
+        self.message = message
+        super().__init__(self.message)
 
 
 class NotVaccinatedError(VaccineError):
@@ -10,5 +13,5 @@ class OutdatedVaccineError(VaccineError):
     """Error when human has an outdated vaccine"""
 
 
-class NotWearingMaskError(VaccineError):
+class NotWearingMaskError(Exception):
     """Error when human is not wearing mask"""
