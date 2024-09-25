@@ -16,9 +16,6 @@ class Cafe:
 
         if ("vaccine" in visitor
                 and data_today > visitor["vaccine"]["expiration_date"]):
-            print(f"Today's date: {data_today}")
-            expiration_date = visitor["vaccine"]["expiration_date"]
-            print(f"Vaccine expiration date: {expiration_date}")
             raise OutdatedVaccineError(visitor["name"])
 
         if not visitor.get("wearing_a_mask", False):
