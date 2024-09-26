@@ -6,7 +6,7 @@ from app.errors import (
 )
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     not_masks = 0
     for friend in friends:
         try:
@@ -17,5 +17,4 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             return "All friends should be vaccinated"
     if not_masks:
         return f"Friends should buy {not_masks} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+    return f"Friends can go to {cafe.name}"
