@@ -13,20 +13,13 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_to_buy = 0
     for friend in friends:
         try:
-            if not friend.get("vaccine"):
-                raise NotVaccinatedError
-            if (friend.get("vaccine").get("expiration_date")
-                    < datetime.date.today()):
-                raise OutdatedVaccineError
-            if not friend.get("wearing_a_mask"):
-                masks_to_buy += 1
+            cafe.visit_cafe(friend)
+        except NotWearingMaskError:
+            masks_to_buy += 1
         except VaccineError:
             return "All friends should be vaccinated"
 
-    try:
-        if masks_to_buy > 0:
-            raise NotWearingMaskError
-    except NotWearingMaskError:
+    if masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
 
     return f"Friends can go to {cafe.name}"
