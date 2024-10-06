@@ -5,7 +5,7 @@ from app.errors import (
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     friends_to_be_vaccinated = 0
     masks_to_buy = 0
     for friend in friends:
