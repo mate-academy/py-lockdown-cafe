@@ -29,39 +29,6 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         else:
             return f"Friends can go to {cafe.name}"
 
-
-friends = [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=5),
-                    },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Bob",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=15),
-                    },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Harry",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        - datetime.timedelta(days=10),
-                    },
-                    "wearing_a_mask": False,
-                },
-            ]
-
-print(go_to_cafe(friends, Cafe("KFC"))) # "All friends should be vaccinated"
-
 #------------------------------------------------------------------------
 
 # friends = [
