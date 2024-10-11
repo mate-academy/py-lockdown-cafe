@@ -10,7 +10,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         try:
             # Try to allow the friend to visit the cafe
             cafe.visit_cafe(friend)
-        except VaccineError:
+        except VaccineError:  # Removed 'as ve'
             # Catch both NotVaccinatedError and OutdatedVaccineError
             return "All friends should be vaccinated"
         except NotWearingMaskError:
