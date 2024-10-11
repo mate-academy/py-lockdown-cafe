@@ -13,19 +13,54 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
+            pass
 
-            # masks_to_buy = 0
-            # for person in friends:
-            #     if not person.get("wearing_a_mask"):
-            #         masks_to_buy += 1
+    for person in friends:
+        try:
+            cafe.visit_cafe(person)
+        except NotWearingMaskError:
 
-            masks_to_buy = sum(
-                1 for _ in friends if not person.get("wearing_a_mask")
-            )
+            masks_to_buy = 0
+            for friend in friends:
+                if not friend.get("wearing_a_mask"):
+                    masks_to_buy += 1
 
             return f"Friends should buy {masks_to_buy} masks"
         else:
             return f"Friends can go to {cafe.name}"
+
+
+friends = [
+                {
+                    "name": "Alisa",
+                    "vaccine": {
+                        "name": "Pfizer",
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=5),
+                    },
+                    "wearing_a_mask": False,
+                },
+                {
+                    "name": "Bob",
+                    "vaccine": {
+                        "name": "Moderna",
+                        "expiration_date": datetime.date.today()
+                        + datetime.timedelta(days=15),
+                    },
+                    "wearing_a_mask": False,
+                },
+                {
+                    "name": "Harry",
+                    "vaccine": {
+                        "name": "Moderna",
+                        "expiration_date": datetime.date.today()
+                        - datetime.timedelta(days=10),
+                    },
+                    "wearing_a_mask": False,
+                },
+            ]
+
+print(go_to_cafe(friends, Cafe("KFC"))) # "All friends should be vaccinated"
 
 #------------------------------------------------------------------------
 
