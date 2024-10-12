@@ -13,4 +13,4 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
             return "All friends should be vaccinated"
     if need_mask:
         return f"Friends should buy {need_mask} masks"
-    return "Friends can go to KFC"
+    return f"Friends can go to {cafe.name}"
