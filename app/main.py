@@ -13,7 +13,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         if not friend.get("wearing_a_mask", False):
             num_maskless += 1
 
-    if num_maskless > 0:
+    if num_maskless:
         return (f"Friends should buy {num_maskless} "
                 f"mask{"s" if num_maskless > 1 else ""}")
 
