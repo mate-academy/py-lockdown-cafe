@@ -1,5 +1,4 @@
 import datetime
-from dataclasses import dataclass
 from app.errors import (NotVaccinatedError, OutdatedVaccineError,
                         NotWearingMaskError)
 
