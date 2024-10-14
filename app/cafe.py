@@ -2,10 +2,11 @@ import datetime
 from typing import Any, Optional
 
 from app.errors import (
-NotVaccinatedError,
-OutdatedVaccineError,
-NotWearingMaskError
+    NotVaccinatedError,
+    OutdatedVaccineError,
+    NotWearingMaskError
 )
+
 
 class Cafe:
     def __init__(self, name: str) -> None:
