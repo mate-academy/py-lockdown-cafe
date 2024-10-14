@@ -1,8 +1,12 @@
+from typing import List
 from app.cafe import Cafe
-from app.errors import VaccineError, NotWearingMaskError
+from app.errors import (
+    VaccineError,
+    NotWearingMaskError
+)
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: List[str], cafe: Cafe) -> str:
     masks_to_buy = 0
 
     # Check each friend using try/except
@@ -11,6 +15,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
             # Try to allow the friend to visit the cafe
             cafe.visit_cafe(friend)
         except VaccineError:  # Removed 'as ve'
+            # Catch both NotVaccinatedError and OutdatedVaccineError
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             # Count how many friends are not wearing masks

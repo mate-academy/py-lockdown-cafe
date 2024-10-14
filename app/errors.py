@@ -1,7 +1,8 @@
 class VaccineError(Exception):
     """Parent exception for all vaccine-related issues."""
-    def __init__(self, message: str = "There is an issue with"
-                                      " the vaccine.") -> None:
+    def __init__(self, message: str = "A vaccine-related issue has"
+                                      " occurred. Please ensure all"
+                                      " friends are vaccinated.") -> None:
         super().__init__(message)
 
 
@@ -22,5 +23,5 @@ class OutdatedVaccineError(VaccineError):
 class NotWearingMaskError(Exception):
     """Raised when a visitor is not wearing a mask."""
     def __init__(self, message: str = "The user is not wearing"
-                                      " a mask.") -> None:
+                                      " a mask and cannot enter.") -> None:
         super().__init__(message)
