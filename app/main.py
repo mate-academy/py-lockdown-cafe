@@ -26,7 +26,9 @@ def go_to_cafe(friends: List[Dict[str, Any]], cafe: Cafe) -> str:
         return "All friends should be vaccinated"
 
     if mask_needed_count > 0:
-        return (f"Friends should buy {mask_needed_count} "
-                f"mask{"s" if mask_needed_count > 1 else ""}")
+        return (
+            f"Friends should buy {mask_needed_count} mask"
+            f"{"s" * (mask_needed_count > 1)}"
+        )
 
     return f"Friends can go to {cafe.name}"
