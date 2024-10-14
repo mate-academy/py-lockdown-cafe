@@ -12,8 +12,7 @@ def go_to_cafe(friends: List[Dict[str, Any]], cafe: Cafe) -> str:
         1 for friend in friends
         if friend["vaccine"]["expiration_date"] < datetime.date.today())
     mask_needed_count = sum(
-        1
-        for friend in friends
+        1 for friend in friends
         if not friend.get("wearing_a_mask", True))
 
     if not_vaccinated_count > 0:
