@@ -1,4 +1,4 @@
-from typing import Dict
+from typing import Dict, Union
 import datetime
 
 from app.errors import (
@@ -12,8 +12,11 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: Dict[str, str]) -> str:
-        if "vaccine" not in visitor:
+    def visit_cafe(
+            self,
+            visitor: Dict[str, Union[str, Dict[str, str]]]
+    ) -> str:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError()
 
         vaccine_info = visitor["vaccine"]
