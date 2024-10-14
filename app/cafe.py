@@ -1,6 +1,4 @@
-from typing import Dict, Union
 import datetime
-
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
@@ -12,20 +10,11 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(
-            self,
-            visitor: Dict[str, Union[str, Dict[str, str]]]
-    ) -> str:
-        if not visitor.get("vaccine"):
-            raise NotVaccinatedError()
-
-        vaccine_info = visitor["vaccine"]
-        expiration_date = vaccine_info["expiration_date"]
-
-        if expiration_date < datetime.date.today():
-            raise OutdatedVaccineError()
-
-        if not visitor.get("wearing_a_mask"):
-            raise NotWearingMaskError()
-
+    def visit_cafe(self, visitor: dict) -> str | Exception:
+        if "vaccine" not in visitor:
+            raise NotVaccinatedError("You are not vaccinated")
+        if visitor["vaccine"]["expiration_date"] < datetime.date.today():
+            raise OutdatedVaccineError("Expired vaccination date")
+        if not visitor["wearing_a_mask"] or visitor["wearing_a_mask"] is False:
+            raise NotWearingMaskError("You should be wearing a mask")
         return f"Welcome to {self.name}"

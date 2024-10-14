@@ -1,34 +1,16 @@
-import datetime
-from typing import List, Dict, Any
+from app.errors import VaccineError, NotWearingMaskError
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: List[Dict[str, Any]], cafe: Cafe) -> str:
-    """
-    :param friends: A list of friends,
-     each represented by a dictionary with their details.
-    :param cafe: An instance of the Cafe class
-     representing the cafe being visited.
-    :return: A message about the visit to the cafe.
-    """
-    for friend in friends:
-        if "vaccine" not in friend:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    masks_to_buy = 0
+    for visitor in friends:
+        try:
+            cafe.visit_cafe(visitor)
+        except VaccineError:
             return "All friends should be vaccinated"
-
-    not_vaccinated_count = sum(
-        1 for friend in friends
-        if friend["vaccine"]["expiration_date"] < datetime.date.today())
-    mask_needed_count = sum(
-        1 for friend in friends
-        if not friend.get("wearing_a_mask", True))
-
-    if not_vaccinated_count > 0:
-        return "All friends should be vaccinated"
-
-    if mask_needed_count > 0:
-        return (
-            f"Friends should buy {mask_needed_count} mask"
-            f"{"s" * (mask_needed_count > 1)}"
-        )
-
+        except NotWearingMaskError:
+            masks_to_buy += 1
+    if masks_to_buy:
+        return f"Friends should buy {masks_to_buy} masks"
     return f"Friends can go to {cafe.name}"
