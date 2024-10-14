@@ -4,6 +4,13 @@ from app.cafe import Cafe
 
 
 def go_to_cafe(friends: List[Dict[str, Any]], cafe: Cafe) -> str:
+    """
+    :param friends: A list of friends,
+     each represented by a dictionary with their details.
+    :param cafe: An instance of the Cafe class
+     representing the cafe being visited.
+    :return: A message about the visit to the cafe.
+    """
     for friend in friends:
         if "vaccine" not in friend:
             return "All friends should be vaccinated"
