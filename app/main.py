@@ -6,6 +6,10 @@ from app.errors import (
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
+    """
+    This function takes a list of friends and
+    checks if they can all visit the cafe
+    """
     masks = 0
     for visitor in friends:
         try:
