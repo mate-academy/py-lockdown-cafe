@@ -8,16 +8,17 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> None | str:
-        if "vaccine" not in visitor:
+    def visit_cafe(self, visitor: dict) -> str:
+        if not visitor.get("vaccine"):
             raise NotVaccinatedError(
                 "You need to be vaccinated to visit the cafe!"
             )
-        elif visitor["vaccine"]["expiration_date"] < date.today():
+        expiration_date = visitor["vaccine"].get("expiration_date")
+        if expiration_date and expiration_date < date.today():
             raise OutdatedVaccineError(
                 "The vaccination has expired!"
             )
-        elif not visitor.get("wearing_a_mask"):
+        if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError(
                 "You need to wear a mask!"
             )
