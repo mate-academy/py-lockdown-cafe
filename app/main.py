@@ -10,7 +10,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
 
     for friend in friends:
         try:
-            cafe.check_entry_requirements(friend)
+            cafe.visit_cafe(friend)
         except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
