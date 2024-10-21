@@ -4,14 +4,13 @@ from app.errors import (
     OutdatedVaccineError,
     NotWearingMaskError
 )
-from typing import Dict
 
 
 class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def check_entry_requirements(self, visitor: Dict) -> str:
+    def check_entry_requirements(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError()
 
