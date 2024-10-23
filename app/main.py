@@ -11,11 +11,11 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         try:
             cafe.visit_cafe(friend)
         except VaccineError as ve:
-            print(f"Exception occurred for {friend["name"]}: {ve}")
+            print(f"Exception occurred for {friend['name']}: {ve}")
             return "All friends should be vaccinated"
         except NotWearingMaskError as nwme:
             count += 1
-            print(f"Exception occurred for {friend["name"]}: {nwme}")
+            print(f"Exception occurred for {friend['name']}: {nwme}")
     if count:
         return f"Friends should buy {count} masks"
     return f"Friends can go to {cafe.name}"
