@@ -1,7 +1,6 @@
 from app.errors import (NotVaccinatedError,
                         OutdatedVaccineError,
-                        NotWearingMaskError,
-                        VaccineError)
+                        NotWearingMaskError)
 import datetime
 
 
@@ -18,7 +17,5 @@ class Cafe:
             elif not visitor["wearing_a_mask"]:
                 raise NotWearingMaskError("NotWearingMaskError")
             return f"Welcome to {self.name}"
-        except VaccineError:
-            raise
         except NotWearingMaskError:
             raise
