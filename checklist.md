@@ -4,6 +4,7 @@
 
 Don't compare a variable to `0` if there is no need:
 
+
 Good example:
 
 ```python
@@ -83,22 +84,60 @@ def go_to_cinema(condition: bool) -> str:
         return "We are not going to the cinema("
 ```
 
-5. Use annotation, it is a good practice:
+5. Use annotation, it is a good practice. Specify the expected argument instances in type annotations for clarity:
 
 Good example:
 
 ```python
-def multiply_by_2(number: int) -> int:
+def multiply_by_2(number: int, cars: list[Car]) -> int:
     return number * 2
 ```
 
 Bad example:
 
 ```python
-def multiply_by_2(number):
+def multiply_by_2(number, cars: list):
     return number * 2
 ```
 
+6. Ensure each file ends with a single blank line.
+
+7. Add a blank line between different groups of imports and ensure appropriate ordering of imports.
+    
+ Imports should be grouped in the following order:
+
+    1.Standard library imports.
+    2.Related third party imports.
+    3.Local application/library specific imports.
+
+ Good example
+
+```python
+import datetime
+
+from app.errors import NotVaccinatedError
+```
+
+Bad example:
+
+```python
+from app.errors import NotVaccinatedError
+import datetime
+```
+3. Use absolute imports instead of relative imports 
+  
+Good example:
+
+
+```python
+from app.errors import NotVaccinatedError
+```
+
+Bad example:
+
+```python
+from .errors import NotVaccinatedError
+```
 ## Clean Code
 
 Add comments, prints, and functions to check your solution when you write your code. 
