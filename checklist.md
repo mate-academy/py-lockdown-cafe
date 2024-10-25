@@ -137,6 +137,7 @@ Bad example:
 ```python
 from .errors import NotVaccinatedError
 ```
+
 ## Clean Code
 
 Add comments, prints, and functions to check your solution when you write your code. 
