@@ -124,7 +124,8 @@ Bad example:
 from app.errors import NotVaccinatedError
 import datetime
 ```
-3. Use absolute imports instead of relative imports 
+
+8. Use absolute imports instead of relative imports 
   
 Good example:
 
