@@ -128,8 +128,6 @@ import datetime
 8. Use absolute imports instead of relative imports 
   
 Good example:
-
-
 ```python
 from app.errors import NotVaccinatedError
 ```
