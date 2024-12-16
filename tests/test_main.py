@@ -22,7 +22,7 @@ def test_errors_hierarchy():
         VaccineError,
     ), "OutdatedVaccineError should inherit only VaccineError class"
     assert (
-        VaccineError not in NotWearingMaskError.__bases__
+            VaccineError not in NotWearingMaskError.__bases__
     ), "NotWearingMaskError shouldn't inherit VaccineError class"
 
 
@@ -42,7 +42,7 @@ def test_errors_hierarchy():
     ],
 )
 def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_vaccine_key(
-    visitor,
+        visitor,
 ):
     cafe = Cafe("")
     with pytest.raises(NotVaccinatedError) as error:
@@ -74,7 +74,7 @@ def test_cafe_visit_should_raise_not_vaccinated_error_when_person_does_not_have_
     ],
 )
 def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired(
-    visitor,
+        visitor,
 ):
     cafe = Cafe("")
     with pytest.raises(OutdatedVaccineError) as error:
@@ -106,7 +106,7 @@ def test_cafe_visit_should_raise_outdated_vaccine_error_when_vaccine_has_expired
     ],
 )
 def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_false(
-    visitor,
+        visitor,
 ):
     cafe = Cafe("")
     with pytest.raises(NotWearingMaskError) as error:
@@ -118,36 +118,36 @@ def test_cafe_visit_should_raise_not_wearing_mask_error_when_wearing_a_mask_is_f
     "visitor,cafe_name,expected_message",
     [
         (
-            {
-                "name": "John",
-                "age": 21,
-                "vaccine": {
-                    "name": "Pfizer",
-                    "expiration_date": datetime.date.today(),
+                {
+                    "name": "John",
+                    "age": 21,
+                    "vaccine": {
+                        "name": "Pfizer",
+                        "expiration_date": datetime.date.today(),
+                    },
+                    "wearing_a_mask": True,
                 },
-                "wearing_a_mask": True,
-            },
-            "KFC",
-            "Welcome to KFC",
+                "KFC",
+                "Welcome to KFC",
         ),
         (
-            {
-                "name": "Alisa",
-                "age": 19,
-                "vaccine": {
-                    "name": "Moderna",
-                    "expiration_date": datetime.date.today()
-                    + datetime.timedelta(days=4),
+                {
+                    "name": "Alisa",
+                    "age": 19,
+                    "vaccine": {
+                        "name": "Moderna",
+                        "expiration_date": datetime.date.today()
+                                           + datetime.timedelta(days=4),
+                    },
+                    "wearing_a_mask": True,
                 },
-                "wearing_a_mask": True,
-            },
-            "McDonald's",
-            "Welcome to McDonald's",
+                "McDonald's",
+                "Welcome to McDonald's",
         ),
     ],
 )
 def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vaccinated(
-    visitor, cafe_name, expected_message
+        visitor, cafe_name, expected_message
 ):
     cafe = Cafe(cafe_name)
     assert cafe.visit_cafe(visitor) == expected_message
@@ -157,186 +157,186 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
     "friends,cafe,expected_message",
     [
         (
-            [
-                {
-                    "name": "Ivan",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=4),
+                [
+                    {
+                        "name": "Ivan",
+                        "vaccine": {
+                            "name": "Moderna",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=4),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-                {
-                    "name": "Oleksii",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today(),
+                    {
+                        "name": "Oleksii",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today(),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-            ],
-            Cafe("KFC"),
-            "Friends can go to KFC",
+                ],
+                Cafe("KFC"),
+                "Friends can go to KFC",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=30),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=30),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Bob",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=20),
+                    {
+                        "name": "Bob",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=20),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Harry",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=45),
+                    {
+                        "name": "Harry",
+                        "vaccine": {
+                            "name": "Moderna",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=45),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-            ],
-            Cafe("KFC"),
-            "Friends should buy 2 masks",
+                ],
+                Cafe("KFC"),
+                "Friends should buy 2 masks",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=30),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=30),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Bob",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=20),
+                    {
+                        "name": "Bob",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=20),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Harry",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=45),
+                    {
+                        "name": "Harry",
+                        "vaccine": {
+                            "name": "Moderna",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=45),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-            ],
-            Cafe("KFC"),
-            "Friends should buy 3 masks",
+                ],
+                Cafe("KFC"),
+                "Friends should buy 3 masks",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        - datetime.timedelta(days=1),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               - datetime.timedelta(days=1),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-                {
-                    "name": "Bob",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=20),
+                    {
+                        "name": "Bob",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=20),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-            ],
-            Cafe("KFC"),
-            "All friends should be vaccinated",
+                ],
+                Cafe("KFC"),
+                "All friends should be vaccinated",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today(),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today(),
+                        },
+                        "wearing_a_mask": True,
                     },
-                    "wearing_a_mask": True,
-                },
-                {
-                    "name": "Bob",
-                    "wearing_a_mask": True,
-                },
-            ],
-            Cafe("KFC"),
-            "All friends should be vaccinated",
+                    {
+                        "name": "Bob",
+                        "wearing_a_mask": True,
+                    },
+                ],
+                Cafe("KFC"),
+                "All friends should be vaccinated",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today(),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today(),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Bob",
-                    "wearing_a_mask": True,
-                },
-            ],
-            Cafe("KFC"),
-            "All friends should be vaccinated",
+                    {
+                        "name": "Bob",
+                        "wearing_a_mask": True,
+                    },
+                ],
+                Cafe("KFC"),
+                "All friends should be vaccinated",
         ),
         (
-            [
-                {
-                    "name": "Alisa",
-                    "vaccine": {
-                        "name": "Pfizer",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=5),
+                [
+                    {
+                        "name": "Alisa",
+                        "vaccine": {
+                            "name": "Pfizer",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=5),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Bob",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        + datetime.timedelta(days=15),
+                    {
+                        "name": "Bob",
+                        "vaccine": {
+                            "name": "Moderna",
+                            "expiration_date": datetime.date.today()
+                                               + datetime.timedelta(days=15),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-                {
-                    "name": "Harry",
-                    "vaccine": {
-                        "name": "Moderna",
-                        "expiration_date": datetime.date.today()
-                        - datetime.timedelta(days=10),
+                    {
+                        "name": "Harry",
+                        "vaccine": {
+                            "name": "Moderna",
+                            "expiration_date": datetime.date.today()
+                                               - datetime.timedelta(days=10),
+                        },
+                        "wearing_a_mask": False,
                     },
-                    "wearing_a_mask": False,
-                },
-            ],
-            Cafe("KFC"),
-            "All friends should be vaccinated",
+                ],
+                Cafe("KFC"),
+                "All friends should be vaccinated",
         ),
     ],
 )
