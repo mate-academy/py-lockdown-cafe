@@ -12,10 +12,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except VaccineError as e:
             return str(e)
         except NotWearingMaskError as e:
-            if friend == friends[-1]:
-                return str(e)
-            else:
-                result.append(str(e))
+            result.append(str(e))
     if count == len(friends):
         return f"Friends can go to {cafe.name}"
     else:
