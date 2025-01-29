@@ -1,7 +1,7 @@
 # Lockdown cafe
 
-- Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before start
-- If you need additional information about `datetime` module you can find it [here](https://www.geeksforgeeks.org/python-datetime-module/) 
+- Read [the guideline](https://github.com/mate-academy/py-task-guideline/blob/main/README.md) before starting.
+- If you need additional information about `datetime` module you can find it [here](https://www.geeksforgeeks.org/python-datetime-module/). 
 
 Implement a `Cafe` class, whose instances have one attribute `name`.
 Write a `visit_cafe` method with one parameter, `visitor` of type `dict`.
@@ -160,3 +160,5 @@ date2 = datetime.date(2022, 1, 30)
 assert  date1 < date2
 ```
 * To get the current date use `datetime.date.today()`
+
+### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
