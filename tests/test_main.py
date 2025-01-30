@@ -13,7 +13,6 @@ from app.errors import (
 )
 from app.main import go_to_cafe
 
-
 def test_errors_hierarchy():
     assert NotVaccinatedError.__bases__ == (
         VaccineError,
