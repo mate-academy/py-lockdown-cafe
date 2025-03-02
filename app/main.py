@@ -11,11 +11,10 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
     for friend in friends:
         try:
-            try:
-                cafe.visit_cafe(friend)
-                allowed_count += 1
-            except NotWearingMaskError:
-                masks_to_buy += 1
+            cafe.visit_cafe(friend)
+            allowed_count += 1
+        except NotWearingMaskError:
+            masks_to_buy += 1
         except VaccineError:
             return "All friends should be vaccinated"
 
