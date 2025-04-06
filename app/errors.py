@@ -9,7 +9,7 @@ class NotVaccinatedError(VaccineError):
 
 class OutdatedVaccineError(VaccineError):
     def __str__(self) -> str:
-        return "All friends should be vaccinated"
+        return "Vaccine is outdated"
 
 
 class NotWearingMaskError(Exception):
