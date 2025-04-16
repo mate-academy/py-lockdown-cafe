@@ -14,16 +14,20 @@ class Cafe:
         vaccine_info = visitor.get("vaccine")
 
         if not isinstance(vaccine_info, dict):
-            raise NotVaccinatedError("Visitor has no valid vaccine information")
+            raise NotVaccinatedError(
+                "Visitor has no valid vaccine information")
 
         expiration_date = vaccine_info.get("expiration_date")
         if not isinstance(expiration_date, datetime.date):
-            raise NotVaccinatedError("Vaccine expiration date is missing or invalid")
+            raise NotVaccinatedError(
+                "Vaccine expiration date is missing or invalid")
 
         if datetime.date.today() > expiration_date:
-            raise OutdatedVaccineError("Vaccine is expired")
+            raise OutdatedVaccineError(
+                "Vaccine is expired")
 
         if not visitor.get("wearing_a_mask"):
-            raise NotWearingMaskError("Visitor is not wearing a mask")
+            raise NotWearingMaskError(
+                "Visitor is not wearing a mask")
 
         return f"Welcome to {self.name}"
