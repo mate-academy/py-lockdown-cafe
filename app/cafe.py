@@ -14,13 +14,14 @@ class Cafe:
         try:
             if "vaccine" in visitor:
                 expiration_date = visitor["vaccine"]["expiration_date"]
-                if  expiration_date < datetime.date.today():
+                if expiration_date < datetime.date.today():
                     raise OutdatedVaccineError("Please make a new vaccination!")
             else:
                 raise NotVaccinatedError("You have to be vaccinated.")
 
-            if visitor["wearing_a_mask"] is False:
-                raise NotWearingMaskError("To enter you should wear a mask!")
+            if "wearing_a_mask" in visitor:
+                if visitor["wearing_a_mask"] is False:
+                    raise NotWearingMaskError("To enter you should wear a mask!")
         except (NotVaccinatedError, OutdatedVaccineError, NotWearingMaskError):
             raise
         else:
