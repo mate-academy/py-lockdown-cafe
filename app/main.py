@@ -15,10 +15,10 @@ def go_to_cafe(
         try:
             cafe.visit_cafe(friend)
             allowed_to_visit += 1
-        except VaccineError:
-            return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_to_buy += 1
-    if allowed_to_visit == len(friends):
-        return f"Friends can go to {cafe.name}"
-    return f"Friends should buy {masks_to_buy} masks"
+        except VaccineError:
+            return "All friends should be vaccinated"
+    if masks_to_buy:
+        return f"Friends should buy {masks_to_buy} masks"
+    return f"Friends can go to {cafe.name}"

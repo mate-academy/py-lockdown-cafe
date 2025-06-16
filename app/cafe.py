@@ -10,7 +10,7 @@ from app.errors import (
 class Cafe:
     def __init__(
             self,
-            name: int
+            name: str
     ) -> None:
         self.name = name
 
