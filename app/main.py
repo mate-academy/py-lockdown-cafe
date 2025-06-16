@@ -9,12 +9,10 @@ def go_to_cafe(
         friends: list[dict],
         cafe: Cafe
 ) -> str:
-    allowed_to_visit = 0
     masks_to_buy = 0
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-            allowed_to_visit += 1
         except NotWearingMaskError:
             masks_to_buy += 1
         except VaccineError:
