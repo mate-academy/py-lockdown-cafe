@@ -25,7 +25,6 @@ class Cafe():
                 given_datetime = (
                     datetime.combine(given_date, datetime.min.time()))
                 given_seconds = int(given_datetime.timestamp())
-                print(today_seconds, given_seconds)
                 if today_seconds > given_seconds:
                     raise (OutdatedVaccineError
                            ("The visitor's vaccine has expired."))
