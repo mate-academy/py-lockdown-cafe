@@ -11,6 +11,9 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("The visitor must be vaccinated")
+
+        if "expiration_date" not in visitor["vaccine"]:
+            raise TypeError("Not existed key")
         expiration = visitor["vaccine"].get("expiration_date")
 
         if expiration < datetime.date.today():
