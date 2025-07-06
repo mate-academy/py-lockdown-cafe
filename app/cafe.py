@@ -14,6 +14,6 @@ class Cafe:
             raise errors.OutdatedVaccineError("Your vaccine is outdated")
 
         if not visitor["wearing_a_mask"]:
-            raise errors.NotWearingMaskError("The visitor should wears a mask")
+            raise errors.NotWearingMaskError("The visitor should wear a mask")
 
         return f"Welcome to {self.name}"
