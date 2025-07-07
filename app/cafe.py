@@ -11,7 +11,9 @@ class Cafe:
     def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor not vaccinated")
-        elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
+        elif ("expiration_date" in visitor["vaccine"]
+              and visitor["vaccine"]["expiration_date"]
+              < datetime.date.today()):
             raise OutdatedVaccineError("Vaccine outdated")
         elif (
                 "wearing_a_mask" not in visitor
