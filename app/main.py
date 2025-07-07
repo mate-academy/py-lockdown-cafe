@@ -1,12 +1,19 @@
-import datetime
+from app.cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
 
 
-class Cafe:
-    def __init__(self, name: str) -> None:
-        self.name = name
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
+    masks_to_buy = 0
 
-    def visit_cafe(self, visitor: dict):
-        if "vaccine" not in visitor:
-            raise NotVaccinatedError
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+        except VaccineError:
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            masks_to_buy += 1
 
-    def
+    if masks_to_buy > 0:
+        return f"Friends should buy {masks_to_buy} masks"
+
+    return f"Friends can go to {cafe.name}"
