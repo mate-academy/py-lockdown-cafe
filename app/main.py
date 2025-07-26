@@ -1,12 +1,8 @@
-import datetime
-
 from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(
-        friends: list[dict[str, str | bool | dict[str, datetime]]], cafe: Cafe
-) -> str:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_to_buy = 0
     for friend in friends:
         try:
