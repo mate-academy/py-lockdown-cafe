@@ -1,20 +1,20 @@
-import app.cafe
-import app.errors
+from app.cafe import Cafe
+from app.errors import (VaccineError, NotWearingMaskError)
 
 
-def go_to_cafe(friends: list, cafe: app.cafe.Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     count = 0
     masks_to_buy = 0
     for person in friends:
         try:
             cafe.visit_cafe(person)
-        except app.errors.VaccineError:
+        except VaccineError:
             count += 1
-        except app.errors.NotWearingMaskError:
+        except NotWearingMaskError:
             masks_to_buy += 1
-    if count != 0:
+    if count:
         return "All friends should be vaccinated"
-    elif masks_to_buy > 0:
+    if masks_to_buy:
         return f"Friends should buy {masks_to_buy} masks"
-    elif count == 0:
+    else:
         return f"Friends can go to {cafe.name}"
