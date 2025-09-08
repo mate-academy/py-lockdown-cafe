@@ -22,4 +22,4 @@ class Cafe:
                 f'{visitor["name"]} is not wearing a mask.'
             )
 
-        return f"Welcome to {self.name}"eee
+        return f"Welcome to {self.name}"
