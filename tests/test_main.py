@@ -3,7 +3,7 @@ import inspect
 
 import pytest
 
-from app import main
+import app.main as main
 from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
