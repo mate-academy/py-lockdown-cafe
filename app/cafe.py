@@ -1,5 +1,3 @@
-"""Cafe entity and visit validation rules."""
-
 from datetime import date
 
 from app.errors import (

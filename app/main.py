@@ -1,5 +1,3 @@
-"""High-level function to decide if a group can visit a cafe."""
-
 from app.cafe import Cafe
 from app.errors import NotWearingMaskError, VaccineError
 
