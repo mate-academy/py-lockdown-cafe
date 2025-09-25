@@ -1,8 +1,8 @@
-class VaccineError(Exception):  # """Base class for vaccine-related errors"""
+class VaccineError(Exception):
     pass
 
 
-class NotVaccinatedError(VaccineError):  # if some not vaccine
+class NotVaccinatedError(VaccineError):
     def __init__(self, name: str) -> None:
         self.message = f"Visitor {name} is not vaccinated"
 
@@ -10,7 +10,7 @@ class NotVaccinatedError(VaccineError):  # if some not vaccine
         return self.message
 
 
-class OutdatedVaccineError(VaccineError):  # if vaccine outdate
+class OutdatedVaccineError(VaccineError):
     def __init__(self, name: str) -> None:
         self.message = f"Visitor {name} has an outdated vaccine"
 
@@ -18,7 +18,7 @@ class OutdatedVaccineError(VaccineError):  # if vaccine outdate
         return self.message
 
 
-class NotWearingMaskError(Exception):  # if someone without mask
+class NotWearingMaskError(Exception):
     def __init__(self, name: str) -> None:
         self.message = f"Visitor {name} is not wearing mask"
 
