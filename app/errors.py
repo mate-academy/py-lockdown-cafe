@@ -1,5 +1,5 @@
 class VaccineError(Exception):
-    """Базовий клас для помилок, пов'язаних із вакцинацією."""
+    """Base class for vaccination-related errors."""
 
 
 class NotVaccinatedError(VaccineError):
