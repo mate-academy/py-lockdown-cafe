@@ -1,5 +1,3 @@
-import datetime
-
 from app.cafe import Cafe
 from app.errors import (
     VaccineError,
@@ -8,7 +6,6 @@ from app.errors import (
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-
     masks_to_buy = 0
 
     for friend in friends:
@@ -23,20 +20,3 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         return f"Friends should buy {masks_to_buy} masks"
 
     return f"Friends can go to {cafe.name}"
-
-
-if __name__ == "__main__":
-    friends = [
-        {
-            "name": "Alisa",
-            "vaccine": {"expiration_date": datetime.date.today()},
-            "wearing_a_mask": True,
-        },
-        {
-            "name": "Bob",
-            "vaccine": {"expiration_date": datetime.date.today()},
-            "wearing_a_mask": True,
-        },
-    ]
-
-    print(go_to_cafe(friends, Cafe("KFC")))
