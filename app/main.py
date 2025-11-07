@@ -13,13 +13,13 @@ def go_to_cafe(cafe: Cafe, friends: list) -> str:
         try:
             cafe.visit_cafe(friend)
         except NotVaccinatedError:
-            print(f"{friend["name"]} is not vaccinated.")
+            print(f'{friend["name"]} is not vaccinated.')
             not_vaccinated_count += 1
         except OutdatedVaccineError:
-            print(f"{friend["name"]}'s vaccine is outdated.")
+            print(f'{friend["name"]}\'s vaccine is outdated.')
             not_vaccinated_count += 1
         except NotWearingMaskError:
-            print(f"{friend["name"]} is not wearing a mask.")
+            print(f'{friend["name"]} is not wearing a mask.')
             without_mask_count += 1
 
     if not_vaccinated_count:
