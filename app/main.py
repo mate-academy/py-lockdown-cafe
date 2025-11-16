@@ -1,22 +1,7 @@
-import datetime as dt
+from app.cafe import Cafe
 
-class Cafe:
-    def __init__(self, name: str) -> None:
-        self.name = name
 
-    def visit_cafe(self, visitor: dict) -> str:
-        if not "vaccine" in visitor:
-            raise NotVaccinatedError
-
-        if visitor["vaccine"] < dt.date.today():
-            raise OutdatedVaccineError
-
-        if visitor["wearing_a_mask"] is False:
-            raise NotWearingMaskError
-
-        return f"Welcome to {self.name}"
-
-def go_to_cafe(friends, cafe):
+def go_to_cafe(friends, cafe: Cafe):
     masks_to_buy = 0
     for friend in friends:
         try:
