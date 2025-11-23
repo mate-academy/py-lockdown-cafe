@@ -1,5 +1,6 @@
-import app.errors
 import datetime
+
+import app.errors
 
 
 class Cafe:
