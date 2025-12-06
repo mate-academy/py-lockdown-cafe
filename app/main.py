@@ -1,11 +1,12 @@
+from typing import List
 from app.cafe import Cafe
-
 from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: List[dict], cafe: Cafe) -> str:
     vaccine_problem: bool = False
     masks_to_buy: int = 0
+
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
@@ -15,6 +16,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except NotWearingMaskError:
             masks_to_buy += 1
             continue
+
     if vaccine_problem:
         return "All friends should be vaccinated"
     elif masks_to_buy > 0:
