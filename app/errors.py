@@ -1,13 +1,14 @@
-from app.cafe.errors import (
-    VaccineError,
-    NotVaccinatedError,
-    OutdatedVaccineError,
-    NotWearingMaskError,
-)
+class VaccineError(Exception):
+    pass
 
-__all__ = [
-    "VaccineError",
-    "NotVaccinatedError",
-    "OutdatedVaccineError",
-    "NotWearingMaskError",
-]
+
+class NotVaccinatedError(VaccineError):
+    pass
+
+
+class OutdatedVaccineError(VaccineError):
+    pass
+
+
+class NotWearingMaskError(Exception):
+    pass
