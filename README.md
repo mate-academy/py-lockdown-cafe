@@ -147,8 +147,7 @@ The function should be implemented in `main.py` module.
 
 Notes:
 * Use `try/except` to handle errors in `go_to_cafe`
-* Be sure to pass descriptive messages when you raise the exception in the `visit_cafe` method
-* Create a `VaccineError` parent class for `NotVaccinatedError` and `OutdatedVaccineError` errors.
+* Be sure to pass ror` parent class for `NotVaccinatedError` and `OutdatedVaccineError` errors.
 Use it to catch both types of errors in the same `except` clause.
 * You can work with dates using `datetime` module.
 * You can compare two dates using `<` operator:
@@ -162,3 +161,5 @@ assert  date1 < date2
 * To get the current date use `datetime.date.today()`
 
 ### Note: Check your code using this [checklist](checklist.md) before pushing your solution.
+descriptive messages when you raise the exception in the `visit_cafe` method
+* Create a `VaccineEr
