@@ -157,7 +157,7 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
     "friends,cafe,expected_message",
     [
         (
-            [
+                [
                 {
                     "name": "Ivan",
                     "vaccine": {
@@ -176,11 +176,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": True,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "Friends can go to KFC",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -209,11 +209,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": True,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "Friends should buy 2 masks",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -242,11 +242,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": False,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "Friends should buy 3 masks",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -266,11 +266,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": True,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "All friends should be vaccinated",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -284,11 +284,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": True,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "All friends should be vaccinated",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -302,11 +302,11 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": True,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "All friends should be vaccinated",
         ),
         (
-            [
+                [
                 {
                     "name": "Alisa",
                     "vaccine": {
@@ -335,7 +335,7 @@ def test_cafe_visit_should_return_welcome_when_visitor_is_wearing_a_mask_and_vac
                     "wearing_a_mask": False,
                 },
             ],
-            Cafe("KFC"),
+                Cafe("KFC"),
             "All friends should be vaccinated",
         ),
     ],
