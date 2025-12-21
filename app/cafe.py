@@ -17,5 +17,4 @@ class Cafe:
         elif (visitor.get("wearing_a_mask") is None
               or visitor.get("wearing_a_mask") is False):
             raise NotWearingMaskError("Wearing mask is not available")
-        else:
-            return f"Welcome to {self.name}"
+        return f"Welcome to {self.name}"
