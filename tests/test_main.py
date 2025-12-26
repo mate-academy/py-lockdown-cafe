@@ -5,7 +5,7 @@ import pytest
 
 from app import main
 from app.cafe import Cafe
-from app.errors import (
+from app.erros import (
     NotVaccinatedError,
     VaccineError,
     OutdatedVaccineError,
