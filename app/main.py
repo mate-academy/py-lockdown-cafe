@@ -1,6 +1,7 @@
 from cafe import Cafe
 from errors import VaccineError, NotWearingMaskError
 
+#s
 
 def go_to_cafe(friends: list, name: str) -> None:
     cafe = Cafe(name)

@@ -5,7 +5,7 @@ from errors import (
     NotWearingMaskError,
 )
 import datetime
-
+#s
 
 class Cafe:
     def __init__(self, name: str) -> None:
