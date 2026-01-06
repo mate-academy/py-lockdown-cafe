@@ -8,19 +8,19 @@ import datetime
 
 
 class Cafe:
-    def __init__(self, name: str) -> None:
+    def __init__(self, name: str) -> str:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> None:
         if 'vaccine' not in visitor:
-            raise NotVaccinatedError()
+            raise NotVaccinatedError("Visitor is not vaccinated.")
 
         vaccine = visitor['vaccine']
 
         if vaccine['expiration_date'] < datetime.date.today():
-            raise OutdatedVaccineError()
+            raise OutdatedVaccineError("Vaccine is outdated.")
 
         if not visitor.get('wearing_a_mask', False):
-            raise NotWearingMaskError()
+            raise NotWearingMaskError("Visitor is not wearing a mask.")
 
-        print(f"Welcome to {self.name}")
+        return f"Welcome to {self.name}"
