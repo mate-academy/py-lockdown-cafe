@@ -1,7 +1,7 @@
 from typing import Dict, Any
 import datetime
 
-from errors import (
+from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError,
