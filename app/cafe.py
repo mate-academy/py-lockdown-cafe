@@ -1,4 +1,5 @@
 import datetime
+
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
@@ -15,8 +16,11 @@ class Cafe:
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor is not vaccinated")
         expiration_date = visitor["vaccine"].get("expiration_date")
+        if not expiration_date:
+            raise ValueError("Vaccine record "
+                             "is missing expiration date")  # or your custom error
         if expiration_date < today:
-            raise OutdatedVaccineError("Visitor's vaccine has expired")
+            raise OutdatedVaccineError("Vaccine is expired")
         if not visitor.get("wearing_a_mask", False):
             raise NotWearingMaskError("Visitor is not wearing a mask")
         return f"Welcome to {self.name}"
