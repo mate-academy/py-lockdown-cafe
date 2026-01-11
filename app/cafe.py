@@ -18,7 +18,7 @@ class Cafe:
         expiration_date = visitor["vaccine"].get("expiration_date")
         if not expiration_date:
             raise ValueError("Vaccine record "
-                             "is missing expiration date")  # or your custom error
+                             "is missing expiration date")
         if expiration_date < today:
             raise OutdatedVaccineError("Vaccine is expired")
         if not visitor.get("wearing_a_mask", False):
