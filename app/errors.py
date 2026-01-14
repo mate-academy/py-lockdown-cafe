@@ -1,5 +1,6 @@
 from datetime import date
 
+
 class VaccineError(Exception):
     """Base class for vaccine-related errors."""
     pass
@@ -13,7 +14,10 @@ class NotVaccinatedError(VaccineError):
 
 class OutdatedVaccineError(VaccineError):
     """Raised when a visitor's vaccine is expired."""
-    def __init__(self, visitor_name: str, expiration_date: date | None) -> None:
+    def __init__(
+            self,
+            visitor_name: str,
+            expiration_date: date | None) -> None:
         super().__init__(
             f"Visitor {visitor_name} has an outdated vaccine "
             f"(expired on {expiration_date}).")
