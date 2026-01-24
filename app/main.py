@@ -1,15 +1,14 @@
-from app.cafe import Cafe
-from app.errors import VaccineError
+from app.errors import NotWearingMaskError, VaccineError
 
 
-def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-    ...
-
+def go_to_cafe(friends: list[dict], cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
         except VaccineError:
             return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            continue
 
     masks_to_buy = sum(
         1
