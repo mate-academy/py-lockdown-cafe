@@ -1,7 +1,10 @@
+from app.cafe import Cafe
 from app.errors import VaccineError
 
 
-def go_to_cafe(friends: list[dict], cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
+    ...
+
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
