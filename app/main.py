@@ -1,11 +1,11 @@
-# from __future__ import annotations
+
 from app.cafe import Cafe
 from app.errors import (NotVaccinatedError,
                         OutdatedVaccineError,
                         NotWearingMaskError)
 
 
-def go_to_cafe(friends: dict, cafe: Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     masks_to_buy = 0
     for friend in friends:
         try:
