@@ -72,8 +72,7 @@ It should return a string `"Friends can go to {cafe.name}"` if they are all allo
 If at least one of the friend has problems with vaccines the function should return a message `"All friends should be vaccinated".
 
 If everyone is vaccinated but somebody isn't wearing a mask
-the function should return a message `"Friends should buy {masks_to_buy} masks"` where `masks_to_buy` is the number of 
-friends who don't have a mask.
+the function should return a message `"Friends should buy {masks_to_buy} masks"` where `masks_to_buy` is the number of friends who don't have a mask.
 
 ```python
 friends = [
