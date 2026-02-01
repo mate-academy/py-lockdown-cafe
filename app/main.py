@@ -2,7 +2,7 @@ from app.errors import VaccineError, NotWearingMaskError
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str | None:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     errors = []
     for friend in friends:
         try:
@@ -16,7 +16,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str | None:
         return "All friends should be vaccinated"
     if "NotWearingMaskError" in errors:
         masks_to_buy = len(
-            [friend for friend in friends if not friend["wearing_a_mask"]]
+            [friend for friend in friends if not friend.get("wearing_a_mask")]
         )
         return f"Friends should buy {masks_to_buy} masks"
     if not errors:
