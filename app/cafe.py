@@ -1,6 +1,5 @@
 import datetime
 
-from app.visitor import Visitor
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
@@ -12,7 +11,7 @@ class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: Visitor) -> str:
+    def visit_cafe(self, visitor: dict) -> str:
         vaccine = visitor.get("vaccine")
         if not vaccine:
             raise NotVaccinatedError(
