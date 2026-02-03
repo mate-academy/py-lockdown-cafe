@@ -18,4 +18,3 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
     except VaccineError:
         return "All friends should be vaccinated"
-# write your code here
