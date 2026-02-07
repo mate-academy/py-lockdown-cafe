@@ -13,4 +13,4 @@ class OutdatedVaccineError(VaccineError):
 
 class NotWearingMaskError(Exception):
     def __str__(self) -> str:
-        return "NotWearingMaskError"
+        return "Visitor don`t wearing mask"
