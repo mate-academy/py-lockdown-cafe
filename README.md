@@ -7,7 +7,7 @@ Implement a `Cafe` class, whose instances have one attribute `name`.
 Write a `visit_cafe` method with one parameter, `visitor` of type `dict`.
 Due to the pandemic, not everyone can visit the cafe.
 
-If the visitor does not have a `vaccine` key, it means that he is not vaccinated. 
+If the visitor does not have a `vaccine` key,Implement it means that he is not vaccinated. 
 In this case, the method must raise a `NotVaccinatedError` exception.
 ```python
 kfc = Cafe("KFC")
