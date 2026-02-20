@@ -1,6 +1,5 @@
 import datetime
 import inspect
-
 import pytest
 
 from app import main
