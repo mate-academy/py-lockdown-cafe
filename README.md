@@ -17,7 +17,7 @@ visitor = {
 }
 kfc.visit_cafe(visitor)     # NotVaccinatedError
 ```
-
+ 
 
 The vaccine must not be expired, otherwise the method should raise an `OutdatedVaccineError` exception.
 You can get an `expiration_date` from `visitor["vaccine"]` dictionary.
