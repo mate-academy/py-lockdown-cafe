@@ -6,7 +6,7 @@ class Cafe:
     """
     Represents a cafe with quarantine protocols.
 
-    Attribuyes:
+    Attributes:
         name (str): the name of the establishment.
     """
     def __init__(
@@ -40,12 +40,12 @@ class Cafe:
             NotWearingMaskError: If the visitor is not wearing a mask.
         """
         if "vaccine" not in visitor:
-            raise NotVaccinatedError()
+            raise NotVaccinatedError("Visitor does not have a vaccine record.")
 
         if visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError()
+            raise OutdatedVaccineError("Visitor's vaccine has expired.")
 
         if not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError()
+            raise NotWearingMaskError("Visitor is not wearing a mask.")
 
         return f"Welcome to {self.name}"
