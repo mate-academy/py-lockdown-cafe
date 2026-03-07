@@ -1,6 +1,5 @@
 import cafe
 import errors
-import datetime
 
 
 def go_to_cafe(friends: list, cafe: cafe.Cafe) -> str:
@@ -19,19 +18,3 @@ def go_to_cafe(friends: list, cafe: cafe.Cafe) -> str:
     if masks_needed:
         return f"Friends should buy {masks_needed} masks"
     return f"Friends can go to {cafe.name}"
-    
-
-friends = [
-    {
-        "name": "Alisa",
-        "wearing_a_mask": True
-    },
-    {
-        "name": "Bob",
-        "vaccine": {
-            "expiration_date": datetime.date.today()
-        },
-        "wearing_a_mask": True
-    },
-]
-print(go_to_cafe(friends, cafe.Cafe("KFC")))
