@@ -2,7 +2,7 @@ from app import cafe
 from app import errors
 
 
-def go_to_cafe(friends: list, cafe: cafe.Cafe) -> str:
+def go_to_cafe(friends: list[dict], cafe: cafe.Cafe) -> str:
     masks_needed = 0
     all_vacinated = True
     for friend in friends:
