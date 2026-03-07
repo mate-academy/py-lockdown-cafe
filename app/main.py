@@ -1,5 +1,5 @@
-import cafe
-import errors
+from app import cafe
+from app import errors
 
 
 def go_to_cafe(friends: list, cafe: cafe.Cafe) -> str:
