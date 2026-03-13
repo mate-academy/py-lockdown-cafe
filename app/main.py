@@ -3,7 +3,7 @@ from app.errors import (VaccineError,
 from app.cafe import Cafe
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str | None:
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_needed = 0
     for friend in friends:
         try:
@@ -12,8 +12,8 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str | None:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
             masks_needed += 1
+
     if masks_needed > 0:
         return f"Friends should buy {masks_needed} masks"
-    elif masks_needed == 0:
-        return f"Friends can go to {cafe.name}"
-    return None
+
+    return f"Friends can go to {cafe.name}"
