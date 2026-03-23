@@ -1,18 +1,18 @@
 class VaccineError(Exception):
-    """Base class for vaccine-related errors."""
+    """Base class for all vaccine-related errors."""
     pass
 
 
 class NotVaccinatedError(VaccineError):
-    """Raised when visitor is not vaccinated."""
+    """Raised when the visitor has no vaccine record."""
     pass
 
 
 class OutdatedVaccineError(VaccineError):
-    """Raised when vaccine is outdated."""
+    """Raised when the visitor's vaccine has expired."""
     pass
 
 
-class NotWearingMaskError(Exception):
-    """Raised when visitor is not wearing a mask."""
+class NoExpirationDateError(VaccineError):
+    """Raised when the vaccine record has no expiration date."""
     pass

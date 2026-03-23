@@ -1,19 +1,28 @@
 from app.cafe import Cafe
-from app.errors import VaccineError, NotWearingMaskError
+from app.errors import VaccineError
+from datetime import date, timedelta
 
 
-def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
-    masks_to_buy = 0
+def main():
+    cafe = Cafe()
 
-    for friend in friends:
-        try:
-            cafe.visit_cafe(friend)
-        except VaccineError:
-            return "All friends should be vaccinated"
-        except NotWearingMaskError:
-            masks_to_buy += 1
+    visitor = {
+        "name": "Alice",
+        "vaccine": {
+            "name": "Pfizer",
+            "expiration_date": date.today() + timedelta(days=30),
+        },
+    }
 
-    if masks_to_buy > 0:
-        return f"Friends should buy {masks_to_buy} masks"
+    try:
+        cafe.do_work()
+        message = cafe.visit_cafe(visitor)
+        print(message)
+    except VaccineError as error:
+        print(error)
+    finally:
+        cafe.stop_work()
 
-    return f"Friends can go to {cafe.name}"
+
+if __name__ == "__main__":
+    main()
