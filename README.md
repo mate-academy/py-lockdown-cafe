@@ -49,7 +49,7 @@ visitor = {
 }
 kfc.visit_cafe(visitor)     # NotWearingMaskError
 ```
-
+    
 If all the rules are met, then the person can visit the cafe and 
 the method should return the string `"Welcome to {cafe.name}"`
 
