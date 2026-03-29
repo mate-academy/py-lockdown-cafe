@@ -141,7 +141,7 @@ Use the following project structure:
 ```
 
 All errors should be defined in the `errors.py` module.
-The `Cafe` class should be defined in `cafe.py` module.
+The `Cafe` class should be defined in od`cafe.py` mule.
 The function should be implemented in `main.py` module.
 
 
