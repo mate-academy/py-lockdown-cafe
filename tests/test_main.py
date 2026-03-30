@@ -7,7 +7,7 @@ from app import main
 from app.cafe import Cafe
 from app.errors import (
     NotVaccinatedError,
-    VaccineError,
+    NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError,
 )
@@ -16,13 +16,13 @@ from app.main import go_to_cafe
 
 def test_errors_hierarchy():
     assert NotVaccinatedError.__bases__ == (
-        VaccineError,
+        NotVaccinatedError,
     ), "NotVaccinatedError should inherit only VaccineError class"
     assert OutdatedVaccineError.__bases__ == (
-        VaccineError,
+        NotVaccinatedError,
     ), "OutdatedVaccineError should inherit only VaccineError class"
     assert (
-        VaccineError not in NotWearingMaskError.__bases__
+            NotVaccinatedError not in NotWearingMaskError.__bases__
     ), "NotWearingMaskError shouldn't inherit VaccineError class"
 
 
