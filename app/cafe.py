@@ -17,7 +17,7 @@ class Cafe:
         if (expiration_date is None
                 or not isinstance(expiration_date, datetime.date)):
             raise NotVaccinatedError(
-                f"{visitor.get("name")} "
+                f"{visitor.get('name')} "
                 f"has invalid vaccine info"
             )
         if expiration_date < datetime.date.today():
