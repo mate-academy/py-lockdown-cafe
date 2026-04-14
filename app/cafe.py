@@ -1,5 +1,6 @@
 import datetime
 from typing import Any
+
 from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
@@ -12,7 +13,6 @@ class Cafe:
         self.name = name
 
     def visit_cafe(self, visitor: dict[str, Any]) -> str:
-        # 1. Check if the visitor is vaccinated at all
         if "vaccine" not in visitor:
             raise NotVaccinatedError("Visitor is not vaccinated.")
 
@@ -23,4 +23,5 @@ class Cafe:
         if not visitor.get("wearing_a_mask"):
             raise NotWearingMaskError("Visitor is not wearing a mask.")
 
+        # 4. If all rules are met
         return f"Welcome to {self.name}"
