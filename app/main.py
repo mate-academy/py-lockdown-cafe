@@ -8,7 +8,6 @@ def go_to_cafe(
     cafe: Cafe
 ) -> str:
     masks_to_buy = 0
-    print(cafe.name)
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
