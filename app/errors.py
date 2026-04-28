@@ -9,18 +9,18 @@ class NotVaccinatedError(VaccineError):
     def __str__(
             self
     ) -> str:
-        return "NotVaccinatedError"
+        return "Visitor has not been vaccinated"
 
 
 class OutdatedVaccineError(VaccineError):
     def __str__(
             self
     ) -> str:
-        return "OutdatedVaccineError"
+        return "Visitor's vaccine is outdated"
 
 
 class NotWearingMaskError(Exception):
     def __str__(
             self
     ) -> str:
-        return "NotWearingMaskError"
+        return "Visitor is not wearing a mask"
