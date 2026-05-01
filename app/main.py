@@ -15,7 +15,7 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     masks_needed = sum(
         1 for friend in friends
         if not friend.get("wearing_a_mask", False))
-    
+
     if masks_needed:
         return f"Friends should buy {masks_needed} masks"
 
