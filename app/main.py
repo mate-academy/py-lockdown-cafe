@@ -1,22 +1,20 @@
-import datetime
+from __future__ import annotations
+from app.cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
 
 
-class NotVaccinatedError(Exception):
-    pass
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
-class OutdatedVaccineError(Exception):
-    pass
-
-
-class Cafe:
-    def __init__(self, name: str) -> None:
-        self.name = name
-
-    def visit_cafe(self, visitor: dict) -> None:
+    masks_to_buy = 0
+    for friend in friends:
         try:
-            visitor["vaccine"]
-        except KeyError:
-            raise NotVaccinatedError
-        ex_date = visitor["vaccine"]["expiration_date"]
-        if ex_date < datetime.date.today():
-            raise OutdatedVaccineError
+            cafe.visit_cafe(friend)
+        except VaccineError:
+            return "All friends should be vaccinated"
+        except NotWearingMaskError:
+            masks_to_buy += 1
+
+    if masks_to_buy > 0:
+        return f"Friends should buy {masks_to_buy} masks"
+
+    return f"Friends can go to {cafe.name}"
