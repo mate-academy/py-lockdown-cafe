@@ -1,7 +1,6 @@
 class CafeValidationError(Exception):
-    def __init__(self, name: str) -> None:
-        self.name = name
-        super().__init__(f"{name} {self.message_suffix}")
+    def __init__(self, *args) -> None:
+        super().__init__(*args)
 
 
 class VaccineError(CafeValidationError):
@@ -9,12 +8,12 @@ class VaccineError(CafeValidationError):
 
 
 class NotVaccinatedError(VaccineError):
-    message_suffix = "not vaccinated"
+    pass
 
 
 class OutdatedVaccineError(VaccineError):
-    message_suffix = "vaccines out date"
+    pass
 
 
 class NotWearingMaskError(CafeValidationError):
-    message_suffix = "not wearing mask"
+    pass

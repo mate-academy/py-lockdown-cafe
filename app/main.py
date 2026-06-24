@@ -1,10 +1,11 @@
+from typing import List
+
 from app.cafe import Cafe
 from app.errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends: list, cafe: Cafe) -> str:
+def go_to_cafe(friends: List[dict], cafe: Cafe) -> str:
     errors = {
-        "not_vaccinated": 0,
         "not_wearing_mask": 0
     }
 
@@ -12,13 +13,11 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         try:
             cafe.visit_cafe(friend)
         except VaccineError:
-            errors["not_vaccinated"] += 1
+            return "All friends should be vaccinated"
         except NotWearingMaskError:
             errors["not_wearing_mask"] += 1
 
-    if errors["not_vaccinated"]:
-        return "All friends should be vaccinated"
-    elif errors["not_wearing_mask"]:
+    if errors["not_wearing_mask"]:
         return f"Friends should buy {errors['not_wearing_mask']} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+
+    return f"Friends can go to {cafe.name}"
