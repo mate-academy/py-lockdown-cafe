@@ -1,14 +1,15 @@
-from app.errors import (NotVaccinatedError,
-                        OutdatedVaccineError,
-                        NotWearingMaskError)
 import datetime
+
+from app.errors import (
+    NotVaccinatedError,
+    OutdatedVaccineError,
+    NotWearingMaskError,
+)
 
 
 class Cafe:
     def __init__(self, name: str) -> None:
         self.name = name
-        self.visitor = {}
-        self.friends = {}
 
     def visit_cafe(self, visitor: dict) -> str:
         vaccine = visitor.get("vaccine")
