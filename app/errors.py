@@ -3,12 +3,12 @@ class VaccineError(Exception):
 
 
 class NotVaccinatedError(VaccineError):
-    pass
+    """Visitor should have a vaccine"""
 
 
 class OutdatedVaccineError(VaccineError):
-    pass
+    """The vaccine must not be expired"""
 
 
 class NotWearingMaskError(Exception):
-    pass
+    """all visitors must wear masks"""
