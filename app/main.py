@@ -3,7 +3,7 @@ from cafe import Cafe
 from errors import VaccineError, NotWearingMaskError
 
 
-def go_to_cafe(friends, cafe):
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
@@ -37,3 +37,5 @@ if __name__ == "__main__":
             "wearing_a_mask": False
         }
     ]
+    resultado_da_entrada = go_to_cafe(lista_de_amigos, meu_cafe)
+    print(resultado_da_entrada)
