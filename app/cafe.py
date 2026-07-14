@@ -8,15 +8,17 @@ from app.errors import (
 
 
 class Cafe:
-    def __init__(self, name) -> None:
+    def __init__(self, name: str) -> None:
         self.name = name
 
     def visit_cafe(self, visitor: dict) -> str:
-        if not "vaccine" in visitor:
+        if "vaccine" not in visitor:
             raise NotVaccinatedError("The client must be vaccinated.")
 
         if visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError("The visitor has an expired vaccination.")
+            raise OutdatedVaccineError(
+                "The visitor has an expired vaccination."
+            )
 
         if not visitor["wearing_a_mask"]:
             raise NotWearingMaskError("Put on a mask.")
