@@ -2,6 +2,7 @@ class VaccineError(Exception):
     """Main vaccine error class"""
     pass
 
+
 class NotVaccinatedError(VaccineError):
     """Raise when the visitor is not vaccinated"""
     pass

@@ -5,6 +5,7 @@ from app.errors import (
     NotWearingMaskError
 )
 
+
 def go_to_cafe(friends: list, cafe: "Cafe") -> str:
     missing_vaccines = 0
     masks_to_buy = 0
