@@ -1,4 +1,5 @@
 import datetime
+from typing import Optional
 
 from app.errors import (
     NotVaccinatedError,
@@ -17,7 +18,7 @@ class Cafe:
     def visit_cafe(
             self,
             visitor: dict
-    ) -> str | None:
+    ) -> Optional[str]:
         vaccine = visitor.get("vaccine", None)
 
         if vaccine is None:
