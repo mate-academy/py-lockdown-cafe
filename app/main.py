@@ -3,7 +3,7 @@ from app.cafe import (Cafe,
 from app.errors import VaccineError
 
 
-def go_to_cafe(friends: list[dict], cafe: Cafe) -> str | None:
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     counter = 0
     for dict_friends in friends:
         try:
