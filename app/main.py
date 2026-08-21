@@ -5,9 +5,9 @@ from app.errors import VaccineError
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     counter = 0
-    for dict_friends in friends:
+    for dict_friend in friends:
         try:
-            cafe.visit_cafe(dict_friends)
+            cafe.visit_cafe(dict_friend)
         except VaccineError:
             return "All friends should be vaccinated"
         except NotWearingMaskError:
