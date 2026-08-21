@@ -21,3 +21,7 @@ def go_to_cafe(friends: list[dict[str, Any]], cafe: Cafe) -> str:
         return f"Friends should buy {masks_to_buy} masks"
 
     return f"Friends can go to {cafe.name}"
+
+
+# no jest przeciez
+#
