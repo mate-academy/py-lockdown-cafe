@@ -1,7 +1,8 @@
 from app.cafe import Cafe
 from app.errors import (NotVaccinatedError,
                         OutdatedVaccineError,
-                        NotWearingMaskError)
+                        NotWearingMaskError,
+                        VaccineError)
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
@@ -9,10 +10,10 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     for friend in friends:
         try:
             cafe.visit_cafe(friend)
-        except (NotVaccinatedError, OutdatedVaccineError):
-            return "All friends should be vaccinated"
-
-        except NotWearingMaskError:
+        except (VaccineError, NotWearingMaskError) as e:
+            if (isinstance(e, NotVaccinatedError)
+                    or isinstance(e, OutdatedVaccineError)):
+                return "All friends should be vaccinated"
             masks_to_buy += 1
 
     if masks_to_buy > 0:
