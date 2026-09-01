@@ -7,15 +7,15 @@ from app.errors import (
 
 
 class Cafe:
-    def __init__(self, name: str) -> str:
+    def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> None:
+    def visit_cafe(self, visitor: dict) -> str:
         if "vaccine" not in visitor.keys():
-            raise NotVaccinatedError("Not vaccine!")
+            raise NotVaccinatedError("Visitor is not vaccine")
         elif visitor["vaccine"]["expiration_date"] < datetime.date.today():
-            raise OutdatedVaccineError("Expirate Vaccine")
+            raise OutdatedVaccineError("Vaccine has expired")
         elif not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError("Not mask")
+            raise NotWearingMaskError("Visitor wearing a not mask")
         else:
             return f"Welcome to {self.name}"
