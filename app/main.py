@@ -1,4 +1,4 @@
-from .errors import (
+from app.errors import (
     VaccineError,
     NotWearingMaskError,
 )
