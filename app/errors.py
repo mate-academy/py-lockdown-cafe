@@ -1,8 +1,12 @@
-class NotVaccinatedError(Exception):
+class VaccineError(Exception):
+    pass
+
+
+class NotVaccinatedError(VaccineError):
     """ Exception if key not found """
 
 
-class OutdatedVaccineError(Exception):
+class OutdatedVaccineError(VaccineError):
     """ Exception if data of vaccine is expired """
 
 
