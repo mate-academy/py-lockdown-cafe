@@ -1,20 +1,19 @@
-class NotVaccinatedError(Exception):
-    pass
+from app.cafe import Cafe
+from app.errors import NotWearingMaskError, VaccineError
 
 
-class NotWearingMaskError(Exception):
-    pass
+def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    masks_needed = 0
 
+    for friend in friends:
+        try:
+            cafe.visit_cafe(friend)
+        except NotWearingMaskError:
+            masks_needed += 1
+        except VaccineError:
+            return "All friends should be vaccinated"
 
-class Cafe:
-    def __init__(self, name: str) -> None:
-        self._name = name
+    if masks_needed > 0:
+        return f"Friends should buy {masks_needed} masks"
 
-    @staticmethod
-    def visit_cafe(self, visitor: dict) -> None:
-        if not "vaccine" in visitor:
-            raise NotVaccinatedError()
-        if
-        if not visitor["wearing_a_mask"]:
-            raise NotWearingMaskError()
-
+    return f"Friends can go to {cafe.name}"
