@@ -16,6 +16,8 @@ class Cafe:
         if last_date < date.today():
             raise OutdatedVaccineError
 
+        if "wearing_a_mask" not in visitor:
+            raise NotWearingMaskError
         if visitor["wearing_a_mask"] is not True:
             raise NotWearingMaskError
 
