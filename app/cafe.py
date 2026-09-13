@@ -24,7 +24,7 @@ class Cafe:
                     raise NotWearingMaskError("Visitor does not have a mask")
             else:
                 raise NotVaccinatedError("Visitor is not vaccinated")
-        except VaccineError as ex:
-            raise ex
+        except VaccineError:
+            raise
         else:
             return f"Welcome to {self.name}"
