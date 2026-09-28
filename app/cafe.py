@@ -13,7 +13,7 @@ class Cafe:
             raise NotVaccinatedError("Key vaccine not in visitor")
         if visitor["vaccine"]["expiration_date"] < date.today():
             raise OutdatedVaccineError(
-                """Expired vaccine | {visitor["vaccine"]["expiration_date"]}"""
+                f'Expired vaccine: {visitor["vaccine"]["expiration_date"]}'
             )
         if (
             "wearing_a_mask" not in visitor
