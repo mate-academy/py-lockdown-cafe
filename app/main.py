@@ -1,7 +1,6 @@
 from datetime import date
 from app.cafe import Cafe
-from app.errors import (NotVaccinatedError,
-                        OutdatedVaccineError,
+from app.errors import (VaccineError,
                         NotWearingMaskError)
 
 kfc = Cafe("KFC")
@@ -25,7 +24,7 @@ friends = [
 ]
 
 
-def go_to_cafe(friends: list, cafe: object) -> None:
+def go_to_cafe(friends: list, cafe: object) -> str:
 
     masks_to_buy = 0
 
@@ -36,7 +35,7 @@ def go_to_cafe(friends: list, cafe: object) -> None:
         except NotWearingMaskError:
             masks_to_buy += 1
 
-        except (NotVaccinatedError, OutdatedVaccineError):
+        except VaccineError:
             return "All friends should be vaccinated"
 
     if masks_to_buy > 0:
