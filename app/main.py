@@ -1,7 +1,7 @@
-from erros import *
-from cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
+from app.cafe import Cafe
 
-def go_to_cafe(friends: list, cafe: Cafe):
+def go_to_cafe(friends: list[dict], cafe: Cafe):
     has_vaccine_issue = False
     masks = 0
 
@@ -14,7 +14,7 @@ def go_to_cafe(friends: list, cafe: Cafe):
             masks += 1
     if has_vaccine_issue:
         return "All friends should be vaccinated"
-    elif masks > 0:
+    if masks:
         return f"Friends should buy {masks} masks"
     else:
         return f"Friends can go to {cafe.name}"
