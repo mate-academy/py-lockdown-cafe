@@ -1,7 +1,8 @@
 from app.errors import VaccineError, NotWearingMaskError
 from app.cafe import Cafe
 
-def go_to_cafe(friends: list[dict], cafe: Cafe):
+
+def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     has_vaccine_issue = False
     masks = 0
 
