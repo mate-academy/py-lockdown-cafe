@@ -1,7 +1,5 @@
-# write your code here
 from app.cafe import Cafe
 from app.errors import NotWearingMaskError, VaccineError
-
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
     for friend in friends:
