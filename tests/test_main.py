@@ -4,14 +4,14 @@ import inspect
 import pytest
 
 from app import main
-from app.cafe import Cafe
-from app.errors import (
+from cafe import Cafe
+from errors import (
     NotVaccinatedError,
     VaccineError,
     OutdatedVaccineError,
     NotWearingMaskError,
 )
-from app.main import go_to_cafe
+from main import go_to_cafe
 
 
 def test_errors_hierarchy():
