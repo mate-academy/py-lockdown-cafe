@@ -1,4 +1,4 @@
-errors.py
+app/errors.py
 class VaccineError(Exception):
     pass
 
@@ -14,9 +14,9 @@ class OutdatedVaccineError(VaccineError):
 class NotWearingMaskError(Exception):
     pass
 
-cafe.py
+app/cafe.py
 import datetime
-from errors import (
+from app.errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError,
@@ -38,10 +38,10 @@ class Cafe:
             raise NotWearingMaskError("Visitor is not wearing a mask.")
 
         return f"Welcome to {self.name}"
-
-main.py
-from cafe import Cafe
-from errors import VaccineError, NotWearingMaskError
+        
+app/main.py
+from app.cafe import Cafe
+from app.errors import VaccineError, NotWearingMaskError
 
 
 def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
