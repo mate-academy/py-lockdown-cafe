@@ -7,15 +7,15 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
     for i in friends:
         try:
             cafe.visit_cafe(i)
-        except (errors.NotVaccinatedError, errors.OutdatedVaccineError):
+        except errors.VaccineError:
             return "All friends should be vaccinated"
         except errors.NotWearingMaskError:
             count += 1
 
-    if count != 0:
+    if count:
         return f"Friends should buy {count} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+
+    return f"Friends can go to {cafe.name}"
 
 #
 # friends = [

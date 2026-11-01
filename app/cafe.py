@@ -14,7 +14,6 @@ class Cafe:
                 raise (errors.OutdatedVaccineError
                        ("All friends should be vaccinated"))
             elif ("wearing_a_mask" not in visitor
-                  or visitor["wearing_a_mask"] is False):
-                raise errors.NotWearingMaskError("Friends should buy a masks")
-            else:
-                return f"Welcome to {self.name}"
+                  or not visitor["wearing_a_mask"]):
+                raise errors.NotWearingMaskError("Friends should buy masks")
+            return f"Welcome to {self.name}"
