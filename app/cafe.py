@@ -24,7 +24,7 @@ class Cafe:
             raise OutdatedVaccineError(f"The vaccine of {visitor['name']} "
                                        f"is expired!")
 
-        if not visitor["wearing_a_mask"]:
+        if not visitor.get("wearing_a_mask", False):
             raise NotWearingMaskError(f"Visitor {visitor['name']} "
                                       f"shall wear a mask!")
 
