@@ -1,8 +1,10 @@
-from app.errors import NotWearingMaskError, VaccineError
+from app.errors import VaccineError
+from app.errors import NotWearingMaskError
 from app.cafe import Cafe
 
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
+    """ Function 'Go to cafe' are taken friends - list of visitors """
     masks_to_buy = 0
     try:
         for friend in friends:
@@ -15,5 +17,5 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
 
     if masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
-    else:
-        return f"Friends can go to {cafe.name}"
+
+    return f"Friends can go to {cafe.name}"
