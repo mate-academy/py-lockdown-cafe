@@ -1,6 +1,6 @@
 from __future__ import annotations
 import datetime
-from errors import (
+from .errors import (
     NotVaccinatedError,
     OutdatedVaccineError,
     NotWearingMaskError,
