@@ -4,7 +4,6 @@ from app.cafe import Cafe
 
 def go_to_cafe(friends: list, cafe: Cafe) -> str:
     vaccine_error = False
-    mask_error = False
     masks_to_buy = 0
     for friend in friends:
         try:
@@ -12,11 +11,10 @@ def go_to_cafe(friends: list, cafe: Cafe) -> str:
         except VaccineError:
             vaccine_error = True
         except NotWearingMaskError:
-            mask_error = True
             masks_to_buy += 1
     if vaccine_error:
         return "All friends should be vaccinated"
-    elif mask_error:
+    elif masks_to_buy > 0:
         return f"Friends should buy {masks_to_buy} masks"
     else:
         return f"Friends can go to {cafe.name}"
