@@ -1,21 +1,14 @@
-from __future__ import annotations
-
-
 class VaccineError(Exception):
-    """Base exception for all vaccine-related errors."""
-    pass
+    """Base exception for vaccine-related errors."""
 
 
 class NotVaccinatedError(VaccineError):
     """Raised when a visitor is not vaccinated."""
-    pass
 
 
 class OutdatedVaccineError(VaccineError):
-    """Raised when a visitor's vaccine expiration date has passed."""
-    pass
+    """Raised when a visitor's vaccine is expired."""
 
 
 class NotWearingMaskError(Exception):
     """Raised when a visitor is not wearing a mask."""
-    pass
