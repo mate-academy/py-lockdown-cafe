@@ -23,7 +23,7 @@ class Cafe:
         data_time = data_time_dict.get("expiration_date")
         if data_time is None or data_today > data_time:
             raise OutdatedVaccineError("Vaccine is outdated")
-        if visitor.get("wearing_a_mask") is False:
+        if "wearing_a_mask" not in visitor or not visitor["wearing_a_mask"]:
             raise NotWearingMaskError(
                 "Visitor is not wearing a mask"
             )
