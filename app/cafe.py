@@ -15,7 +15,7 @@ class Cafe:
         today = datetime.date.today()
 
         if "vaccine" not in visitor:
-            raise NotVaccinatedError("{visitor.name} is a pureblood hero.")
+            raise NotVaccinatedError(f"{visitor['name']} is not vaccinated")
         elif visitor["vaccine"]["expiration_date"] < today:
             raise OutdatedVaccineError("You fell for the scam")
         elif (
