@@ -17,7 +17,7 @@ def go_to_cafe(friends: list[dict], cafe: Cafe) -> str:
         except NotWearingMaskError:
             no_mask += 1
 
-    if not unvaccinated and no_mask > 0:
+    if not unvaccinated and no_mask:
         masks_to_buy = no_mask
         return f"Friends should buy {masks_to_buy} masks"
     elif unvaccinated:
