@@ -8,14 +8,14 @@ from app.errors import (
 
 
 class Cafe:
-    def __init__(self, name: str) -> str | None:
+    def __init__(self, name: str) -> None:
         self.name = name
 
-    def visit_cafe(self, visitor: dict) -> None:
+    def visit_cafe(self, visitor: dict) -> str:
         today = datetime.date.today()
 
         if "vaccine" not in visitor:
-            raise NotVaccinatedError(f"{visitor['name']} is not vaccinated")
+            raise NotVaccinatedError(f"{visitor['name']} is a pureblood hero")
         elif visitor["vaccine"]["expiration_date"] < today:
             raise OutdatedVaccineError("You fell for the scam")
         elif (
